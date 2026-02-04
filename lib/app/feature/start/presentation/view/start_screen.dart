@@ -18,6 +18,7 @@ class _StartScreenState extends State<StartScreen> {
   @override
   void initState() {
     super.initState();
+    startViewModel.requestNotification();
     startViewModel.initLanguage();
   }
 

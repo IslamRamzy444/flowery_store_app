@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
@@ -11,6 +12,17 @@ class StartViewModel extends ChangeNotifier {
 
   StartViewModel(this._getSavedLanguageUseCase, this._addLanguageUseCase);
 
+  Future<void> requestNotification() async {
+    FirebaseMessaging messaging = FirebaseMessaging.instance;
+
+    await messaging.requestPermission(
+      alert: true,
+      badge: true,
+      sound: true,
+    );
+    String? token = await FirebaseMessaging.instance.getToken();
+    print("FCM Token: $token");
+  }
   void initLanguage() {
     String? savedLanguage = _getSavedLanguageUseCase.invoke();
     language = savedLanguage ?? _getSystemLanguageCode();

@@ -21,6 +21,7 @@ class StartViewModel extends ChangeNotifier {
       sound: true,
     );
     String? token = await FirebaseMessaging.instance.getToken();
+    //TODO token
     print("FCM Token: $token");
   }
   void initLanguage() {

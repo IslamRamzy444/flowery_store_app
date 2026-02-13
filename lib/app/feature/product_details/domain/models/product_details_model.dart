@@ -1,6 +1,7 @@
 class ProductDetailsModel {
   
   List<String?>? images;
+  String? coverImage;
   String? message;
   String? id;
   String? title;
@@ -23,6 +24,7 @@ class ProductDetailsModel {
   this.rateAvg,
   this.rateCount,
   this.sold,
-  this.title
+  this.title,
+  this.coverImage
   });
 }

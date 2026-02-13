@@ -21,7 +21,7 @@ class SignupDto {
     });
 
     SignupModel toModel (){
-      return SignupModel(message: this.message??"");
+      return SignupModel(message: message??"");
     }
 
     factory SignupDto.fromJson(Map<String, dynamic> json) => _$SignupDtoFromJson(json);

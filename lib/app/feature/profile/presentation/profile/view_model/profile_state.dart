@@ -4,11 +4,13 @@ import 'package:flower_app/app/feature/profile/domain/model/user_entity.dart';
 
 class ProfileState extends Equatable {
   final BaseState<UserEntity> profileState;
+  final bool? isLogout;
 
-  const ProfileState({required this.profileState});
+  const ProfileState({this.isLogout, required this.profileState});
 
-  ProfileState copyWith({BaseState<UserEntity>? profileState}) {
+  ProfileState copyWith({BaseState<UserEntity>? profileState, bool? isLogout}) {
     return ProfileState(
+      isLogout: isLogout ?? this.isLogout,
       profileState: BaseState(
         isLoading: profileState?.isLoading ?? this.profileState.isLoading,
         success: profileState?.success ?? this.profileState.success,
@@ -18,6 +20,6 @@ class ProfileState extends Equatable {
   }
 
   @override
-  List<Object?> get props => [profileState];
+  List<Object?> get props => [profileState, isLogout];
 }
 

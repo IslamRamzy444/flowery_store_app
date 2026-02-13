@@ -17,6 +17,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'controller/remember_controller.dart';
 
+// ignore: must_be_immutable
 class LoginScreen extends StatelessWidget {
   LoginViewModel viewModel = getIt<LoginViewModel>();
   LoginScreen({super.key});

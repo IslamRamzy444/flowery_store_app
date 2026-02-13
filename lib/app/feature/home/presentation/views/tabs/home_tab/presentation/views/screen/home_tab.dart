@@ -18,6 +18,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../../../../view_model/home_intent.dart';
+
 class HomeTab extends StatefulWidget {
   const HomeTab({super.key});
 
@@ -91,7 +93,9 @@ class _HomeTabState extends State<HomeTab> {
                           HeaderWidget(
                             name: AppLocalizations.of(context)!.categories, 
                             onTap: () {
-                              context.read<HomeViewModel>().switchTab(AppTab.categories);
+                              context.read<HomeViewModel>().doIntent(
+                                  ChangeCurrentTabAction(AppTab.categories));
+                              //switchTab(AppTab.categories);
                             },
                           ),
                           SizedBox(

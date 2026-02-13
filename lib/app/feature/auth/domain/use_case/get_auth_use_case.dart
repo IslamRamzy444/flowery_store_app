@@ -6,6 +6,7 @@ import 'package:injectable/injectable.dart';
 @injectable
 class LoginUserUseCase {
   final AuthRepoContract authRepo;
+  
 
   LoginUserUseCase(this.authRepo);
 

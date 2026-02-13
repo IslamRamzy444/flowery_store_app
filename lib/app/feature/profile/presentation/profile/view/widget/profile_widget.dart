@@ -2,12 +2,15 @@ import 'package:flower_app/app/core/consts/app_consts.dart';
 import 'package:flower_app/app/core/resources/app_colors.dart';
 import 'package:flower_app/app/core/routes/app_route.dart';
 import 'package:flower_app/app/core/utils/app_locale.dart';
+import 'package:flower_app/app/feature/home/presentation/view_model/home_intent.dart';
+import 'package:flower_app/app/feature/home/presentation/view_model/home_view_model.dart';
 import 'package:flower_app/app/feature/profile/domain/model/user_entity.dart';
 import 'package:flower_app/app/feature/profile/presentation/profile/view/widget/notification_widget.dart';
 import 'package:flower_app/app/feature/profile/presentation/profile/view/widget/profile_items_widget.dart';
 import 'package:flower_app/app/feature/profile/presentation/profile/view/widget/profile_photo_widget.dart';
 import 'package:flower_app/app/feature/profile/presentation/profile/view_model/profile_intent.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../../../core/resources/assets_manager.dart';
@@ -15,6 +18,7 @@ import '../../../../../../core/utils/helper_function.dart';
 import '../../../../../start/presentation/view_model/start_view_model.dart';
 import '../../view_model/profile_state.dart';
 import '../../view_model/profile_view_model.dart';
+import 'logout_widget.dart';
 import '../notification_controller.dart';
 import 'change_notification_widget.dart';
 
@@ -44,6 +48,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
   @override
   Widget build(BuildContext context) {
     StartViewModel startViewModel = Provider.of<StartViewModel>(context);
+    final HomeViewModel homeViewModel = BlocProvider.of<HomeViewModel>(context);
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 8),
@@ -108,20 +113,37 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   AppLocale(context).english : AppLocale(context).arabic,
                   style: Theme.of(context).textTheme.titleSmall?.copyWith(
                     color: AppColors.primaryColor,
-                  ),
-                ),
+                  )),
               ),
             ),
-
-            ProfileItemsWidget(data: AppLocale(context).about_us,),
-            ProfileItemsWidget(data: AppLocale(context).terms_and_conditions,onTap: () {
-              Navigator.pushNamed(context, Routes.terms);
+            ProfileItemsWidget(data: AppLocale(context).about_us,onTap: () {
+              Navigator.pushNamed(context, Routes.aboutApp);
             },),
+
+            ProfileItemsWidget(data: AppLocale(context).terms_and_conditions,
+              onTap: () {
+                Navigator.pushNamed(context, Routes.terms);
+              },
+            ),
             Divider(thickness: 1),
             ProfileItemsWidget(
               data: AppLocale(context).logout,
               leading: Icon(Icons.logout),
               trailing: Icon(Icons.logout),
+              onTap: () {
+                showDialog(context: context, builder: (context) {
+                    return AlertDialog(
+                      backgroundColor: AppColors.whiteColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      content: LogoutWidget(),
+                      contentPadding: EdgeInsets.zero,
+                    );
+                  },).then((value) {
+                  homeViewModel.doIntent(GetTokenAction());
+                  },);
+              },
             ),
             Spacer(),
             Text(

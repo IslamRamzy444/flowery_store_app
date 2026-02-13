@@ -16,7 +16,6 @@ class AuthRepoImpl implements AuthRepoContract {
       this.storageDataSourceContract);
   @override
   Future<void> getAuthData() {
-    // TODO: implement getAuthData
     throw UnimplementedError();
   }
 

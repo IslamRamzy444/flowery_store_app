@@ -6,6 +6,5 @@ class UserAddressEntity {
   final String? long;
   final String? userName;
 
-
-  UserAddressEntity({this.city, this.phone, this.lat, this.long, this.addressId,this.userName});
+  UserAddressEntity({this.city, this.phone, this.lat, this.long, this.addressId, this.userName});
 }

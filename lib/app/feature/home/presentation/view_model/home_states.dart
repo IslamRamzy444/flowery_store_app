@@ -1,11 +1,19 @@
+import 'package:equatable/equatable.dart';
 import 'package:flower_app/app/feature/home/presentation/view_model/app_tab.dart';
 
-class HomeStates {
-  AppTab currAppTab;
-  HomeStates({this.currAppTab=AppTab.home});
-  HomeStates copyWith({AppTab? currAppTab}){
+class HomeStates extends Equatable {
+  final bool isLoggedIn;
+  final AppTab currAppTab;
+
+  const HomeStates({required this.isLoggedIn, required this.currAppTab});
+
+  HomeStates copyWith({bool? isLoggedIn, AppTab? currAppTab}) {
     return HomeStates(
-      currAppTab: currAppTab?? this.currAppTab
+      isLoggedIn: isLoggedIn ?? this.isLoggedIn,
+      currAppTab: currAppTab ?? this.currAppTab,
     );
   }
+
+  @override
+  List<Object?> get props => [isLoggedIn, currAppTab];
 }

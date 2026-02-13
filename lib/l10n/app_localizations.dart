@@ -107,7 +107,7 @@ abstract class AppLocalizations {
   /// No description provided for @enterOtp.
   ///
   /// In en, this message translates to:
-  /// **'Please enter your code that send to your email address'**
+  /// **'Please enter your code that was sent to your email address'**
   String get enterOtp;
 
   /// No description provided for @password.
@@ -125,19 +125,19 @@ abstract class AppLocalizations {
   /// No description provided for @resend.
   ///
   /// In en, this message translates to:
-  /// **'resend'**
+  /// **'Resend'**
   String get resend;
 
   /// No description provided for @forgetPassword.
   ///
   /// In en, this message translates to:
-  /// **'Forget Password'**
+  /// **'Forgot Password'**
   String get forgetPassword;
 
   /// No description provided for @forgetPasswordQuote.
   ///
   /// In en, this message translates to:
-  /// **'Please enter your email associated to your account'**
+  /// **'Please enter your email associated with your account'**
   String get forgetPasswordQuote;
 
   /// No description provided for @continueTxt.
@@ -167,7 +167,7 @@ abstract class AppLocalizations {
   /// No description provided for @resetPasswordQuote.
   ///
   /// In en, this message translates to:
-  /// **'Password must not be empty and must contain 6 characters with upper case letter and one number at least '**
+  /// **'Password must not be empty and must contain at least 6 characters including one uppercase letter and one number'**
   String get resetPasswordQuote;
 
   /// No description provided for @newPassword.
@@ -179,7 +179,7 @@ abstract class AppLocalizations {
   /// No description provided for @enterYourPassword.
   ///
   /// In en, this message translates to:
-  /// **'Enter you password'**
+  /// **'Enter your password'**
   String get enterYourPassword;
 
   /// No description provided for @confirmPassword.
@@ -191,7 +191,7 @@ abstract class AppLocalizations {
   /// No description provided for @rememberMe.
   ///
   /// In en, this message translates to:
-  /// **'Remember Me'**
+  /// **'Remember me'**
   String get rememberMe;
 
   /// No description provided for @login.
@@ -209,8 +209,14 @@ abstract class AppLocalizations {
   /// No description provided for @dontHaveAnAccount.
   ///
   /// In en, this message translates to:
-  /// **'Don\'t Have An Account'**
+  /// **'Don\'t have an account?'**
   String get dontHaveAnAccount;
+
+  /// No description provided for @register.
+  ///
+  /// In en, this message translates to:
+  /// **'Login'**
+  String get register;
 
   /// No description provided for @home.
   ///
@@ -221,37 +227,37 @@ abstract class AppLocalizations {
   /// No description provided for @userName.
   ///
   /// In en, this message translates to:
-  /// **'User Name'**
+  /// **'User name'**
   String get userName;
 
   /// No description provided for @enterUserName.
   ///
   /// In en, this message translates to:
-  /// **'Enter User Name'**
+  /// **'Enter user name'**
   String get enterUserName;
 
   /// No description provided for @firstName.
   ///
   /// In en, this message translates to:
-  /// **'First Name'**
+  /// **'First name'**
   String get firstName;
 
   /// No description provided for @lastName.
   ///
   /// In en, this message translates to:
-  /// **'Last Name'**
+  /// **'Last name'**
   String get lastName;
 
   /// No description provided for @enterFirstName.
   ///
   /// In en, this message translates to:
-  /// **'Enter Your First Name'**
+  /// **'Enter your first name'**
   String get enterFirstName;
 
   /// No description provided for @enterLastName.
   ///
   /// In en, this message translates to:
-  /// **'Enter Your Last Name'**
+  /// **'Enter your last name'**
   String get enterLastName;
 
   /// No description provided for @alreadyHaveAnAccount.
@@ -263,43 +269,43 @@ abstract class AppLocalizations {
   /// No description provided for @passwordConfirmation.
   ///
   /// In en, this message translates to:
-  /// **'Password Confirmation'**
+  /// **'Password confirmation'**
   String get passwordConfirmation;
 
   /// No description provided for @enterPasswordConfirm.
   ///
   /// In en, this message translates to:
-  /// **'Confirmation Password'**
+  /// **'Confirm password'**
   String get enterPasswordConfirm;
 
   /// No description provided for @phoneNumber.
   ///
   /// In en, this message translates to:
-  /// **'phone Number'**
+  /// **'Phone number'**
   String get phoneNumber;
 
   /// No description provided for @enterPhoneNumber.
   ///
   /// In en, this message translates to:
-  /// **'Enter Your Phone Number'**
+  /// **'Enter your phone number'**
   String get enterPhoneNumber;
 
   /// No description provided for @enterEmail.
   ///
   /// In en, this message translates to:
-  /// **'Enter Your Email'**
+  /// **'Enter your email'**
   String get enterEmail;
 
   /// No description provided for @enterPassword.
   ///
   /// In en, this message translates to:
-  /// **'Enter Your Password'**
+  /// **'Enter your password'**
   String get enterPassword;
 
   /// No description provided for @loginSuccess.
   ///
   /// In en, this message translates to:
-  /// **'Login Success'**
+  /// **'Login successful'**
   String get loginSuccess;
 
   /// No description provided for @emailRequired.
@@ -317,73 +323,73 @@ abstract class AppLocalizations {
   /// No description provided for @emailInvalid.
   ///
   /// In en, this message translates to:
-  /// **'Email is invalid'**
+  /// **'Invalid email'**
   String get emailInvalid;
 
   /// No description provided for @passwordInvalid.
   ///
   /// In en, this message translates to:
-  /// **'Password is invalid'**
+  /// **'Invalid password'**
   String get passwordInvalid;
 
   /// No description provided for @passwordConfirmationInvalid.
   ///
   /// In en, this message translates to:
-  /// **'Password Confirmation is invalid'**
+  /// **'Invalid password confirmation'**
   String get passwordConfirmationInvalid;
 
   /// No description provided for @passwordConfirmationRequired.
   ///
   /// In en, this message translates to:
-  /// **'Password Confirmation is required'**
+  /// **'Password confirmation is required'**
   String get passwordConfirmationRequired;
 
   /// No description provided for @phoneNumberRequired.
   ///
   /// In en, this message translates to:
-  /// **'Phone Number is required'**
+  /// **'Phone number is required'**
   String get phoneNumberRequired;
 
   /// No description provided for @phoneNumberInvalid.
   ///
   /// In en, this message translates to:
-  /// **'Phone Number is invalid'**
+  /// **'Invalid phone number'**
   String get phoneNumberInvalid;
 
   /// No description provided for @userNameRequired.
   ///
   /// In en, this message translates to:
-  /// **'User Name is required'**
+  /// **'User name is required'**
   String get userNameRequired;
 
   /// No description provided for @userNameInvalid.
   ///
   /// In en, this message translates to:
-  /// **'User Name is invalid'**
+  /// **'Invalid user name'**
   String get userNameInvalid;
 
   /// No description provided for @firstNameRequired.
   ///
   /// In en, this message translates to:
-  /// **'First Name is required'**
+  /// **'First name is required'**
   String get firstNameRequired;
 
   /// No description provided for @firstNameInvalid.
   ///
   /// In en, this message translates to:
-  /// **'First Name is invalid'**
+  /// **'Invalid first name'**
   String get firstNameInvalid;
 
   /// No description provided for @lastNameRequired.
   ///
   /// In en, this message translates to:
-  /// **'Last Name is required'**
+  /// **'Last name is required'**
   String get lastNameRequired;
 
   /// No description provided for @lastNameInvalid.
   ///
   /// In en, this message translates to:
-  /// **'Last Name is invalid'**
+  /// **'Invalid last name'**
   String get lastNameInvalid;
 
   /// No description provided for @passwordMinLength.
@@ -395,13 +401,13 @@ abstract class AppLocalizations {
   /// No description provided for @passwordUpperCase.
   ///
   /// In en, this message translates to:
-  /// **'Password must contain at least one upper case letter'**
+  /// **'Password must contain at least one uppercase letter'**
   String get passwordUpperCase;
 
   /// No description provided for @passwordLowerCase.
   ///
   /// In en, this message translates to:
-  /// **'Password must contain at least one lower case letter'**
+  /// **'Password must contain at least one lowercase letter'**
   String get passwordLowerCase;
 
   /// No description provided for @passwordNumber.
@@ -419,7 +425,7 @@ abstract class AppLocalizations {
   /// No description provided for @passwordNotMatch.
   ///
   /// In en, this message translates to:
-  /// **'Password not match'**
+  /// **'Passwords do not match'**
   String get passwordNotMatch;
 
   /// No description provided for @confirmPasswordRequired.
@@ -431,7 +437,7 @@ abstract class AppLocalizations {
   /// No description provided for @successMessage.
   ///
   /// In en, this message translates to:
-  /// **'Sign up is successful'**
+  /// **'Sign up successful'**
   String get successMessage;
 
   /// No description provided for @loading.
@@ -449,7 +455,7 @@ abstract class AppLocalizations {
   /// No description provided for @occasion.
   ///
   /// In en, this message translates to:
-  /// **'Occasion'**
+  /// **'Occasions'**
   String get occasion;
 
   /// No description provided for @occasionSubtitle.
@@ -515,13 +521,13 @@ abstract class AppLocalizations {
   /// No description provided for @viewAll.
   ///
   /// In en, this message translates to:
-  /// **'View All'**
+  /// **'View all'**
   String get viewAll;
 
   /// No description provided for @view_all.
   ///
   /// In en, this message translates to:
-  /// **'View All'**
+  /// **'View all'**
   String get view_all;
 
   /// No description provided for @networkError.
@@ -587,25 +593,43 @@ abstract class AppLocalizations {
   /// No description provided for @accountcreatedsuccessfully.
   ///
   /// In en, this message translates to:
-  /// **'Account Created Successfully'**
+  /// **'Account created successfully'**
   String get accountcreatedsuccessfully;
 
   /// No description provided for @creatinganaccountyouagreetoour.
   ///
   /// In en, this message translates to:
-  /// **'Creating an account, you agree to our'**
+  /// **'By creating an account, you agree to our'**
   String get creatinganaccountyouagreetoour;
 
   /// No description provided for @termsandconditions.
   ///
   /// In en, this message translates to:
-  /// **'Terms&Conditions'**
+  /// **'Terms and conditions'**
   String get termsandconditions;
+
+  /// No description provided for @account_created_successfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Account created successfully'**
+  String get account_created_successfully;
+
+  /// No description provided for @creating_an_account_you_agree_to_our.
+  ///
+  /// In en, this message translates to:
+  /// **'By creating an account, you agree to our'**
+  String get creating_an_account_you_agree_to_our;
+
+  /// No description provided for @terms_and_conditions.
+  ///
+  /// In en, this message translates to:
+  /// **'Terms and conditions'**
+  String get terms_and_conditions;
 
   /// No description provided for @connectionFailed.
   ///
   /// In en, this message translates to:
-  /// **'No Internet Connection'**
+  /// **'No internet connection'**
   String get connectionFailed;
 
   /// No description provided for @flowery.
@@ -623,13 +647,13 @@ abstract class AppLocalizations {
   /// No description provided for @deliveryLocation.
   ///
   /// In en, this message translates to:
-  /// **'Deliver to 2XVP+XC - Sheikh Zayed '**
+  /// **'Deliver to 2XVP+XC - Sheikh Zayed'**
   String get deliveryLocation;
 
   /// No description provided for @empty_data.
   ///
   /// In en, this message translates to:
-  /// **'No products to be shown'**
+  /// **'No products to show'**
   String get empty_data;
 
   /// No description provided for @egyptianLivre.
@@ -641,31 +665,31 @@ abstract class AppLocalizations {
   /// No description provided for @bestSeller.
   ///
   /// In en, this message translates to:
-  /// **'Best Seller'**
+  /// **'Best seller'**
   String get bestSeller;
 
   /// No description provided for @cancel.
   ///
   /// In en, this message translates to:
-  /// **'cancel'**
+  /// **'Cancel'**
   String get cancel;
 
   /// No description provided for @ok.
   ///
   /// In en, this message translates to:
-  /// **'ok'**
+  /// **'OK'**
   String get ok;
 
   /// No description provided for @confirm.
   ///
   /// In en, this message translates to:
-  /// **'confirm'**
+  /// **'Confirm'**
   String get confirm;
 
   /// No description provided for @invalidOtp.
   ///
   /// In en, this message translates to:
-  /// **'invalid code'**
+  /// **'Invalid code'**
   String get invalidOtp;
 
   /// No description provided for @continueAsGuest.
@@ -674,35 +698,17 @@ abstract class AppLocalizations {
   /// **'Continue as guest'**
   String get continueAsGuest;
 
-  /// No description provided for @account_created_successfully.
-  ///
-  /// In en, this message translates to:
-  /// **'Account Created Successfully'**
-  String get account_created_successfully;
-
-  /// No description provided for @creating_an_account_you_agree_to_our.
-  ///
-  /// In en, this message translates to:
-  /// **'Creating an account, you agree to our'**
-  String get creating_an_account_you_agree_to_our;
-
-  /// No description provided for @terms_and_conditions.
-  ///
-  /// In en, this message translates to:
-  /// **'Terms & Conditions'**
-  String get terms_and_conditions;
-
   /// No description provided for @status.
   ///
   /// In en, this message translates to:
-  /// **'status'**
+  /// **'Status'**
   String get status;
 
-  /// No description provided for @all_prices_include_tax.
+  /// No description provided for @allpricesincludetax.
   ///
   /// In en, this message translates to:
   /// **'All prices include tax'**
-  String get all_prices_include_tax;
+  String get allpricesincludetax;
 
   /// No description provided for @description.
   ///
@@ -710,52 +716,52 @@ abstract class AppLocalizations {
   /// **'Description'**
   String get description;
 
-  /// No description provided for @out_of_stock.
-  ///
-  /// In en, this message translates to:
-  /// **'Out of Stock'**
-  String get out_of_stock;
-
   /// No description provided for @outofstock.
   ///
   /// In en, this message translates to:
-  /// **'Out of Stock'**
+  /// **'Out of stock'**
   String get outofstock;
-
-  /// No description provided for @in_stock.
-  ///
-  /// In en, this message translates to:
-  /// **'In Stock'**
-  String get in_stock;
 
   /// No description provided for @instock.
   ///
   /// In en, this message translates to:
-  /// **'In Stock'**
+  /// **'In stock'**
   String get instock;
-
-  /// No description provided for @bouquet_include.
-  ///
-  /// In en, this message translates to:
-  /// **'Bouquet include'**
-  String get bouquet_include;
 
   /// No description provided for @bouquetinclude.
   ///
   /// In en, this message translates to:
-  /// **'Bouquet include'**
+  /// **'Bouquet includes'**
   String get bouquetinclude;
+
+  /// No description provided for @current_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Current password'**
+  String get current_password;
+
+  /// No description provided for @new_password.
+  ///
+  /// In en, this message translates to:
+  /// **'New password'**
+  String get new_password;
+
+  /// No description provided for @password_changed.
+  ///
+  /// In en, this message translates to:
+  /// **'Password changed successfully'**
+  String get password_changed;
 
   /// No description provided for @my_orders.
   ///
   /// In en, this message translates to:
-  /// **'My Orders'**
+  /// **'My orders'**
   String get my_orders;
 
   /// No description provided for @saved_addresses.
   ///
   /// In en, this message translates to:
-  /// **'Saved Addresses'**
+  /// **'Saved addresses'**
   String get saved_addresses;
 
   /// No description provided for @notifications.
@@ -785,7 +791,7 @@ abstract class AppLocalizations {
   /// No description provided for @about_us.
   ///
   /// In en, this message translates to:
-  /// **'About Us'**
+  /// **'About us'**
   String get about_us;
 
   /// No description provided for @logout.
@@ -794,61 +800,145 @@ abstract class AppLocalizations {
   /// **'Logout'**
   String get logout;
 
-  /// No description provided for @current_password.
-  ///
-  /// In en, this message translates to:
-  /// **'current password'**
-  String get current_password;
-
-  /// No description provided for @new_password.
-  ///
-  /// In en, this message translates to:
-  /// **'new password'**
-  String get new_password;
-
-  /// No description provided for @update.
-  ///
-  /// In en, this message translates to:
-  /// **'update'**
-  String get update;
-
-  /// No description provided for @password_changed.
-  ///
-  /// In en, this message translates to:
-  /// **'password changed successfully'**
-  String get password_changed;
-
   /// No description provided for @change.
   ///
   /// In en, this message translates to:
-  /// **'change'**
+  /// **'Change'**
   String get change;
 
   /// No description provided for @edit_profile.
   ///
   /// In en, this message translates to:
-  /// **'edit profile'**
+  /// **'Edit profile'**
   String get edit_profile;
 
   /// No description provided for @update_profile.
   ///
   /// In en, this message translates to:
-  /// **'update profile'**
+  /// **'Update profile'**
   String get update_profile;
 
   /// No description provided for @update_profile_error.
   ///
   /// In en, this message translates to:
-  /// **'error in update profile'**
+  /// **'Error updating profile'**
   String get update_profile_error;
 
   /// No description provided for @uploading_photo.
   ///
   /// In en, this message translates to:
-  /// **'uploading photo'**
+  /// **'Uploading photo'**
   String get uploading_photo;
 
   /// No description provided for @uploading_photo_error.
+  ///
+  /// In en, this message translates to:
+  /// **'Error uploading photo'**
+  String get uploading_photo_error;
+
+  /// No description provided for @addNewAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Add new address'**
+  String get addNewAddress;
+
+  /// No description provided for @savedAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved addresses'**
+  String get savedAddress;
+
+  /// No description provided for @someThingWrong.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong'**
+  String get someThingWrong;
+
+  /// No description provided for @update.
+  ///
+  /// In en, this message translates to:
+  /// **'Update'**
+  String get update;
+
+  /// No description provided for @changeLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Change language'**
+  String get changeLanguage;
+
+  /// No description provided for @items.
+  ///
+  /// In en, this message translates to:
+  /// **'Items'**
+  String get items;
+
+  /// No description provided for @clearall.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear all'**
+  String get clearall;
+
+  /// No description provided for @noitemsincart.
+  ///
+  /// In en, this message translates to:
+  /// **'No items in cart'**
+  String get noitemsincart;
+
+  /// No description provided for @total.
+  ///
+  /// In en, this message translates to:
+  /// **'Total'**
+  String get total;
+
+  /// No description provided for @checkout.
+  ///
+  /// In en, this message translates to:
+  /// **'Checkout'**
+  String get checkout;
+
+  /// No description provided for @delivery_time.
+  ///
+  /// In en, this message translates to:
+  /// **'Delivery time'**
+  String get delivery_time;
+
+  /// No description provided for @schedule.
+  ///
+  /// In en, this message translates to:
+  /// **'Schedule'**
+  String get schedule;
+
+  /// No description provided for @instant.
+  ///
+  /// In en, this message translates to:
+  /// **'Instant'**
+  String get instant;
+
+  /// No description provided for @arrive_by.
+  ///
+  /// In en, this message translates to:
+  /// **'Arrive by'**
+  String get arrive_by;
+
+  /// No description provided for @success.
+  ///
+  /// In en, this message translates to:
+  /// **'Success'**
+  String get success;
+
+  /// No description provided for @location_error.
+  ///
+  /// In en, this message translates to:
+  /// **'Location details unavailable'**
+  String get location_error;
+
+  /// No description provided for @delivery_address.
+  ///
+  /// In en, this message translates to:
+  /// **'Delivery address'**
+  String get delivery_address;
+
+  /// No description provided for @no_addresses.
   ///
   /// In en, this message translates to:
   /// **'error in uploading photo'**
@@ -871,6 +961,86 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'some thing wrong'**
   String get someThingWrong;
+
+  /// No description provided for @addressdetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Address Details'**
+  String get addressdetails;
+
+  /// No description provided for @address.
+  ///
+  /// In en, this message translates to:
+  /// **'Address'**
+  String get address;
+
+  /// No description provided for @pleaseEnterYourAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Please Enter Your Address'**
+  String get pleaseEnterYourAddress;
+
+  /// No description provided for @pleaseEnterYourPhoneNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Please Enter Your PhoneNumber'**
+  String get pleaseEnterYourPhoneNumber;
+
+  /// No description provided for @recipientName.
+  ///
+  /// In en, this message translates to:
+  /// **'Recipient name'**
+  String get recipientName;
+
+  /// No description provided for @pleaseEnterTheRecipientname.
+  ///
+  /// In en, this message translates to:
+  /// **'Please Enter Recipient name'**
+  String get pleaseEnterTheRecipientname;
+
+  /// No description provided for @city.
+  ///
+  /// In en, this message translates to:
+  /// **'City'**
+  String get city;
+
+  /// No description provided for @pleaseSelectCity.
+  ///
+  /// In en, this message translates to:
+  /// **'Please Select City'**
+  String get pleaseSelectCity;
+
+  /// No description provided for @area.
+  ///
+  /// In en, this message translates to:
+  /// **'Area'**
+  String get area;
+
+  /// No description provided for @pleaseSelectArea.
+  ///
+  /// In en, this message translates to:
+  /// **'Please Select Area'**
+  String get pleaseSelectArea;
+
+  /// No description provided for @addAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Address'**
+  String get addAddress;
+
+  /// No description provided for @updateAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Update Address'**
+  String get updateAddress;
+  /// **'No saved addresses found'**
+  String get no_addresses;
+
+  /// No description provided for @add_new.
+  ///
+  /// In en, this message translates to:
+  /// **'Add new'**
+  String get add_new;
 }
 
 class _AppLocalizationsDelegate

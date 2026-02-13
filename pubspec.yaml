@@ -58,6 +58,9 @@ dependencies:
   pretty_dio_logger: ^1.4.0
   pin_code_fields: ^8.0.1
   image_picker: ^1.2.1
+  flutter_map: ^8.2.2
+  latlong2: ^0.9.1
+  url_launcher: ^6.3.2
   firebase_core: ^4.4.0
   shared_preferences: ^2.5.4
   get_it: ^9.2.0
@@ -108,6 +111,7 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/svg/
+    - assets/jsonFiles/
     - assets/files/
 
   # An image asset can refer to one or more resolution-specific "variants", see

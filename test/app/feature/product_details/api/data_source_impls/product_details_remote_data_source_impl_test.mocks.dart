@@ -6,6 +6,8 @@
 import 'dart:async' as _i4;
 
 import 'package:flower_app/app/config/base_response/base_response.dart' as _i5;
+import 'package:flower_app/app/feature/home/presentation/views/tabs/cart/data/models/update_cart_response.dart'
+    as _i8;
 import 'package:flower_app/app/feature/product_details/api/api_client/api_client.dart'
     as _i2;
 import 'package:flower_app/app/feature/product_details/api/data_source_impls/product_details_remote_data_source_impl.dart'
@@ -77,4 +79,27 @@ class MockProductDetailsRemoteDataSourceImpl extends _i1.Mock
                 ),
           )
           as _i4.Future<_i5.BaseResponse<_i6.ProductDetailsDto>>);
+
+  @override
+  _i4.Future<_i5.BaseResponse<_i8.UpdateCartResponse>> addProductToCart({
+    String? productId,
+    int? quantity,
+  }) =>
+      (super.noSuchMethod(
+            Invocation.method(#addProductToCart, [], {
+              #productId: productId,
+              #quantity: quantity,
+            }),
+            returnValue:
+                _i4.Future<_i5.BaseResponse<_i8.UpdateCartResponse>>.value(
+                  _i7.dummyValue<_i5.BaseResponse<_i8.UpdateCartResponse>>(
+                    this,
+                    Invocation.method(#addProductToCart, [], {
+                      #productId: productId,
+                      #quantity: quantity,
+                    }),
+                  ),
+                ),
+          )
+          as _i4.Future<_i5.BaseResponse<_i8.UpdateCartResponse>>);
 }

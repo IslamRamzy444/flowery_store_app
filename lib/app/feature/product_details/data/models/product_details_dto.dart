@@ -115,7 +115,8 @@ class Product {
         rateAvg: rateAvg,
         rateCount: rateCount,
         sold: sold,
-        title: title
+        title: title,
+        coverImage: imgCover
       );
     }
 

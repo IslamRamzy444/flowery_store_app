@@ -122,5 +122,6 @@ class _AddressCartItemWidgetState extends State<AddressCartItemWidget> {
       addressDetails = fallbackDetails;
     }
     if (!mounted) return;
+    setState(() {});
   }
 }

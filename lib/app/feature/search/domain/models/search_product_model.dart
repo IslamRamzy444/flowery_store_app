@@ -5,13 +5,13 @@ class SearchProductModel {
   final String description;
   final String imgCover;
   final List<String> images;
-  final double price;
-  final double priceAfterDiscount;
+  final int price;
+  final int priceAfterDiscount;
   final int quantity;
   final String category;
   final String occasion;
   final int sold;
-  final double rateAvg;
+  final int rateAvg;
   final int rateCount;
 
   SearchProductModel({
@@ -33,6 +33,7 @@ class SearchProductModel {
 
   int get discountPercentage {
     if (price == 0) return 0;
-    return (((price - priceAfterDiscount) / price) * 100).round();
+    if (priceAfterDiscount >= price) return 0;
+    return ((price - priceAfterDiscount) / price * 100).round();
   }
 }

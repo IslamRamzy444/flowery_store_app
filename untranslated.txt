@@ -1,9 +1,1 @@
-{
-  "ar": [
-    "all_prices_include_tax",
-    "out_of_stock",
-    "in_stock",
-    "bouquet_include",
-    "error"
-  ]
-}
+{}

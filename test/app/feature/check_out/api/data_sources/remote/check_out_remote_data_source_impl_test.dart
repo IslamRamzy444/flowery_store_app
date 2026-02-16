@@ -133,7 +133,7 @@ void main() {
         long: "29.9187"
       )).thenAnswer(
         (_) async {
-          return await SuccessResponse<CreditCardDto>(
+          return SuccessResponse<CreditCardDto>(
             data: CreditCardDto(session: Session(url: "https://example.com/checkout"))
           );
         }

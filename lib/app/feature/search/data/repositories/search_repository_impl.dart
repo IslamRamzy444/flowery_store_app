@@ -18,7 +18,7 @@ class SearchRepositoryImpl implements SearchRepository {
 
     switch (response) {
       case SuccessResponse():
-        final products = (response.data?.products ?? [])
+        final products = (response.data.products ?? [])
             .map(
               (dto) => SearchProductModel(
                 id: dto.id ?? '',
@@ -27,13 +27,13 @@ class SearchRepositoryImpl implements SearchRepository {
                 description: dto.description ?? '',
                 imgCover: dto.imgCover ?? '',
                 images: dto.images ?? [],
-                price: dto.price ?? 0,
-                priceAfterDiscount: dto.priceAfterDiscount ?? 0,
-                quantity: dto.quantity ?? 0,
+                price: (dto.price ?? 0).toInt(),
+                priceAfterDiscount: (dto.priceAfterDiscount ?? 0).toInt(),
+                quantity: (dto.quantity ?? 0).toInt(),
                 category: dto.category ?? '',
                 occasion: dto.occasion ?? '',
                 sold: dto.sold ?? 0,
-                rateAvg: dto.rateAvg ?? 0,
+                rateAvg: (dto.rateAvg ?? 0).toInt(),
                 rateCount: dto.rateCount ?? 0,
               ),
             )

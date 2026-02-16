@@ -1,8 +1,10 @@
 import 'package:flower_app/app/config/base_response/base_response.dart';
 import 'package:flower_app/app/config/base_state/base_state.dart';
+import 'package:flower_app/app/core/consts/app_consts.dart';
 import 'package:flower_app/app/feature/check_out/domain/models/address_model.dart';
 import 'package:flower_app/app/feature/check_out/domain/models/cash_on_delivery_model.dart';
 import 'package:flower_app/app/feature/check_out/domain/models/credit_card_model.dart';
+import 'package:flower_app/app/feature/check_out/domain/models/payment_method_model.dart';
 import 'package:flower_app/app/feature/check_out/domain/use_cases/checkout_with_cash_on_delivery_usecase.dart';
 import 'package:flower_app/app/feature/check_out/domain/use_cases/checkout_with_credit_card_use_case.dart';
 import 'package:flower_app/app/feature/check_out/domain/use_cases/get_user_addresses_use_case.dart';
@@ -15,8 +17,18 @@ class CheckOutViewModel extends Cubit<CheckOutStates>{
   final GetUserAddressesUseCase _checkOutUseCase;
   final CheckoutWithCashOnDeliveryUsecase _cashOnDeliveryUsecase;
   final CheckoutWithCreditCardUseCase _cardUseCase;
-  CheckOutViewModel(this._checkOutUseCase,this._cashOnDeliveryUsecase,this._cardUseCase):super(CheckOutStates());
-  void doIntent(CheckOutEvents event){
+  final List<PaymentMethodModel> paymentMethods=[
+    PaymentMethodModel(key: AppConsts.cashOptionKey,name: 'Cash on delivery'),
+    PaymentMethodModel(key: AppConsts.creditOptionKey,name: 'Credit card')
+  ];
+  CheckOutViewModel(this._checkOutUseCase,this._cashOnDeliveryUsecase,this._cardUseCase):super(CheckOutStates()){
+    if (paymentMethods.isNotEmpty) {
+      emit(state.copyWith(
+        selectedPaymentMethod: paymentMethods.first.key,
+      ));
+    }
+  }
+  Future<void> doIntent(CheckOutEvents event)async{
     switch(event){
       
       case GetUserAddressesEvent():
@@ -25,6 +37,10 @@ class CheckOutViewModel extends Cubit<CheckOutStates>{
         _payCash(street: event.street,phone: event.phone,city: event.city,long: event.long,lat: event.lat);
       case PayCreditEvent():
         _payCredit(street: event.street,phone: event.phone,city: event.city,long: event.long,lat: event.lat);
+      case SelectAddressEvent():
+        _selectAddress(event.address);
+      case SelectPaymentMethodEvent():
+        _selectPaymentMethod(event.paymentMethodKey);
     }
   }
   Future<void> _getUserAddresses() async{
@@ -37,11 +53,16 @@ class CheckOutViewModel extends Cubit<CheckOutStates>{
     switch(res){
       
       case SuccessResponse<List<AddressModel>>():
+        AddressModel? selectedAddress = state.selectedAddress;
+        if (selectedAddress == null && res.data.isNotEmpty) {
+          selectedAddress = res.data.first;
+        }
         emit(state.copyWith(
           getAddressesState: BaseState<List<AddressModel>>(
             isLoading: false,
             success: res.data
-          )
+          ),
+          selectedAddress: selectedAddress
         ));
       case ErrorResponse<List<AddressModel>>():
         emit(state.copyWith(
@@ -101,5 +122,15 @@ class CheckOutViewModel extends Cubit<CheckOutStates>{
           )
         ));
     }
+  }
+  Future<void> _selectAddress(AddressModel? address)async{
+    emit(state.copyWith(
+      selectedAddress: address
+    ));
+  }
+   Future<void> _selectPaymentMethod(String paymentMethodKey) async{ 
+    emit(state.copyWith(
+      selectedPaymentMethod: paymentMethodKey,
+    ));
   }
 }

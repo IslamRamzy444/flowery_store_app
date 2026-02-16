@@ -90,6 +90,9 @@ void main() {
         provideDummy<BaseResponse<List<UserAddressEntity>>>(
           SuccessResponse(data: [userAddressEntity]),
         );
+        when(getUserAddressesUseCase.invoke()).thenAnswer((realInvocation) {
+          return Future.value(SuccessResponse(data: [userAddressEntity]));
+    });
         when(deleteUserAddressUseCase.invoke('1')).thenAnswer((realInvocation) {
           return Future.value(SuccessResponse(data: [userAddressEntity]));
         });
@@ -117,6 +120,9 @@ void main() {
         provideDummy<BaseResponse<List<UserAddressEntity>>>(
           ErrorResponse(error: UnexpectedError()),
         );
+        when(getUserAddressesUseCase.invoke()).thenAnswer((realInvocation) {
+          return Future.value(SuccessResponse(data: [userAddressEntity]));
+        });
         when(deleteUserAddressUseCase.invoke('1')).thenAnswer((realInvocation) {
           return Future.value(ErrorResponse(error: UnexpectedError()));
         });

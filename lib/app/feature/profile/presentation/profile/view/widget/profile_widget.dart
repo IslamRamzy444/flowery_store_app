@@ -36,92 +36,105 @@ class ProfileWidget extends StatelessWidget {
     StartViewModel startViewModel = Provider.of<StartViewModel>(context);
     final HomeViewModel homeViewModel = BlocProvider.of<HomeViewModel>(context);
     return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 8),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Row(
-              children: [
-                ImageIcon(
-                  AssetImage(AssetsIcons.logo),
-                  color: Theme.of(context).primaryColor,
-                ),
-                const SizedBox(width: 10),
-                Text(
-                  AppConsts.appName,
-                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                    color: Theme.of(context).primaryColor,
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 8),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Row(
+                children: [
+                  ImageIcon(
+                    AssetImage(AssetsIcons.logo),
+                    color: Theme
+                        .of(context)
+                        .primaryColor,
                   ),
-                ),
-                Spacer(),
-                NotificationWidget()
-              ],
-            ),
-            const SizedBox(height: 20),
-            profileState.profileState.isLoading == true
-                ? Center(child: CircularProgressIndicator())
-                : profileState.profileState.success != null
-                ? _buildProfileSection(
-                    context,
-                    profileState.profileState.success!,
-                  )
-                : profileState.profileState.error != null
-                ? Text(getException(context, profileState.profileState.error))
-                : Container(),
-            const SizedBox(height: 10),
-            ProfileItemsWidget(
-              data: AppLocale(context).my_orders,
-              leading: Icon(Icons.reorder_outlined),
-            ),
-            ProfileItemsWidget(
-              data: AppLocale(context).saved_addresses,
-              leading: Icon(Icons.location_on_outlined),
-              onTap: () =>
-                  profileViewModel.doIntent(NavigateToAddressScreenAction()),
+                  const SizedBox(width: 10),
+                  Text(
+                    AppConsts.appName,
+                    style: Theme
+                        .of(context)
+                        .textTheme
+                        .headlineMedium
+                        ?.copyWith(
+                      color: Theme
+                          .of(context)
+                          .primaryColor,
+                    ),
+                  ),
+                  Spacer(),
+                  NotificationWidget()
+                ],
+              ),
+              const SizedBox(height: 20),
+              profileState.profileState.isLoading == true
+                  ? Center(child: CircularProgressIndicator())
+                  : profileState.profileState.success != null
+                  ? _buildProfileSection(
+                context,
+                profileState.profileState.success!,
+              )
+                  : profileState.profileState.error != null
+                  ? Text(getException(context, profileState.profileState.error))
+                  : Container(),
+              const SizedBox(height: 10),
+              ProfileItemsWidget(
+                data: AppLocale(context).my_orders,
+                leading: Icon(Icons.reorder_outlined),
+              ),
+              ProfileItemsWidget(
+                data: AppLocale(context).saved_addresses,
+                leading: Icon(Icons.location_on_outlined),
+                onTap: () =>
+                    profileViewModel.doIntent(NavigateToAddressScreenAction()),
 
-            ),
-            Divider(thickness: 1),
-            ProfileItemsWidget(
-              data: AppLocale(context).notifications,
-              leading: Switch(
-                value: true,
-                onChanged: null,
-                activeTrackColor: AppColors.primaryColor,
               ),
-            ),
-            Divider(thickness: 1),
-            ProfileItemsWidget(
-              data: AppLocale(context).language,
-              leading: Icon(Icons.translate),
-              trailing: TextButton(
-                onPressed: () {
-                  profileViewModel.doIntent(ChangeLanguageAction());
+              Divider(thickness: 1),
+              ProfileItemsWidget(
+                data: AppLocale(context).notifications,
+                leading: Switch(
+                  value: true,
+                  onChanged: null,
+                  activeTrackColor: AppColors.primaryColor,
+                ),
+              ),
+              Divider(thickness: 1),
+              ProfileItemsWidget(
+                data: AppLocale(context).language,
+                leading: Icon(Icons.translate),
+                trailing: TextButton(
+                  onPressed: () {
+                    profileViewModel.doIntent(ChangeLanguageAction());
+                  },
+                  child: Text(
+                      startViewModel.language == 'en' ?
+                      AppLocale(context).english : AppLocale(context).arabic,
+                      style: Theme
+                          .of(context)
+                          .textTheme
+                          .titleSmall
+                          ?.copyWith(
+                        color: AppColors.primaryColor,
+                      )),
+                ),
+              ),
+              ProfileItemsWidget(data: AppLocale(context).about_us, onTap: () {
+                Navigator.pushNamed(context, Routes.aboutApp);
+              },),
+
+              ProfileItemsWidget(data: AppLocale(context).terms_and_conditions,
+                onTap: () {
+                  Navigator.pushNamed(context, Routes.terms);
                 },
-                child: Text(
-                  startViewModel.language == 'en' ?
-                  AppLocale(context).english : AppLocale(context).arabic,
-                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                    color: AppColors.primaryColor,
-                  )),
               ),
-            ),
-            ProfileItemsWidget(data: AppLocale(context).about_us,onTap: () {
-              Navigator.pushNamed(context, Routes.aboutApp);
-            },),
-            
-            ProfileItemsWidget(data: AppLocale(context).terms_and_conditions,
-              onTap: () {
-                Navigator.pushNamed(context, Routes.terms);
-              },
-            ),
-            Divider(thickness: 1),
-            ProfileItemsWidget(
-              data: AppLocale(context).logout,
-              leading: Icon(Icons.logout),
-              trailing: Icon(Icons.logout),
-              onTap: () {
-                showDialog(context: context, builder: (context) {
+              Divider(thickness: 1),
+              ProfileItemsWidget(
+                data: AppLocale(context).logout,
+                leading: Icon(Icons.logout),
+                trailing: Icon(Icons.logout),
+                onTap: () {
+                  showDialog(context: context, builder: (context) {
                     return AlertDialog(
                       backgroundColor: AppColors.whiteColor,
                       shape: RoundedRectangleBorder(
@@ -131,18 +144,26 @@ class ProfileWidget extends StatelessWidget {
                       contentPadding: EdgeInsets.zero,
                     );
                   },).then((value) {
-                  homeViewModel.doIntent(GetTokenAction());
+                    homeViewModel.doIntent(GetTokenAction());
                   },);
-              },
-            ),
-            Spacer(),
-            Text(
-              AppConsts.appVersion,
-              style: Theme.of(
-                context,
-              ).textTheme.titleSmall?.copyWith(color: AppColors.grayColor),
-            ),
-          ],
+                },
+              ),
+
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Text(
+                  AppConsts.appVersion,
+                  style: Theme
+                      .of(
+                    context,
+                  )
+                      .textTheme
+                      .titleSmall
+                      ?.copyWith(color: AppColors.grayColor),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

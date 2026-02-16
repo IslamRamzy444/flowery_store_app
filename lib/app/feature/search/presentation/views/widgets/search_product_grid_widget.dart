@@ -1,34 +1,28 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flower_app/app/core/resources/app_colors.dart';
+import 'package:flower_app/app/core/routes/app_route.dart';
+import 'package:flower_app/app/feature/product_details/presentation/view_model/product_details_args.dart';
+import 'package:flower_app/app/feature/search/domain/models/search_product_model.dart';
 import 'package:flutter/material.dart';
-import '../../../domain/models/search_product_model.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SearchProductGridWidget extends StatelessWidget {
   final List<SearchProductModel> products;
-  final Function(SearchProductModel) onProductTap;
 
-  const SearchProductGridWidget({
-    super.key,
-    required this.products,
-    required this.onProductTap,
-  });
+  const SearchProductGridWidget({super.key, required this.products});
 
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         childAspectRatio: 0.7,
-        crossAxisSpacing: 12,
-        mainAxisSpacing: 12,
+        crossAxisSpacing: 12.w,
+        mainAxisSpacing: 16.h,
       ),
       itemCount: products.length,
       itemBuilder: (context, index) {
-        final product = products[index];
-        return _ProductCard(
-          product: product,
-          onTap: () => onProductTap(product),
-        );
+        return _ProductCard(product: products[index]);
       },
     );
   }
@@ -36,137 +30,120 @@ class SearchProductGridWidget extends StatelessWidget {
 
 class _ProductCard extends StatelessWidget {
   final SearchProductModel product;
-  final VoidCallback onTap;
 
-  const _ProductCard({required this.product, required this.onTap});
+  const _ProductCard({required this.product});
 
   @override
   Widget build(BuildContext context) {
-    final hasDiscount = product.priceAfterDiscount < product.price;
-
     return GestureDetector(
-      onTap: onTap,
+      onTap: () {
+        Navigator.pushNamed(
+          context,
+          Routes.productDetails,
+          arguments: ProductDetailsArgs(productId: product.id),
+        );
+      },
       child: Container(
         decoration: BoxDecoration(
-          color: AppColors.baseWhiteColor,
-          borderRadius: BorderRadius.circular(12),
-          boxShadow: [
-            BoxShadow(
-              color: AppColors.grayColor.withOpacity(0.2),
-              blurRadius: 8,
-              offset: const Offset(0, 2),
-            ),
-          ],
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8.r),
+          border: Border.all(
+            color: AppColors.grayColor.withValues(alpha: 0.3),
+            width: 1,
+          ),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(
-              flex: 3,
-              child: Stack(
-                children: [
-                  ClipRRect(
-                    borderRadius: const BorderRadius.vertical(
-                      top: Radius.circular(12),
-                    ),
-                    child: CachedNetworkImage(
-                      imageUrl: product.imgCover,
-                      width: double.infinity,
-                      fit: BoxFit.cover,
-                      placeholder: (context, url) => Container(
-                        color: AppColors.white60Color,
-                        child: const Center(
-                          child: CircularProgressIndicator(
-                            color: AppColors.primaryColor,
-                          ),
-                        ),
-                      ),
-                      errorWidget: (context, url, error) => Container(
-                        color: AppColors.white60Color,
-                        child: const Icon(Icons.error),
-                      ),
+            // Product Image
+            ClipRRect(
+              borderRadius: BorderRadius.vertical(top: Radius.circular(8.r)),
+              child: AspectRatio(
+                aspectRatio: 1,
+                child: CachedNetworkImage(
+                  imageUrl: product.imgCover,
+                  fit: BoxFit.cover,
+                  placeholder: (context, url) => Center(
+                    child: CircularProgressIndicator(
+                      color: AppColors.primaryColor,
+                      strokeWidth: 2,
                     ),
                   ),
-                  if (hasDiscount)
-                    Positioned(
-                      top: 8,
-                      right: 8,
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 8,
-                          vertical: 4,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Text(
-                          '-${product.discountPercentage}%',
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
+                  errorWidget: (context, url, error) => Container(
+                    color: AppColors.lightGrayColor.withValues(alpha: 0.1),
+                    child: Icon(
+                      Icons.local_florist,
+                      size: 40.sp,
+                      color: AppColors.grayColor,
                     ),
-                ],
+                  ),
+                ),
               ),
             ),
+
             Expanded(
-              flex: 2,
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(8.w),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    // Title
                     Text(
                       product.title,
-                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        fontWeight: FontWeight.w600,
-                      ),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        fontWeight: FontWeight.w500,
+                        height: 1.2,
+                      ),
                     ),
-                    Row(
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        if (hasDiscount) ...[
-                          Text(
-                            '\$${product.price.toStringAsFixed(0)}',
-                            style: Theme.of(context).textTheme.bodySmall
-                                ?.copyWith(
-                                  decoration: TextDecoration.lineThrough,
-                                  color: AppColors.grayColor,
-                                ),
+                        // Discount badge
+                        if (product.discountPercentage > 0)
+                          Container(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 6.w,
+                              vertical: 2.h,
+                            ),
+                            decoration: BoxDecoration(
+                              color: AppColors.primaryColor,
+                              borderRadius: BorderRadius.circular(4.r),
+                            ),
+                            child: Text(
+                              '-${product.discountPercentage}%',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 10.sp,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
                           ),
-                          const SizedBox(width: 4),
-                        ],
-                        Text(
-                          '\$${product.priceAfterDiscount.toStringAsFixed(0)}',
-                          style: Theme.of(context).textTheme.bodyMedium
-                              ?.copyWith(
-                                color: AppColors.primaryColor,
-                                fontWeight: FontWeight.bold,
+                        SizedBox(height: 4.h),
+                        Row(
+                          children: [
+                            if (product.discountPercentage > 0) ...[
+                              Text(
+                                'EGP ${product.price.toStringAsFixed(0)}',
+                                style: Theme.of(context).textTheme.bodySmall
+                                    ?.copyWith(
+                                      decoration: TextDecoration.lineThrough,
+                                      color: AppColors.grayColor,
+                                    ),
                               ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        const Icon(Icons.star, size: 14, color: Colors.amber),
-                        const SizedBox(width: 2),
-                        Text(
-                          product.rateAvg.toStringAsFixed(1),
-                          style: Theme.of(context).textTheme.bodySmall,
-                        ),
-                        Text(
-                          ' (${product.rateCount})',
-                          style: Theme.of(
-                            context,
-                          ).textTheme.bodySmall?.copyWith(
-                                color: AppColors.grayColor,
-                              ),
+                              SizedBox(width: 4.w),
+                            ],
+                            Text(
+                              'EGP ${product.priceAfterDiscount.toStringAsFixed(0)}',
+                              style: Theme.of(context).textTheme.bodyMedium
+                                  ?.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                    color: AppColors.primaryColor,
+                                  ),
+                            ),
+                          ],
                         ),
                       ],
                     ),

@@ -41,13 +41,13 @@ void main() {
         description: 'Beautiful red rose',
         imgCover: 'https://example.com/rose.jpg',
         images: [],
-        price: 100.0,
-        priceAfterDiscount: 80.0,
+        price: 100,
+        priceAfterDiscount: 80,
         quantity: 10,
         category: 'flowers',
         occasion: 'birthday',
         sold: 5,
-        rateAvg: 4.5,
+        rateAvg: 4,
         rateCount: 10,
       ),
     ];
@@ -96,11 +96,7 @@ void main() {
           true,
         ),
         isA<SearchStates>()
-            .having(
-              (state) => state.searchState?.isLoading,
-              'isLoading',
-              false,
-            )
+            .having((state) => state.searchState?.isLoading, 'isLoading', false)
             .having(
               (state) => state.searchState?.error,
               'error',

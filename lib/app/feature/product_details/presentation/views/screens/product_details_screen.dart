@@ -83,7 +83,7 @@ class ProductDetailsScreen extends StatelessWidget{
               SliverToBoxAdapter(
                 child: Padding(
                   padding: const EdgeInsets.all(16),
-                  child: Text(AppLocale(context).allpricesincludetax),
+                  child: Text(AppLocale(context).all_prices_include_tax),
                 ),
               ),
               SliverToBoxAdapter(

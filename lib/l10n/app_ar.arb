@@ -72,7 +72,6 @@
   "status": "الحالة",
   "all_prices_include_tax": "جميع الأسعار تشمل الضرائب",
   "description": "الوصف",
-  "add_to_cart": "أضف إلى السلة",
   "out_of_stock": "إنتهى من المخزن",
   "in_stock": "في المخزن",
   "bouquet_include": "الباقة تحتوي على",
@@ -107,10 +106,8 @@
   "birthday": "عيد ميلاد",
   "katbKetab": "كتب كتاب",
   "addToCart": "أضف إلى عربة التسوق",
-  "addtocart": "أضف إلى السلة",
   "viewAll": "عرض الكل",
-  "view_all": "عرض الكل",
-  "networkError": "لا يوجد اتصال بالإنترنت",
+"networkError": "لا يوجد اتصال بالإنترنت",
   "serverError": "حدث خطأ ما. يرجى المحاولة مرة أخرى",
   "retry": "إعادة المحاولة",
   "noProductsForOccasion": "لا توجد منتجات متاحة لهذه المناسبة",
@@ -169,5 +166,6 @@
   "occasions": "مناسبات",
   "occasions_title": "تزهر معنا مع أفضل منتجاتنا المميزة",
   "categoriesTitle": "الفئات",
-  "change_language":"تغيير اللغة"
+  "change_language":"تغيير اللغة",
+  "addedToCart":"تم اضافة المنتج الى السلة"
   }

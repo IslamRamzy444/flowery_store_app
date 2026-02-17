@@ -15,8 +15,12 @@ class HeaderWidget extends StatelessWidget {
       children: [
         Text(name,style: Theme.of(context).textTheme.headlineLarge,),
         TextButton(
-          onPressed: onTap, 
-          child: Text(AppLocalizations.of(context)!.view_all,style: Theme.of(context).textTheme.labelMedium?.copyWith(
+          onPressed: onTap,
+            child: Text(AppLocalizations.of(context)!.viewAll, style: Theme
+                .of(context)
+                .textTheme
+                .labelMedium
+                ?.copyWith(
             color: AppColors.primaryColor,
             fontSize: FontSize.s12,
             fontWeight: FontWeights.medium,

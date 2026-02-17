@@ -72,7 +72,6 @@
   "status": "Status",
   "all_prices_include_tax": "All prices include tax",
   "description": "Description",
-  "add_to_cart": "Add to cart",
   "out_of_stock": "Out of Stock",
   "in_stock": "In Stock",
   "bouquet_include": "Bouquet include",
@@ -107,9 +106,7 @@
   "birthday": "Birthday",
   "katbKetab": "Katb Ketab",
   "addToCart": "Add to cart",
-  "addtocart": "Add to cart",
   "viewAll": "View all",
-  "view_all": "View all",
   "networkError": "No internet connection",
   "serverError": "Something went wrong. Please try again",
   "retry": "Retry",
@@ -169,5 +166,6 @@
   "occasions": "Occasions",
   "occasions_title": "Bloom with our exquisite best sellers",
   "categoriesTitle": "Categories Title",
-  "change_language":"change language"
+  "change_language":"change language",
+  "addedToCart":"product added to cart"
 }

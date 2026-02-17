@@ -18,7 +18,6 @@ class ProductDetailsDto {
   Map<String, dynamic> toJson() => _$ProductDetailsDtoToJson(this);
 
   ProductDetailsModel toModel() {
-    print('images is /n ${product?.images}');
     return ProductDetailsModel(
       message: message,
       description: product?.description,

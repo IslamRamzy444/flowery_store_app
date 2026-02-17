@@ -5,6 +5,7 @@ import 'package:flower_app/app/feature/product_details/domain/models/product_det
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/utils/helper_function.dart';
 import '../../view_model/product_details_states.dart';
 import '../../view_model/product_event.dart';
 import '../../view_model/product_intent.dart';
@@ -33,34 +34,40 @@ class _ProductCartItemState extends State<ProductCartItem> {
           if (mounted) {
             Navigator.pushNamed(
                 context, Routes.productDetails,
-                arguments: widget.productEntity?.id);
+                arguments: widget.productEntity?.id ?? '');
           }
+          break;
         case BackNavigationFromProductEvent():
           if (mounted) {
             Navigator.pop(context);
           }
-        case AddToCartEvent():
-          if (mounted) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text('${event.name} added to cart'),
-              ),
-            );
-          }
+          break;
+
       }
     },);
   }
   @override
   Widget build(BuildContext context) {
-    double discount =
-    widget.productEntity?.price != null &&
-        widget.productEntity?.priceAfterDiscount != null
-        ? (widget.productEntity!.price! /
-        widget.productEntity!.priceAfterDiscount!.toInt()) *
-              100
-        : 0;
-    return BlocBuilder<ProductDetailsViewModel, ProductDetailsStates>(
+    double originalPrice = widget.productEntity?.price ?? 0;
+    double discountedPrice = widget.productEntity?.priceAfterDiscount ?? 0;
+    double discount = ((originalPrice - discountedPrice) / originalPrice) *
+        100;
+    return BlocConsumer<ProductDetailsViewModel, ProductDetailsStates>(
       bloc: productViewModel,
+      listener: (context, state) {
+        if (state.addProductToCartState?.success != null) {
+          ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text(
+                  state.addProductToCartState?.success?.message ?? ""))
+          );
+        }
+        if (state.addProductToCartState?.error != null) {
+          ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text(
+                  getException(context, state.addProductToCartState?.error)))
+          );
+        }
+      },
       builder: (context, state) =>
           InkWell(
             onTap: () =>
@@ -118,7 +125,7 @@ class _ProductCartItemState extends State<ProductCartItem> {
                       children: [
                         Icon(Icons.shopping_cart),
                         SizedBox(width: 8),
-                        Text(AppLocale(context).add_to_cart),
+                        Text(AppLocale(context).addToCart),
                       ],
                     ),
                   )

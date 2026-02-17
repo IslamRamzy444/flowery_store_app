@@ -8,9 +8,4 @@ class NavigateToProductDetailsEvent extends ProductEvent {
 
 class BackNavigationFromProductEvent extends ProductEvent {}
 
-class AddToCartEvent extends ProductEvent {
-  final String? productId;
-  final String? name;
 
-  AddToCartEvent({required this.productId, required this.name});
-}

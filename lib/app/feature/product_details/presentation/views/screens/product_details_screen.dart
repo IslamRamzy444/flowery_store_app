@@ -134,7 +134,7 @@ class ProductDetailsScreen extends StatelessWidget{
                   child: ElevatedButton(onPressed: () {
                     viewModel.doIntent(AddProductToCartEvent(productId??"", 1));
                   }, child: Text(AppLocale(
-                      context).add_to_cart, style: TextStyle(fontSize: 20),)),
+                      context).addToCart, style: TextStyle(fontSize: 20),)),
                 ),
               ),
               ],

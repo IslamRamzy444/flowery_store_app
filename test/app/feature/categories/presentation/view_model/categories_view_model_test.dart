@@ -25,6 +25,8 @@ void main() {
   late CategoriesEntity categoriesEntity;
   late ProductsEntity productsEntity;
   late QueryProductRequest queryProductRequest;
+  late CategoriesEntity categories;
+
   setUpAll(() {
     getAllCategoriesUseCase = MockGetAllCategoriesUseCase();
     getProductsCategoryUseCase = MockGetProductsCategoryUseCase();
@@ -33,7 +35,8 @@ void main() {
     );
     productsEntity =
         ProductsEntity(product: [ProductDetailsModel(title: "flower")]);
-    queryProductRequest = QueryProductRequest(category: '1');
+    queryProductRequest = QueryProductRequest(category: '1');;
+    categories = CategoriesEntity(categoriesEntity: []);
   });
   setUp(() {
     categoriesViewModel = CategoriesViewModel(
@@ -97,6 +100,46 @@ void main() {
             ),
             clearError: true,
           ),
+        ];
+      },
+    );
+    blocTest(
+      'when calling dointent with categories action with success but empty list it should emit correct state',
+
+      setUp: () {
+        provideDummy<BaseResponse<CategoriesEntity>>(
+          SuccessResponse(data: categories),
+        );
+        provideDummy<BaseResponse<ProductsEntity>>(
+          SuccessResponse(data: productsEntity),
+        );
+        when(getAllCategoriesUseCase.invoke()).thenAnswer((realInvocation) {
+          return Future.value(SuccessResponse(data: categories));
+        });
+        when(getProductsCategoryUseCase.invoke(queryProductRequest)).thenAnswer(
+              (realInvocation) {
+            return Future.value(SuccessResponse(data: productsEntity));
+          },
+        );
+      },
+      build: () => categoriesViewModel,
+      act: (bloc) {
+        categoriesViewModel.doIntent(CategoriesAction());
+      },
+      expect: () {
+        var state = CategoriesState(
+          categoriesState: CategoryBaseState(),
+          productsCategoryState: BaseState(),
+        );
+        return [
+          state.copyWith(categoriesState: CategoryBaseState(isLoading: true)),
+          state.copyWith(
+            categoriesState: CategoryBaseState(
+              isLoading: false,
+              success: categories,
+            ),
+          ),
+
         ];
       },
     );

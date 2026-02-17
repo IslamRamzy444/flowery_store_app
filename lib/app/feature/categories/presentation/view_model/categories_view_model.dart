@@ -40,9 +40,12 @@ class CategoriesViewModel
           ),
         );
         emit(baseState);
-        _getProductsCategory(
-          '${state.categoriesState.success?.categoriesEntity?[0].id}',
+        if (state.categoriesState.success?.categoriesEntity?.isNotEmpty ??
+            false) {
+          _getProductsCategory(
+            '${state.categoriesState.success?.categoriesEntity?[0].id}',
         );
+        }
         break;
       case ErrorResponse():
         baseState = state.copyWith(

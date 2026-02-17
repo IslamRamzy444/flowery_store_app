@@ -190,17 +190,141 @@ class AppLocalizationsAr extends AppLocalizations {
   String get loading => 'جاري التحميل...';
 
   @override
+  String get gender => 'الجنس';
+
+  @override
+  String get male => 'ذكر';
+
+  @override
+  String get female => 'انثى';
+
+  @override
+  String get cancel => 'إلغاء';
+
+  @override
+  String get ok => 'موافق';
+
+  @override
+  String get confirm => 'تأكيد';
+
+  @override
+  String get invalidOtp => 'كود غير صحيح';
+
+  @override
+  String get continueAsGuest => 'المتابعة كزائر';
+
+  @override
+  String get account_created_successfully => 'تم إنشاء الحساب بنجاح';
+
+  @override
+  String get creating_an_account_you_agree_to_our =>
+      'بإنشاء حساب، فإنك توافق على شروطنا';
+
+  @override
+  String get terms_and_conditions => 'الشروط والأحكام';
+
+  @override
+  String get profile => 'الملف الشخصي';
+
+  @override
+  String get status => 'الحالة';
+
+  @override
+  String get all_prices_include_tax => 'جميع الأسعار تشمل الضرائب';
+
+  @override
+  String get description => 'الوصف';
+
+  @override
+  String get add_to_cart => 'أضف إلى السلة';
+
+  @override
+  String get out_of_stock => 'إنتهى من المخزن';
+
+  @override
+  String get in_stock => 'في المخزن';
+
+  @override
+  String get bouquet_include => 'الباقة تحتوي على';
+
+  @override
+  String get egp => 'ج.م';
+
+  @override
+  String get my_orders => 'طلباتي';
+
+  @override
+  String get saved_addresses => 'العناوين المحفوظة';
+
+  @override
+  String get notifications => 'الإشعارات';
+
+  @override
+  String get language => 'اللغة';
+
+  @override
+  String get english => 'الإنجليزية';
+
+  @override
+  String get arabic => 'العربية';
+
+  @override
+  String get about_us => 'من نحن';
+
+  @override
+  String get logout => 'تسجيل الخروج';
+
+  @override
+  String get current_password => 'كلمة المرور الحالية';
+
+  @override
+  String get new_password => 'كلمة المرور الجديدة';
+
+  @override
+  String get update => 'تحديث';
+
+  @override
+  String get password_changed => 'تم تغيير كلمة المرور بنجاح';
+
+  @override
+  String get change => 'تغيير';
+
+  @override
+  String get edit_profile => 'تعديل الملف الشخصي';
+
+  @override
+  String get update_profile => 'تحديث الملف الشخصي';
+
+  @override
+  String get update_profile_error => 'خطأ في تحديث الملف الشخصي';
+
+  @override
+  String get uploading_photo => 'تحميل الصورة';
+
+  @override
+  String get uploading_photo_error => 'خطأ في تحميل الصورة';
+
+  @override
+  String get logOutAction => 'هل تريد تسجيل الخروج؟';
+
+  @override
+  String get no => 'لا';
+
+  @override
+  String get yes => 'نعم';
+
+  @override
   String get welcome => 'مرحباً';
 
   @override
-  String get occasion => 'المناسبات';
+  String get occasion => 'المناسبة';
 
   @override
-  String get occasionSubtitle => 'ازدهر مع أفضل المبيعات الرائعة لدينا';
+  String get occasionSubtitle => 'ازدهر مع أفضل مبيعاتنا الرائعة';
 
   @override
   String get bloomWithOurExquisiteBestSellers =>
-      'تألق مع منتجاتنا الأكثر مبيعاً والراقية';
+      'تألق مع أفضل مبيعاتنا الرائعة';
 
   @override
   String get wedding => 'زفاف';
@@ -218,13 +342,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get addToCart => 'أضف إلى عربة التسوق';
 
   @override
-  String get add_to_cart => 'أضف إلى السلة';
-
-  @override
   String get addtocart => 'أضف إلى السلة';
-
-  @override
-  String get egp => 'ج.م';
 
   @override
   String get viewAll => 'عرض الكل';
@@ -251,16 +369,55 @@ class AppLocalizationsAr extends AppLocalizations {
   String get cart => 'عربة التسوق';
 
   @override
-  String get profile => 'الملف الشخصي';
+  String get success => 'تم بنجاح';
 
   @override
-  String get gender => 'الجنس';
+  String get error => 'خطأ';
 
   @override
-  String get male => 'ذكر';
+  String get addNewAddress => 'إضافة عنوان جديد';
 
   @override
-  String get female => 'انثى';
+  String get savedAddress => 'العنوان المحفوظ';
+
+  @override
+  String get someThingWrong => 'حدث خطأ ما';
+
+  @override
+  String get addressdetails => 'تفاصيل العنوان';
+
+  @override
+  String get address => 'العنوان';
+
+  @override
+  String get pleaseEnterYourAddress => 'الرجاء إدخال عنوانك';
+
+  @override
+  String get pleaseEnterYourPhoneNumber => 'الرجاء إدخال رقم هاتفك';
+
+  @override
+  String get recipientName => 'اسم المستلم';
+
+  @override
+  String get pleaseEnterTheRecipientname => 'الرجاء إدخال اسم المستلم';
+
+  @override
+  String get city => 'المدينة';
+
+  @override
+  String get pleaseSelectCity => 'الرجاء اختيار المدينة';
+
+  @override
+  String get area => 'المنطقة';
+
+  @override
+  String get pleaseSelectArea => 'الرجاء اختيار المنطقة';
+
+  @override
+  String get addAddress => 'إضافة عنوان';
+
+  @override
+  String get updateAddress => 'تحديث العنوان';
 
   @override
   String get accountcreatedsuccessfully => 'تم إنشاء الحساب بنجاح';
@@ -273,17 +430,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get termsandconditions => 'الشروط والأحكام';
 
   @override
-  String get account_created_successfully => 'تم إنشاء الحساب بنجاح';
-
-  @override
-  String get creating_an_account_you_agree_to_our =>
-      'بإنشاء حساب، فإنك توافق على شروطنا';
-
-  @override
-  String get terms_and_conditions => 'الشروط والأحكام';
-
-  @override
-  String get connectionFailed => 'لا يوجد اتصال بالانترنت';
+  String get connectionFailed => 'لا يوجد اتصال بالإنترنت';
 
   @override
   String get flowery => 'مُزْهَر';
@@ -291,18 +438,6 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get search => 'بحث';
 
-  @override
-  String get add_to_cart => 'Add to cart';
-
-  @override
-  String get out_of_stock => 'Out of Stock';
-
-  @override
-  String get in_stock => 'In Stock';
-
-  @override
-  String get bouquet_include => 'Bouquet include';
-  
   @override
   String get deliveryLocation => 'التوصيل إلى 2XVP+XC - الشيخ زايد';
 
@@ -316,100 +451,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get bestSeller => 'الأكثر مبيعاً';
 
   @override
-  String get cancel => 'الغاء';
-
-  @override
-  String get ok => 'موافق';
-
-  @override
-  String get confirm => 'تأكيد';
-
-  @override
-  String get invalidOtp => 'كود غير صحيح';
-
-  @override
-  String get continueAsGuest => 'المتابعة كزائر';
-
-  @override
-  String get status => 'الحاله';
-
-  @override
-  String get allpricesincludetax => 'جميع الأسعار تشمل الضريبة';
-
-  @override
-  String get description => 'الوصف';
-
-  @override
   String get outofstock => 'إنتهى من المخزن';
 
   @override
   String get instock => 'في المخزن';
 
   @override
-  String get bouquetinclude => 'الباقه تحتوي على';
-
-  @override
-  String get current_password => 'كلمة السر الحالية';
-
-  @override
-  String get new_password => 'كلمة السر الجديدة';
-
-  @override
-  String get password_changed => 'تم تغيير كلمة المرور بنجاح';
-
-  @override
-  String get my_orders => 'طلباتي';
-
-  @override
-  String get saved_addresses => 'المواقع المحفوظة';
-
-  @override
-  String get notifications => 'الاشعارات';
-
-  @override
-  String get language => 'اللغة';
-
-  @override
-  String get english => 'الانجليزية';
-
-  @override
-  String get arabic => 'العربية';
-
-  @override
-  String get about_us => 'عنا';
-
-  @override
-  String get logout => 'خروج';
-
-  @override
-  String get change => 'تغيير';
-
-  @override
-  String get edit_profile => 'تحديث الملف الشخصي';
-
-  @override
-  String get update_profile => 'تحديث الملف الشخصي';
-
-  @override
-  String get update_profile_error => 'خطأ في تحديث الملف الشخصي';
-
-  @override
-  String get uploading_photo => 'تحديث الصورة';
-
-  @override
-  String get uploading_photo_error => 'خطأ في تحديث الصورة';
-
-  @override
-  String get addNewAddress => 'اضف موقعا جديدا';
-
-  @override
-  String get savedAddress => 'الاماكن المسجلة';
-
-  @override
-  String get someThingWrong => 'هناك خطأ ما';
-
-  @override
-  String get update => 'تحديث';
+  String get bouquetinclude => 'الباقة تحتوي على';
 
   @override
   String get changeLanguage => 'تغيير اللغة';
@@ -442,9 +490,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get arrive_by => 'يصل بحلول';
 
   @override
-  String get success => 'تم بنجاح';
-
-  @override
   String get location_error => 'تفاصيل الموقع غير متوفرة';
 
   @override
@@ -455,4 +500,44 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get add_new => 'إضافة جديد';
+
+  @override
+  String get refresh => 'تحديث';
+
+  @override
+  String get payment_method => 'طريقة الدفع';
+
+  @override
+  String get cash_method => 'الدفع عند الاستلام';
+
+  @override
+  String get credit_method => 'البطاقة الائتمانية';
+
+  @override
+  String get payment_error =>
+      'خطأ في إعداد نظام طرق الدفع! يُرجى المحاولة مرة أخرى لاحقاً';
+
+  @override
+  String get gift => 'هذه هدية';
+
+  @override
+  String get name => 'الاسم';
+
+  @override
+  String get enter_name => 'أدخل الاسم';
+
+  @override
+  String get enter_phone_number => 'أدخل رقم الهاتف';
+
+  @override
+  String get subtotal => 'المجموع الفرعي';
+
+  @override
+  String get delivery_fee => 'رسوم التوصيل';
+
+  @override
+  String get place_order => 'تأكيد الطلب';
+
+  @override
+  String get online_payment_window => 'شاشة الدفع الإلكتروني';
 }

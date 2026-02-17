@@ -18,22 +18,26 @@ class CheckOutRemoteDataSourceImpl implements CheckOutRemoteDataSourceContract{
   @override
   Future<BaseResponse<CashOnDeliveryDto>> checkOutWithCashOnDeliveryMethod({String? street,String? phone,String? city,String? lat,String? long}) {
     return executeApi(() => checkOutApiClient.checkOutWithCashOnDelivery({
-      "street":street,
-      "phone":phone,
-      "city":city,
-      "lat":lat,
-      "long":long
+      "shippingAddress":{
+        "street":street,
+        "phone":phone,
+        "city":city,
+        "lat":lat,
+        "long":long
+      }
     }));
   }
   
   @override
   Future<BaseResponse<CreditCardDto>> checkOutWithCreditCardMethod({String? street,String? phone,String? city,String? lat,String? long}) {
     return executeApi(() => checkOutApiClient.checkOutWithCreditCard({
-      "street":street,
-      "phone":phone,
-      "city":city,
-      "lat":lat,
-      "long":long
+      "shippingAddress":{
+        "street":street,
+        "phone":phone,
+        "city":city,
+        "lat":lat,
+        "long":long
+      }
     }));
   }
 

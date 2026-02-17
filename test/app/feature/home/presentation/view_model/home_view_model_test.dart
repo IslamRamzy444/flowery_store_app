@@ -4,22 +4,28 @@ import 'package:flower_app/app/feature/home/presentation/view_model/app_tab.dart
 import 'package:flower_app/app/feature/home/presentation/view_model/home_intent.dart';
 import 'package:flower_app/app/feature/home/presentation/view_model/home_states.dart';
 import 'package:flower_app/app/feature/home/presentation/view_model/home_view_model.dart';
+import 'package:flower_app/app/feature/home/presentation/views/tabs/cart/presentation/view_model/cart_screen_view_model.dart';
+import 'package:get_it/get_it.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
 
 import 'home_view_model_test.mocks.dart';
 
-@GenerateMocks([GetTokenUseCase])
+@GenerateMocks([GetTokenUseCase,CartScreenViewModel])
 void main() {
   late GetTokenUseCase getTokenUseCase;
-
+  late CartScreenViewModel cartScreenViewModel;
   late HomeViewModel homeViewModel;
-  setUpAll(() {
-    getTokenUseCase = MockGetTokenUseCase();
-  },);
   setUp(() {
+    GetIt.I.reset();
+    cartScreenViewModel=MockCartScreenViewModel();
+    GetIt.I.registerSingleton<CartScreenViewModel>(cartScreenViewModel);
+    getTokenUseCase = MockGetTokenUseCase();
     homeViewModel = HomeViewModel(getTokenUseCase);
+  },);
+  tearDownAll(() {
+    GetIt.I.reset();
   },);
   group('test cases of home view model',() {
     test('checking that initial state is home tab)',(){

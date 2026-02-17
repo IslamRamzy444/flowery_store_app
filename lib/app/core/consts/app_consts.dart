@@ -7,4 +7,6 @@ class AppConsts {
   static const String notificationKey = 'notification';
   static const String languageKey = 'language';
   static const String deviceTokenKey = 'device_token';
+  static const String cashOptionKey='cash';
+  static const String creditOptionKey='credit';
 }

@@ -2,11 +2,10 @@ import 'package:flower_app/app/core/routes/app_route.dart';
 import 'package:flower_app/app/feature/address/domain/model/user_address_entity.dart';
 import 'package:flower_app/app/feature/address_details/presentation/views/screens/address_details_screen.dart';
 import 'package:flower_app/app/feature/about_app/presentation/views/screen/about_app_screen.dart';
-import 'package:flower_app/app/feature/auth/presentation/views/screen/login/login_Screen.dart';
-import 'package:flower_app/app/feature/address/domain/model/user_address_entity.dart';
-import 'package:flower_app/app/feature/address_details/presentation/views/screens/address_details_screen.dart';
+import 'package:flower_app/app/feature/auth/presentation/views/screen/login/login_screen.dart';
 import 'package:flower_app/app/feature/best_seller/presentation/views/screen/best_seller_screen.dart';
 import 'package:flower_app/app/feature/check_out/presentation/views/screen/check_out_screen.dart';
+import 'package:flower_app/app/feature/check_out/presentation/views/screen/online_payment_web_view_screen.dart';
 import 'package:flower_app/app/feature/home/presentation/views/screen/home_screen.dart';
 import 'package:flower_app/app/feature/occasion/presentation/views/screen/occasion_screen.dart';
 import 'package:flower_app/app/feature/product_details/presentation/view_model/product_details_args.dart';
@@ -18,7 +17,6 @@ import 'package:flower_app/app/feature/profile/presentation/update_profile/view/
 import 'package:flower_app/app/feature/splash/presentation/views/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flower_app/app/feature/terms_and_conditions/presentation/views/screen/terms_and_conditions_screen.dart';
-import 'package:flutter/material.dart';
 import '../../feature/address/presentation/view/address_screen.dart';
 import '../../feature/forget_password/presentation/forget_password/view/forget_password_screen.dart';
 import '../../feature/forget_password/presentation/reset_password/view/reset_password_screen.dart';
@@ -52,7 +50,7 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) =>  ProductDetailsScreen(productId: args.productId));
       case Routes.addressDetails:
         final args = settings.arguments as UserAddressEntity?;  
-        return MaterialPageRoute(builder: (_) => AddressDetailsScreen(userAddressEntity: args));
+        return MaterialPageRoute(builder: (_) => AddressDetailsScreen(userAddressEntity: args),settings: settings);
       case Routes.updateProfile:
         final UserEntity userEntity = settings.arguments as UserEntity;
         return MaterialPageRoute(
@@ -67,13 +65,11 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const AboutAppScreen());
       case Routes.terms:
         return MaterialPageRoute(builder: (_) => const TermsAndConditionsScreen());
-      case Routes.userAddress:
-        return MaterialPageRoute(builder: (_) => const AddressScreen());
       case Routes.checkOut:
-        return MaterialPageRoute(builder: (_) => const CheckOutScreen());
-      case Routes.addressDetails:
-        final args = settings.arguments as UserAddressEntity?;  
-        return MaterialPageRoute(builder: (_) => AddressDetailsScreen(userAddressEntity: args));
+        return MaterialPageRoute(builder: (_) => const CheckOutScreen(),settings: settings);
+
+      case Routes.onlinePayment:
+        return MaterialPageRoute(builder: (_) => const OnlinePaymentWebViewScreen(),settings: settings);
 
       default:
         return unDefinedRoute();

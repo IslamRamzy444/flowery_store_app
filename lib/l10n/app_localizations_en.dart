@@ -190,10 +190,134 @@ class AppLocalizationsEn extends AppLocalizations {
   String get loading => 'Loading...';
 
   @override
+  String get gender => 'Gender';
+
+  @override
+  String get male => 'Male';
+
+  @override
+  String get female => 'Female';
+
+  @override
+  String get cancel => 'cancel';
+
+  @override
+  String get ok => 'ok';
+
+  @override
+  String get confirm => 'confirm';
+
+  @override
+  String get invalidOtp => 'invalid code';
+
+  @override
+  String get continueAsGuest => 'Continue as guest';
+
+  @override
+  String get account_created_successfully => 'Account Created Successfully';
+
+  @override
+  String get creating_an_account_you_agree_to_our =>
+      'Creating an account, you agree to our';
+
+  @override
+  String get terms_and_conditions => 'Terms & Conditions';
+
+  @override
+  String get profile => 'Profile';
+
+  @override
+  String get status => 'status';
+
+  @override
+  String get all_prices_include_tax => 'All prices include tax';
+
+  @override
+  String get description => 'Description';
+
+  @override
+  String get add_to_cart => 'Add to cart';
+
+  @override
+  String get out_of_stock => 'Out of Stock';
+
+  @override
+  String get in_stock => 'In Stock';
+
+  @override
+  String get bouquet_include => 'Bouquet include';
+
+  @override
+  String get egp => 'EGP';
+
+  @override
+  String get my_orders => 'My Orders';
+
+  @override
+  String get saved_addresses => 'Saved Addresses';
+
+  @override
+  String get notifications => 'Notifications';
+
+  @override
+  String get language => 'Language';
+
+  @override
+  String get english => 'English';
+
+  @override
+  String get arabic => 'Arabic';
+
+  @override
+  String get about_us => 'About Us';
+
+  @override
+  String get logout => 'Logout';
+
+  @override
+  String get current_password => 'current password';
+
+  @override
+  String get new_password => 'new password';
+
+  @override
+  String get update => 'update';
+
+  @override
+  String get password_changed => 'password changed successfully';
+
+  @override
+  String get change => 'change';
+
+  @override
+  String get edit_profile => 'edit profile';
+
+  @override
+  String get update_profile => 'update profile';
+
+  @override
+  String get update_profile_error => 'error in update profile';
+
+  @override
+  String get uploading_photo => 'uploading photo';
+
+  @override
+  String get uploading_photo_error => 'error in uploading photo';
+
+  @override
+  String get logOutAction => 'do you want to log out ?';
+
+  @override
+  String get no => 'no';
+
+  @override
+  String get yes => 'yes';
+
+  @override
   String get welcome => 'Welcome';
 
   @override
-  String get occasion => 'Occasions';
+  String get occasion => 'Occasion';
 
   @override
   String get occasionSubtitle => 'Bloom with our exquisite best sellers';
@@ -218,13 +342,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get addToCart => 'Add to cart';
 
   @override
-  String get add_to_cart => 'Add to cart';
-
-  @override
   String get addtocart => 'Add to cart';
-
-  @override
-  String get egp => 'EGP';
 
   @override
   String get viewAll => 'View all';
@@ -251,16 +369,55 @@ class AppLocalizationsEn extends AppLocalizations {
   String get cart => 'Cart';
 
   @override
-  String get profile => 'Profile';
+  String get success => 'Success';
 
   @override
-  String get gender => 'Gender';
+  String get error => 'Error';
 
   @override
-  String get male => 'Male';
+  String get addNewAddress => 'add new address';
 
   @override
-  String get female => 'Female';
+  String get savedAddress => 'saved address';
+
+  @override
+  String get someThingWrong => 'some thing wrong';
+
+  @override
+  String get addressdetails => 'Address Details';
+
+  @override
+  String get address => 'Address';
+
+  @override
+  String get pleaseEnterYourAddress => 'Please Enter Your Address';
+
+  @override
+  String get pleaseEnterYourPhoneNumber => 'Please Enter Your PhoneNumber';
+
+  @override
+  String get recipientName => 'Recipient name';
+
+  @override
+  String get pleaseEnterTheRecipientname => 'Please Enter Recipient name';
+
+  @override
+  String get city => 'City';
+
+  @override
+  String get pleaseSelectCity => 'Please Select City';
+
+  @override
+  String get area => 'Area';
+
+  @override
+  String get pleaseSelectArea => 'Please Select Area';
+
+  @override
+  String get addAddress => 'Add Address';
+
+  @override
+  String get updateAddress => 'Update Address';
 
   @override
   String get accountcreatedsuccessfully => 'Account created successfully';
@@ -273,16 +430,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get termsandconditions => 'Terms and conditions';
 
   @override
-  String get account_created_successfully => 'Account created successfully';
-
-  @override
-  String get creating_an_account_you_agree_to_our =>
-      'By creating an account, you agree to our';
-
-  @override
-  String get terms_and_conditions => 'Terms and conditions';
-
-  @override
   String get connectionFailed => 'No internet connection';
 
   @override
@@ -291,18 +438,6 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get search => 'Search';
 
-  @override
-  String get add_to_cart => 'Add to cart';
-
-  @override
-  String get out_of_stock => 'Out of Stock';
-
-  @override
-  String get in_stock => 'In Stock';
-
-  @override
-  String get bouquet_include => 'Bouquet include';
-  
   @override
   String get deliveryLocation => 'Deliver to 2XVP+XC - Sheikh Zayed';
 
@@ -316,30 +451,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get bestSeller => 'Best seller';
 
   @override
-  String get cancel => 'Cancel';
-
-  @override
-  String get ok => 'OK';
-
-  @override
-  String get confirm => 'Confirm';
-
-  @override
-  String get invalidOtp => 'Invalid code';
-
-  @override
-  String get continueAsGuest => 'Continue as guest';
-
-  @override
-  String get status => 'Status';
-
-  @override
-  String get allpricesincludetax => 'All prices include tax';
-
-  @override
-  String get description => 'Description';
-
-  @override
   String get outofstock => 'Out of stock';
 
   @override
@@ -347,69 +458,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get bouquetinclude => 'Bouquet includes';
-
-  @override
-  String get current_password => 'Current password';
-
-  @override
-  String get new_password => 'New password';
-
-  @override
-  String get password_changed => 'Password changed successfully';
-
-  @override
-  String get my_orders => 'My orders';
-
-  @override
-  String get saved_addresses => 'Saved addresses';
-
-  @override
-  String get notifications => 'Notifications';
-
-  @override
-  String get language => 'Language';
-
-  @override
-  String get english => 'English';
-
-  @override
-  String get arabic => 'Arabic';
-
-  @override
-  String get about_us => 'About us';
-
-  @override
-  String get logout => 'Logout';
-
-  @override
-  String get change => 'Change';
-
-  @override
-  String get edit_profile => 'Edit profile';
-
-  @override
-  String get update_profile => 'Update profile';
-
-  @override
-  String get update_profile_error => 'Error updating profile';
-
-  @override
-  String get uploading_photo => 'Uploading photo';
-
-  @override
-  String get uploading_photo_error => 'Error uploading photo';
-
-  @override
-  String get addNewAddress => 'Add new address';
-
-  @override
-  String get savedAddress => 'Saved addresses';
-
-  @override
-  String get someThingWrong => 'Something went wrong';
-
-  @override
-  String get update => 'Update';
 
   @override
   String get changeLanguage => 'Change language';
@@ -442,9 +490,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get arrive_by => 'Arrive by';
 
   @override
-  String get success => 'Success';
-
-  @override
   String get location_error => 'Location details unavailable';
 
   @override
@@ -455,4 +500,44 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get add_new => 'Add new';
+
+  @override
+  String get refresh => 'ٌRefresh';
+
+  @override
+  String get payment_method => 'Payment Method';
+
+  @override
+  String get cash_method => 'Cash on delivery';
+
+  @override
+  String get credit_method => 'Credit card';
+
+  @override
+  String get payment_error =>
+      'Error in configuration of payment methods system! Try ordering later';
+
+  @override
+  String get gift => 'It is a gift';
+
+  @override
+  String get name => 'Name';
+
+  @override
+  String get enter_name => 'Enter the name';
+
+  @override
+  String get enter_phone_number => 'Enter the phone number';
+
+  @override
+  String get subtotal => 'Sub Total';
+
+  @override
+  String get delivery_fee => 'Delivery Fee';
+
+  @override
+  String get place_order => 'Place order';
+
+  @override
+  String get online_payment_window => 'Online payment window';
 }

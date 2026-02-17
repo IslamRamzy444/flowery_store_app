@@ -22,7 +22,7 @@ class ProductDetailsRepoImpl implements ProductDetailsRepoContract{
         return ErrorResponse<ProductDetailsModel>(error: response.error);
     }
   }
-
+  @override
   Future<BaseResponse<UpdateCartModel>> addProductToCart({String? productId, int? quantity})async {
     var response = await productDetailsRemoteDataSourceContract.addProductToCart(productId: productId,quantity: quantity);
     switch(response){

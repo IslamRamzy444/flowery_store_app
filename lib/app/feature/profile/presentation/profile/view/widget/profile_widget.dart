@@ -43,67 +43,80 @@ class _ProfileWidgetState extends State<ProfileWidget> {
     StartViewModel startViewModel = Provider.of<StartViewModel>(context);
     final HomeViewModel homeViewModel = BlocProvider.of<HomeViewModel>(context);
     return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 8),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Row(
-              children: [
-                ImageIcon(
-                  AssetImage(AssetsIcons.logo),
-                  color: Theme.of(context).primaryColor,
-                ),
-                const SizedBox(width: 10),
-                Text(
-                  AppConsts.appName,
-                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                    color: Theme.of(context).primaryColor,
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 8),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Row(
+                children: [
+                  ImageIcon(
+                    AssetImage(AssetsIcons.logo),
+                    color: Theme
+                        .of(context)
+                        .primaryColor,
                   ),
-                ),
-                Spacer(),
-                NotificationWidget()
-              ],
-            ),
-            const SizedBox(height: 20),
+                  const SizedBox(width: 10),
+                  Text(
+                    AppConsts.appName,
+                    style: Theme
+                        .of(context)
+                        .textTheme
+                        .headlineMedium
+                        ?.copyWith(
+                      color: Theme
+                          .of(context)
+                          .primaryColor,
+                    ),
+                  ),
+                  Spacer(),
+                  NotificationWidget()
+                ],
+              ),
+              const SizedBox(height: 20),
             widget.profileState.profileState.isLoading == true
-                ? Center(child: CircularProgressIndicator())
+                  ? Center(child: CircularProgressIndicator())
                 : widget.profileState.profileState.success != null
-                ? _buildProfileSection(
-                    context,
+                  ? _buildProfileSection(
+                context,
               widget.profileState.profileState.success!,
-                  )
+              )
                 : widget.profileState.profileState.error != null
                 ? Text(
                 getException(context, widget.profileState.profileState.error))
-                : Container(),
-            const SizedBox(height: 10),
-            ProfileItemsWidget(
-              data: AppLocale(context).my_orders,
-              leading: Icon(Icons.reorder_outlined),
-            ),
-            ProfileItemsWidget(
-              data: AppLocale(context).saved_addresses,
-              leading: Icon(Icons.location_on_outlined),
-              onTap: () =>
+                  : Container(),
+              const SizedBox(height: 10),
+              ProfileItemsWidget(
+                data: AppLocale(context).my_orders,
+                leading: Icon(Icons.reorder_outlined),
+              ),
+              ProfileItemsWidget(
+                data: AppLocale(context).saved_addresses,
+                leading: Icon(Icons.location_on_outlined),
+                onTap: () =>
                   widget.profileViewModel.doIntent(
                       NavigateToAddressScreenAction()),
 
-            ),
-            Divider(thickness: 1),
+              ),
+              Divider(thickness: 1),
             ChangeNotificationWidget(),
-            Divider(thickness: 1),
-            ProfileItemsWidget(
-              data: AppLocale(context).language,
-              leading: Icon(Icons.translate),
-              trailing: TextButton(
-                onPressed: () {
+              Divider(thickness: 1),
+              ProfileItemsWidget(
+                data: AppLocale(context).language,
+                leading: Icon(Icons.translate),
+                trailing: TextButton(
+                  onPressed: () {
                   widget.profileViewModel.doIntent(ChangeLanguageAction());
-                },
-                child: Text(
-                  startViewModel.language == 'en' ?
-                  AppLocale(context).english : AppLocale(context).arabic,
-                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                  },
+                  child: Text(
+                      startViewModel.language == 'en' ?
+                      AppLocale(context).english : AppLocale(context).arabic,
+                      style: Theme
+                          .of(context)
+                          .textTheme
+                          .titleSmall
+                          ?.copyWith(
                     color: AppColors.primaryColor,
                   )),
               ),
@@ -133,18 +146,26 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                       contentPadding: EdgeInsets.zero,
                     );
                   },).then((value) {
-                  homeViewModel.doIntent(GetTokenAction());
+                    homeViewModel.doIntent(GetTokenAction());
                   },);
-              },
-            ),
-            Spacer(),
-            Text(
-              AppConsts.appVersion,
-              style: Theme.of(
-                context,
-              ).textTheme.titleSmall?.copyWith(color: AppColors.grayColor),
-            ),
-          ],
+                },
+              ),
+
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Text(
+                  AppConsts.appVersion,
+                  style: Theme
+                      .of(
+                    context,
+                  )
+                      .textTheme
+                      .titleSmall
+                      ?.copyWith(color: AppColors.grayColor),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

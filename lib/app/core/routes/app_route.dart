@@ -17,6 +17,7 @@ abstract class Routes {
   static const String aboutApp=_Paths.aboutApp;
   static const String terms=_Paths.termsAndConditions;
   static const String checkOut=_Paths.checkOut;
+  static const String onlinePayment=_Paths.onlinePayment;
 }
 
 abstract class _Paths {
@@ -34,4 +35,5 @@ abstract class _Paths {
   static const String aboutApp='about_app';
   static const String termsAndConditions = 'terms_and_conditions';
   static const String checkOut='check_out';
+  static const String onlinePayment='online_payment';
 }

@@ -30,18 +30,17 @@ class StartViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  getNotification() {
+  void getNotification() {
     enableNotification = _getNotificationUseCase.invoke();
     notifyListeners();
+  }
   Future<void> requestNotification() async {
-
     await messaging.requestPermission(
       alert: true,
       badge: true,
       sound: true,
     );
     String? token = await FirebaseMessaging.instance.getToken();
-    print(token);
 
   }
   void initLanguage() {

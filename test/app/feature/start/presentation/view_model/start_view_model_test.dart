@@ -1,26 +1,34 @@
 import 'package:flower_app/app/config/base_error/custom_exceptions.dart';
+import 'package:flower_app/app/config/base_response/base_response.dart';
+import 'package:flower_app/app/config/local_storage_processes/domain/use_case/get_notification_use_case.dart';
+import 'package:flower_app/app/config/local_storage_processes/domain/use_case/set_notification_use_case.dart';
+import 'package:flower_app/app/feature/start/domain/use_case/add_language_use_case.dart';
+import 'package:flower_app/app/feature/start/domain/use_case/get_saved_language_use_case.dart';
+import 'package:flower_app/app/feature/start/presentation/view_model/start_view_model.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:flutter/widgets.dart';
-
-import 'package:flower_app/app/config/base_response/base_response.dart';
-import 'package:flower_app/app/feature/start/presentation/view_model/start_view_model.dart';
-import 'package:flower_app/app/feature/start/domain/use_case/add_language_use_case.dart';
-import 'package:flower_app/app/feature/start/domain/use_case/get_saved_language_use_case.dart';
 
 import 'start_view_model_test.mocks.dart';
 
-@GenerateMocks([GetSavedLanguageUseCase, AddLanguageUseCase])
+@GenerateMocks([GetSavedLanguageUseCase, AddLanguageUseCase,
+  SetNotificationUseCase, GetNotificationUseCase
+])
 void main() {
   late GetSavedLanguageUseCase mockGetSavedLanguage;
   late AddLanguageUseCase mockAddLanguage;
+  late SetNotificationUseCase mockSetNotification;
+  late GetNotificationUseCase mockGetNotification;
   late StartViewModel viewModel;
 
   setUp(() {
     mockGetSavedLanguage = MockGetSavedLanguageUseCase();
     mockAddLanguage = MockAddLanguageUseCase();
-    viewModel = StartViewModel(mockGetSavedLanguage, mockAddLanguage);
+    mockSetNotification = MockSetNotificationUseCase();
+    mockGetNotification = MockGetNotificationUseCase();
+    viewModel = StartViewModel(mockGetSavedLanguage, mockAddLanguage,
+        mockSetNotification, mockGetNotification);
   });
 
   // ---------------- initLanguage ----------------

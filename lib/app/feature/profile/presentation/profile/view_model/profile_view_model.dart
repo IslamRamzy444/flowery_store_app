@@ -15,7 +15,7 @@ class ProfileViewModel extends CustomCubit<ProfileEvent, ProfileState> {
   final GetUserDataUseCase _getUserDataUseCase;
   final LogoutUserUseCase _logoutUserUseCase;
 
-  ProfileViewModel(this._getUserDataUseCase, this._logoutUserUseCase)
+  ProfileViewModel(this._getUserDataUseCase, this._logoutUserUseCase,)
     : super(ProfileState(profileState: BaseState()));
 
   Future<void> _getUserData() async {

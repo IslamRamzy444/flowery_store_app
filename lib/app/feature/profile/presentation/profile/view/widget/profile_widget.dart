@@ -18,9 +18,8 @@ import '../../../../../../core/utils/helper_function.dart';
 import '../../../../../start/presentation/view_model/start_view_model.dart';
 import '../../view_model/profile_state.dart';
 import '../../view_model/profile_view_model.dart';
-import 'logout_widget.dart';
-import '../notification_controller.dart';
 import 'change_notification_widget.dart';
+import 'logout_widget.dart';
 
 
 class ProfileWidget extends StatefulWidget {
@@ -38,13 +37,7 @@ class ProfileWidget extends StatefulWidget {
 }
 
 class _ProfileWidgetState extends State<ProfileWidget> {
-  final NotificationController notificationController = NotificationController();
 
-  @override
-  void dispose() {
-    super.dispose();
-    notificationController.dispose();
-  }
   @override
   Widget build(BuildContext context) {
     StartViewModel startViewModel = Provider.of<StartViewModel>(context);
@@ -98,8 +91,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
 
             ),
             Divider(thickness: 1),
-            ChangeNotificationWidget(
-              notificationController: notificationController,),
+            ChangeNotificationWidget(),
             Divider(thickness: 1),
             ProfileItemsWidget(
               data: AppLocale(context).language,

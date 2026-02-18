@@ -39,7 +39,7 @@ class StorageLocalDataSourceImpl extends StorageDataSourceContract {
 
   @override
   Future<BaseResponse<bool>> clearToken() => executeApi(() async {
-    await _storage.deleteAll();
+    await _storage.delete(key: AppConsts.tokenKey);
     return true;
   });
 
@@ -48,4 +48,34 @@ class StorageLocalDataSourceImpl extends StorageDataSourceContract {
     await _sharedPreferences.remove(AppConsts.rememberMeKey);
     return true;
   });
+
+  @override
+  Future<BaseResponse<bool>> addDeviceToken(String deviceToken) =>
+      executeApi(() async {
+        await _storage.write(key: AppConsts.deviceTokenKey, value: deviceToken);
+        return true;
+      });
+
+  @override
+  Future<BaseResponse<bool>> clearDeviceToken() => executeApi(() async {
+    await _storage.delete(key: AppConsts.deviceTokenKey);
+    return true;
+  });
+
+  @override
+  Future<String?> getDeviceToken() async {
+    final token = await _storage.read(key: AppConsts.deviceTokenKey);
+    return token;
+  }
+
+  @override
+  Future<BaseResponse<bool>> setNotification(bool enable) => executeApi(
+    () => _sharedPreferences.setBool(AppConsts.notificationKey, enable),
+  );
+
+  @override
+  bool? getNotification() {
+    final result = _sharedPreferences.getBool(AppConsts.notificationKey);
+    return result;
+  }
 }

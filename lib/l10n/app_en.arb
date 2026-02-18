@@ -173,5 +173,9 @@
   "subtotal": "Sub Total",
   "delivery_fee": "Delivery Fee",
   "place_order": "Place order",
-  "online_payment_window": "Online payment window"
+  "online_payment_window": "Online payment window",
+  "enableNotification":"Enable Notification",
+  "notificationMessage":"We use notifications to keep you informed about important updates.Would you like to enable notifications?",
+  "notNow":"not now",
+  "allow":"allow"
 }

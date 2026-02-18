@@ -25,4 +25,29 @@ class TokenRepoImpl extends TokenRepoContract {
   Future<String?> getToken() {
     return _contract.getToken();
   }
+
+  @override
+  Future<String?> getDeviceToken() {
+    return _contract.getDeviceToken();
+  }
+
+  @override
+  Future<BaseResponse<bool>> clearDeviceToken() {
+    return _contract.clearDeviceToken();
+  }
+
+  @override
+  Future<BaseResponse<bool>> addDeviceToken(String deviceToken) {
+    return _contract.addDeviceToken(deviceToken);
+  }
+
+  @override
+  Future<BaseResponse<bool>> setNotification(bool enable) {
+    return _contract.setNotification(enable);
+  }
+
+  @override
+  bool? getNotification() {
+    return _contract.getNotification();
+  }
 }

@@ -381,4 +381,80 @@ void main() {
       },
     );
   });
+  group('get sorted products  intent', () {
+    blocTest(
+      'when calling dointent with get sorted products  with success in get products intent it should emit correct state',
+      setUp: () {
+        provideDummy<BaseResponse<ProductsEntity>>(
+          SuccessResponse(data: productsEntity),
+        );
+
+        when(getProductsCategoryUseCase.invoke(queryProductRequest)).thenAnswer(
+              (realInvocation) {
+            return Future.value(SuccessResponse(data: productsEntity));
+          },
+        );
+      },
+      build: () => categoriesViewModel,
+      act: (bloc) {
+        categoriesViewModel.doIntent(GetSortedProducts(sort: Sort.priceAsc,
+            index: 1));
+      },
+      expect: () {
+        var state = categoriesViewModel.baseState;
+        return [
+          state.copyWith(categoriesState: CategoryBaseState(index: 0)),
+          state.copyWith(
+            productsCategoryState: BaseState(isLoading: true),
+            clearSuccess: true,
+            clearError: true,
+          ),
+          state.copyWith(
+            productsCategoryState: BaseState(
+              isLoading: false,
+              success: productsEntity,
+            ),
+            clearError: true,
+          ),
+        ];
+      },
+    );
+    blocTest(
+      'when calling dointent with get sorted products with error in get products intent it should emit correct state',
+      setUp: () {
+        provideDummy<BaseResponse<ProductsEntity>>(
+          ErrorResponse(error: UnexpectedError()),
+        );
+
+        when(getProductsCategoryUseCase.invoke(queryProductRequest)).thenAnswer(
+              (realInvocation) {
+            return Future.value(ErrorResponse(error: UnexpectedError()));
+          },
+        );
+      },
+      build: () => categoriesViewModel,
+      act: (bloc) {
+        categoriesViewModel.doIntent(GetSortedProducts(sort: Sort.priceAsc,
+            index: 1));
+      },
+      expect: () {
+        var state = categoriesViewModel.baseState;
+        return [
+          state.copyWith(categoriesState: CategoryBaseState(index: 0)),
+          state.copyWith(
+            productsCategoryState: BaseState(isLoading: true),
+            clearSuccess: true,
+            clearError: true,
+          ),
+          state.copyWith(
+            productsCategoryState: BaseState(
+              isLoading: false,
+              error: UnexpectedError(),
+            ),
+            clearSuccess: true,
+          ),
+        ];
+      },
+    );
+  });
 }

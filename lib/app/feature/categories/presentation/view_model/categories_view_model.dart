@@ -59,17 +59,18 @@ class CategoriesViewModel
     }
   }
 
-  void _getCategory(int index) {
+  void _getCategory(int index, {Sort? sort}) {
     baseState = state.copyWith(
       categoriesState: CategoryBaseState(index: index),
     );
     emit(baseState);
     _getProductsCategory(
-      '${state.categoriesState.success?.categoriesEntity?[index].id}',
+        '${state.categoriesState.success?.categoriesEntity?[index].id}',
+        sort: sort
     );
   }
 
-  Future<void> _getProductsCategory(String categoryId) async {
+  Future<void> _getProductsCategory(String categoryId, {Sort? sort}) async {
     emit(
       state.copyWith(
         productsCategoryState: BaseState(isLoading: true),
@@ -78,7 +79,7 @@ class CategoriesViewModel
       ),
     );
     final response = await _productsCategoryUseCase.invoke(
-      QueryProductRequest(category: categoryId),
+      QueryProductRequest(category: categoryId, sort: sort),
     );
     switch (response) {
       case SuccessResponse<ProductsEntity>():
@@ -119,6 +120,12 @@ class CategoriesViewModel
         break;
       case GetProductsCategoryIntent():
         _getProductsCategory(intent.categoryId);
+        break;
+      case GetSortedProducts():
+        _getCategory(intent.index, sort: intent.sort);
+        break;
+      case ShowSortBottomSheet():
+        streamController.add(ShowSortBottomSheetEvent());
         break;
     }
   }

@@ -167,5 +167,12 @@
   "occasions_title": "تزهر معنا مع أفضل منتجاتنا المميزة",
   "categoriesTitle": "الفئات",
   "change_language":"تغيير اللغة",
-  "addedToCart":"تم اضافة المنتج الى السلة"
+  "addedToCart":"تم اضافة المنتج الى السلة",
+   "sortBy":"رتب بواسطة",
+      "lowestPrice":"الاقل سعرا",
+      "highestPrice":"الاعلى سعرا",
+      "newArrival":"جديد",
+      "old":"قديم",
+      "discount":"خصم",
+      "filter":"فلتر"
   }

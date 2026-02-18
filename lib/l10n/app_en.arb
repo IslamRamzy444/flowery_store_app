@@ -167,5 +167,12 @@
   "occasions_title": "Bloom with our exquisite best sellers",
   "categoriesTitle": "Categories Title",
   "change_language":"change language",
-  "addedToCart":"product added to cart"
+  "addedToCart":"product added to cart",
+  "sortBy":"sort by",
+    "lowestPrice":"lowest price",
+    "highestPrice":"highest price",
+    "newArrival":"new",
+    "old":"old",
+    "discount":"discount",
+      "filter":"filter"
 }

@@ -14,7 +14,6 @@ class StartViewModel extends ChangeNotifier {
   final SetNotificationUseCase _notificationUseCase;
   final GetNotificationUseCase _getNotificationUseCase;
   bool? enableNotification;
-  FirebaseMessaging messaging = FirebaseMessaging.instance;
 
   StartViewModel(
     this._getSavedLanguageUseCase,
@@ -24,6 +23,7 @@ class StartViewModel extends ChangeNotifier {
   );
 
   void setNotification(bool enable) {
+    FirebaseMessaging messaging = FirebaseMessaging.instance;
     enableNotification = enable;
     _notificationUseCase.invoke(enable);
     messaging.setAutoInitEnabled(enable);
@@ -35,6 +35,7 @@ class StartViewModel extends ChangeNotifier {
     notifyListeners();
   }
   Future<void> requestNotification() async {
+    FirebaseMessaging messaging = FirebaseMessaging.instance;
     await messaging.requestPermission(
       alert: true,
       badge: true,

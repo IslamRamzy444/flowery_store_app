@@ -33,7 +33,8 @@ void main() {
 
   // ---------------- initLanguage ----------------
 
-  test('initLanguage uses saved language when exists', () {
+  test('initLanguage uses saved language when exists', () async {
+
     // arrange
     when(mockGetSavedLanguage.invoke()).thenReturn('ar');
 

@@ -22,12 +22,19 @@ class StartViewModel extends ChangeNotifier {
     this._getNotificationUseCase,
   );
 
-  void setNotification(bool enable) {
+  Future<void> setNotification(bool enable) async {
     FirebaseMessaging messaging = FirebaseMessaging.instance;
     enableNotification = enable;
-    _notificationUseCase.invoke(enable);
-    messaging.setAutoInitEnabled(enable);
-    notifyListeners();
+    try {
+      await _notificationUseCase.invoke(enable);
+      await messaging.setAutoInitEnabled(enable);
+    } catch (e, stackTrace) {
+      debugPrint('Failed to update notification setting: $e');
+      debugPrint('$stackTrace');
+      rethrow;
+    } finally {
+      notifyListeners();
+    }
   }
 
   void getNotification() {
@@ -41,7 +48,6 @@ class StartViewModel extends ChangeNotifier {
       badge: true,
       sound: true,
     );
-    String? token = await FirebaseMessaging.instance.getToken();
 
   }
   void initLanguage() {

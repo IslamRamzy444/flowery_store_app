@@ -1,3 +1,4 @@
+import 'package:flower_app/app/core/utils/app_locale.dart';
 import 'package:flower_app/main.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -19,8 +20,43 @@ class _StartScreenState extends State<StartScreen> {
   void initState() {
     super.initState();
     startViewModel.getNotification();
-    startViewModel.requestNotification();
     startViewModel.initLanguage();
+
+    // Show a dialog explaining why notification permission is needed
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _showNotificationPermissionDialog(context);
+    });
+  }
+
+  Future<void> _showNotificationPermissionDialog(BuildContext context) async {
+    final bool? allowNotifications = await showDialog<bool>(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext dialogContext) {
+        return AlertDialog(
+          title: Text(AppLocale(context).enableNotification),
+          content: Text(AppLocale(context).notificationMessage),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(dialogContext).pop(false);
+              },
+              child: Text(AppLocale(context).notNow),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.of(dialogContext).pop(true);
+              },
+              child: Text(AppLocale(context).allow),
+            ),
+          ],
+        );
+      },
+    );
+
+    if (allowNotifications == true) {
+      startViewModel.requestNotification();
+    }
   }
 
   @override

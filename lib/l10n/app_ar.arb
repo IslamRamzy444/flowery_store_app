@@ -173,5 +173,9 @@
   "subtotal": "المجموع الفرعي",
   "delivery_fee": "رسوم التوصيل",
   "place_order": "تأكيد الطلب",
-  "online_payment_window": "شاشة الدفع الإلكتروني"
+  "online_payment_window": "شاشة الدفع الإلكتروني",
+  "enableNotification":"تفعيل الاشعارات",
+    "notificationMessage":"نستخدم الإشعارات لإبقائك على اطلاع بأهم التحديثات.هل ترغب في تفعيل الإشعارات؟",
+    "notNow":"ليس الان",
+    "allow":"سماح"
 }

@@ -1141,6 +1141,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Online payment window'**
   String get online_payment_window;
+
+  /// No description provided for @enableNotification.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable Notification'**
+  String get enableNotification;
+
+  /// No description provided for @notificationMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'We use notifications to keep you informed about important updates.Would you like to enable notifications?'**
+  String get notificationMessage;
+
+  /// No description provided for @notNow.
+  ///
+  /// In en, this message translates to:
+  /// **'not now'**
+  String get notNow;
+
+  /// No description provided for @allow.
+  ///
+  /// In en, this message translates to:
+  /// **'allow'**
+  String get allow;
+
+  /// No description provided for @search_empty_state.
+  ///
+  /// In en, this message translates to:
+  /// **'Search For Any Product You Want'**
+  String get search_empty_state;
+
+  /// No description provided for @no_products_found.
+  ///
+  /// In en, this message translates to:
+  /// **'No products found'**
+  String get no_products_found;
+
+  /// No description provided for @try_different_keywords.
+  ///
+  /// In en, this message translates to:
+  /// **'Try searching with different keywords'**
+  String get try_different_keywords;
+
+  /// No description provided for @products_found.
+  ///
+  /// In en, this message translates to:
+  /// **'products found'**
+  String get products_found;
 }
 
 class _AppLocalizationsDelegate

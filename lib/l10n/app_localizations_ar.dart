@@ -540,4 +540,29 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get online_payment_window => 'شاشة الدفع الإلكتروني';
+
+  @override
+  String get enableNotification => 'تفعيل الاشعارات';
+
+  @override
+  String get notificationMessage =>
+      'نستخدم الإشعارات لإبقائك على اطلاع بأهم التحديثات.هل ترغب في تفعيل الإشعارات؟';
+
+  @override
+  String get notNow => 'ليس الان';
+
+  @override
+  String get allow => 'سماح';
+
+  @override
+  String get search_empty_state => 'ابحث عن أي منتج تريده';
+
+  @override
+  String get no_products_found => 'لم يتم العثور على منتجات';
+
+  @override
+  String get try_different_keywords => 'حاول البحث بكلمات مفتاحية مختلفة';
+
+  @override
+  String get products_found => 'منتج';
 }

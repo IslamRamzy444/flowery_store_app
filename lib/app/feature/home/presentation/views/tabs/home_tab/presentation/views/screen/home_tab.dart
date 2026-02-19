@@ -16,6 +16,7 @@ import 'package:flower_app/app/feature/home/presentation/views/tabs/home_tab/pre
 import 'package:flower_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../../../view_model/home_intent.dart';
@@ -28,111 +29,163 @@ class HomeTab extends StatefulWidget {
 }
 
 class _HomeTabState extends State<HomeTab> {
-  HomeTabViewModel viewModel=getIt<HomeTabViewModel>();
+  HomeTabViewModel viewModel = getIt<HomeTabViewModel>();
+
   @override
   Widget build(BuildContext context) {
-    var width=MediaQuery.sizeOf(context).width;
-    var height=MediaQuery.sizeOf(context).height;
     return SafeArea(
       child: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 0.04*width),
+          padding: EdgeInsets.symmetric(horizontal: 16.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              SizedBox(height: 0.01*height,),
+              SizedBox(height: 8.h),
               Row(
                 children: [
                   Image.asset(AssetsImage.flower),
                   Expanded(
-                    child: Text(AppLocalizations.of(context)!.flowery,style: GoogleFonts.imFellEnglish(
-                      fontSize: FontSize.s20,color: AppColors.primaryColor
-                    ),),
+                    child: Text(
+                      AppLocalizations.of(context)!.flowery,
+                      style: GoogleFonts.imFellEnglish(
+                        fontSize: FontSize.s20,
+                        color: AppColors.primaryColor,
+                      ),
+                    ),
                   ),
                   Expanded(
                     flex: 2,
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.search,color: AppColors.lightGrayColor,),
-                        hintText: AppLocalizations.of(context)!.search
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, Routes.search);
+                      },
+                      borderRadius: BorderRadius.circular(8.r),
+                      child: Container(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 12.w,
+                          vertical: 12.h,
+                        ),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: AppColors.grayColor.withValues(alpha: 0.3),
+                          ),
+                          borderRadius: BorderRadius.circular(8.r),
+                        ),
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.search,
+                              color: AppColors.lightGrayColor,
+                              size: 20.sp,
+                            ),
+                            SizedBox(width: 8.w),
+                            Text(
+                              AppLocalizations.of(context)!.search,
+                              style: Theme.of(context).textTheme.bodyMedium
+                                  ?.copyWith(color: AppColors.lightGrayColor),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
-              SizedBox(height: 0.02*height,),
+              SizedBox(height: 16.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.location_on_outlined),
-                  Expanded(child: Text(AppLocalizations.of(context)!.deliveryLocation,style: Theme.of(context).textTheme.bodyMedium,)),
+                  const Icon(Icons.location_on_outlined),
+                  Expanded(
+                    child: Text(
+                      AppLocalizations.of(context)!.deliveryLocation,
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
+                  ),
                   IconButton(
-                    onPressed: (){}, 
-                    icon: ImageIcon(AssetImage(AssetsIcons.dropIcon),color: AppColors.primaryColor,)
-                  )
+                    onPressed: () {},
+                    icon: ImageIcon(
+                      const AssetImage(AssetsIcons.dropIcon),
+                      color: AppColors.primaryColor,
+                    ),
+                  ),
                 ],
               ),
-              SizedBox(height: 0.02*height,),
+              SizedBox(height: 16.h),
               BlocProvider<HomeTabViewModel>(
-                create: (context) => viewModel..doIntent(GetHomeTabDetailsEvent()),
-                child: BlocBuilder<HomeTabViewModel,HomeTabStates>(
+                create: (context) =>
+                    viewModel..doIntent(GetHomeTabDetailsEvent()),
+                child: BlocBuilder<HomeTabViewModel, HomeTabStates>(
                   builder: (context, state) {
-                    final homeTabState=state.getHomeTabDetailsState;
-                    if(homeTabState?.isLoading==false && homeTabState?.error!=null){
+                    final homeTabState = state.getHomeTabDetailsState;
+                    if (homeTabState?.isLoading == false &&
+                        homeTabState?.error != null) {
                       return Center(
-                        child: Text(getException(context, homeTabState!.error!),style: Theme.of(context).textTheme.bodyMedium,),
+                        child: Text(
+                          getException(context, homeTabState!.error!),
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
                       );
-                    }else if(homeTabState?.isLoading==false && homeTabState?.success==null){
+                    } else if (homeTabState?.isLoading == false &&
+                        homeTabState?.success == null) {
                       return Center(
-                        child: Text(AppLocalizations.of(context)!.empty_data,style: Theme.of(context).textTheme.bodyMedium,),
+                        child: Text(
+                          AppLocalizations.of(context)!.empty_data,
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
                       );
-                    }else if(homeTabState?.isLoading==false && homeTabState?.success!=null){
+                    } else if (homeTabState?.isLoading == false &&
+                        homeTabState?.success != null) {
                       return Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           HeaderWidget(
-                            name: AppLocalizations.of(context)!.categories, 
+                            name: AppLocalizations.of(context)!.categories,
                             onTap: () {
                               context.read<HomeViewModel>().doIntent(
-                                  ChangeCurrentTabAction(AppTab.categories));
-                              //switchTab(AppTab.categories);
+                                ChangeCurrentTabAction(AppTab.categories),
+                              );
                             },
                           ),
-                          SizedBox(
-                            height: 0.02*height,
+                          SizedBox(height: 16.h),
+                          CategoriesWidget(
+                            categoryModels: homeTabState!.success!.categories!,
                           ),
-                          CategoriesWidget(categoryModels: homeTabState!.success!.categories!),
-                          SizedBox(height: 0.03*height,),
+                          SizedBox(height: 24.h),
                           HeaderWidget(
-                            name: AppLocalizations.of(context)!.bestSeller, 
+                            name: AppLocalizations.of(context)!.bestSeller,
                             onTap: () {
                               Navigator.pushNamed(context, Routes.bestSeller);
                             },
                           ),
-                          SizedBox(
-                            height: 0.02*height,
+                          SizedBox(height: 16.h),
+                          BestSellerWidget(
+                            bestSellers: homeTabState.success!.bestSellers!,
                           ),
-                          BestSellerWidget(bestSellers: homeTabState.success!.bestSellers!),
-                          SizedBox(height: 0.03*height,),
+                          SizedBox(height: 24.h),
                           HeaderWidget(
-                            name: AppLocalizations.of(context)!.occasion, 
+                            name: AppLocalizations.of(context)!.occasion,
                             onTap: () {
                               Navigator.pushNamed(context, Routes.occasion);
                             },
                           ),
-                          SizedBox(
-                            height: 0.02*height,
+                          SizedBox(height: 16.h),
+                          OccasionWidget(
+                            occasions: homeTabState.success!.occasions!,
                           ),
-                          OccasionWidget(occasions: homeTabState.success!.occasions!),
-                          SizedBox(height: 0.01*height,)
+                          SizedBox(height: 8.h),
                         ],
                       );
-                    }else{
-                      return Center(child:CircularProgressIndicator(color: AppColors.primaryColor,) ,);
+                    } else {
+                      return Center(
+                        child: CircularProgressIndicator(
+                          color: AppColors.primaryColor,
+                        ),
+                      );
                     }
                   },
                 ),
-              )
+              ),
             ],
           ),
         ),

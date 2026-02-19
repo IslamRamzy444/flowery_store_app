@@ -13,15 +13,6 @@ class TokenInterceptor extends Interceptor {
   ) async {
     final result = await secureStorageService.getToken();
     options.headers['Authorization'] = 'Bearer $result';
-
-    // if (token != null && token.isNotEmpty) {
-
-    // } else {
-    //   var token = TokenManager.token;
-    //   options.headers['Authorization'] = 'Bearer $token';
-    //   options.headers['token'] = token;
-    // }
-
     return handler.next(options);
   }
 }

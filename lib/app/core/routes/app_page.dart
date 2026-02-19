@@ -1,8 +1,7 @@
 import 'package:flower_app/app/core/routes/app_route.dart';
+import 'package:flower_app/app/feature/about_app/presentation/views/screen/about_app_screen.dart';
 import 'package:flower_app/app/feature/address/domain/model/user_address_entity.dart';
 import 'package:flower_app/app/feature/address_details/presentation/views/screens/address_details_screen.dart';
-import 'package:flower_app/app/feature/about_app/presentation/views/screen/about_app_screen.dart';
-import 'package:flower_app/app/feature/auth/presentation/views/screen/login/login_screen.dart';
 import 'package:flower_app/app/feature/best_seller/presentation/views/screen/best_seller_screen.dart';
 import 'package:flower_app/app/feature/check_out/presentation/views/screen/check_out_screen.dart';
 import 'package:flower_app/app/feature/check_out/presentation/views/screen/online_payment_web_view_screen.dart';
@@ -18,7 +17,9 @@ import 'package:flower_app/app/feature/signup/presentation/views/signup_screen.d
 import 'package:flower_app/app/feature/splash/presentation/views/splash_screen.dart';
 import 'package:flower_app/app/feature/terms_and_conditions/presentation/views/screen/terms_and_conditions_screen.dart';
 import 'package:flutter/material.dart';
+
 import '../../feature/address/presentation/view/address_screen.dart';
+import '../../feature/auth/presentation/views/screen/login/login_screen.dart';
 import '../../feature/forget_password/presentation/forget_password/view/forget_password_screen.dart';
 import '../../feature/forget_password/presentation/reset_password/view/reset_password_screen.dart';
 import '../../feature/forget_password/presentation/verify_otp/view/verify_otp_screen.dart';
@@ -62,6 +63,7 @@ class RouteGenerator {
         return MaterialPageRoute(
           builder: (_) => UpdateProfileWidget(user: userEntity),
         );
+
       case Routes.changePassword:
         return MaterialPageRoute(builder: (_) => const ChangePasswordScreen());
       case Routes.userAddress:
@@ -77,13 +79,13 @@ class RouteGenerator {
           builder: (_) => const CheckOutScreen(),
           settings: settings,
         );
+      case Routes.search:
+        return MaterialPageRoute(builder: (_) => const SearchScreen());
       case Routes.onlinePayment:
         return MaterialPageRoute(
           builder: (_) => const OnlinePaymentWebViewScreen(),
           settings: settings,
         );
-      case Routes.search:
-        return MaterialPageRoute(builder: (_) => const SearchScreen());
 
       default:
         return unDefinedRoute();
@@ -94,7 +96,7 @@ class RouteGenerator {
     return MaterialPageRoute(
       builder: (_) => Scaffold(
         appBar: AppBar(title: const Text('No Route Found')),
-        body: const Center(child: Text('No Route Found')),
+        body: Center(child: Text('No Route Found')),
       ),
     );
   }

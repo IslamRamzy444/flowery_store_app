@@ -16,4 +16,5 @@ abstract class AddressApiClient {
 
   @DELETE('${AppEndPoint.address}/{id}')
   Future<UserAddressResponse> deleteUserAddresses(@Path('id') String id);
+
 }

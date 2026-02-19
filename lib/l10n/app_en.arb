@@ -174,9 +174,12 @@
   "delivery_fee": "Delivery Fee",
   "place_order": "Place order",
   "online_payment_window": "Online payment window",
+  "enableNotification":"Enable Notification",
+  "notificationMessage":"We use notifications to keep you informed about important updates.Would you like to enable notifications?",
+  "notNow":"not now",
+  "allow":"allow",
   "search_empty_state": "Search For Any Product You Want",
   "no_products_found": "No products found",
   "try_different_keywords": "Try searching with different keywords",
-  "products_found": "products found",
-  "search": "Search"
+  "products_found": "products found"
 }

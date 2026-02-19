@@ -1142,6 +1142,30 @@ abstract class AppLocalizations {
   /// **'Online payment window'**
   String get online_payment_window;
 
+  /// No description provided for @enableNotification.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable Notification'**
+  String get enableNotification;
+
+  /// No description provided for @notificationMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'We use notifications to keep you informed about important updates.Would you like to enable notifications?'**
+  String get notificationMessage;
+
+  /// No description provided for @notNow.
+  ///
+  /// In en, this message translates to:
+  /// **'not now'**
+  String get notNow;
+
+  /// No description provided for @allow.
+  ///
+  /// In en, this message translates to:
+  /// **'allow'**
+  String get allow;
+
   /// No description provided for @search_empty_state.
   ///
   /// In en, this message translates to:

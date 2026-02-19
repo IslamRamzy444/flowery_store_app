@@ -542,6 +542,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get online_payment_window => 'Online payment window';
 
   @override
+  String get enableNotification => 'Enable Notification';
+
+  @override
+  String get notificationMessage =>
+      'We use notifications to keep you informed about important updates.Would you like to enable notifications?';
+
+  @override
+  String get notNow => 'not now';
+
+  @override
+  String get allow => 'allow';
+
+  @override
   String get search_empty_state => 'Search For Any Product You Want';
 
   @override

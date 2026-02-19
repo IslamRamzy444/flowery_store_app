@@ -174,9 +174,12 @@
   "delivery_fee": "رسوم التوصيل",
   "place_order": "تأكيد الطلب",
   "online_payment_window": "شاشة الدفع الإلكتروني",
-  "search_empty_state": "ابحث عن أي منتج تريده",
+  "enableNotification":"تفعيل الاشعارات",
+    "notificationMessage":"نستخدم الإشعارات لإبقائك على اطلاع بأهم التحديثات.هل ترغب في تفعيل الإشعارات؟",
+    "notNow":"ليس الان",
+    "allow":"سماح",
+    "search_empty_state": "ابحث عن أي منتج تريده",
   "no_products_found": "لم يتم العثور على منتجات",
   "try_different_keywords": "حاول البحث بكلمات مفتاحية مختلفة",
-  "products_found": "منتج تم العثور عليه",
-  "search": "بحث"
+  "products_found": "منتج"
 }

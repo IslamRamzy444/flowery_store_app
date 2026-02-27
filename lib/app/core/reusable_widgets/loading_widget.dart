@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../resources/app_colors.dart';
+import '../utils/app_locale.dart';
 
 class LoadingWidget extends StatelessWidget {
   const LoadingWidget({super.key});
@@ -17,7 +18,7 @@ class LoadingWidget extends StatelessWidget {
       ),
       width: 130,
       height: 150,
-      child: const Column(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           CircularProgressIndicator(
@@ -26,7 +27,7 @@ class LoadingWidget extends StatelessWidget {
           ),
           SizedBox(height: 16),
           Text(
-            'Loading...',
+            AppLocale(context).loading,
             style: TextStyle(
               color: AppColors.grayColor,
               fontSize: 14,

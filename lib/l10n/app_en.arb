@@ -166,7 +166,7 @@
   "occasions": "Occasions",
   "occasions_title": "Bloom with our exquisite best sellers",
   "categoriesTitle": "Categories Title",
-  "change_language":"change language",
+  "changeLanguage":"change language",
   "addedToCart":"product added to cart",
   "sortBy":"sort by",
     "lowestPrice":"lowest price",
@@ -174,5 +174,6 @@
     "newArrival":"new",
     "old":"old",
     "discount":"discount",
-      "filter":"filter"
+      "filter":"filter",
+      "noCategoriesAvailable":"No categories available"
 }

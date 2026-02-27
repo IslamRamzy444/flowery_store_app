@@ -7,6 +7,7 @@ import 'package:flower_app/app/feature/categories/presentation/view_model/catego
 import 'package:flutter/material.dart';
 
 import '../../../../../core/reusable_widgets/custom_error_widget.dart';
+import '../../../../../core/utils/app_locale.dart';
 import '../../../../product_details/presentation/views/widget/product_cart_item.dart';
 import '../../view_model/categories_state.dart';
 import 'categories_item_widget.dart';
@@ -33,12 +34,15 @@ class CategoriesBodyWidget extends StatelessWidget {
           state.categoriesState.isLoading == true
               ? LoadingWidget()
               : state.categoriesState.success != null
-              ? DefaultTabController(
+              ? state.categoriesState.success!.categoriesEntity!.isNotEmpty
+                    ? DefaultTabController(
                   initialIndex: state.categoriesState.index,
-                  length:
-                      state.categoriesState.success?.categoriesEntity?.length ??
-                      0,
-                  child: TabBar(
+                  length: state
+                            .categoriesState
+                            .success!
+                            .categoriesEntity!
+                            .length,
+                        child: TabBar(
                     onTap: (value) {
                       categoriesViewModel.doIntent(
                         GetCategoryIntent(index: value),
@@ -62,7 +66,15 @@ class CategoriesBodyWidget extends StatelessWidget {
                         )
                         .toList(),
                   ),
-                )
+                      )
+                    : Container(
+                        alignment: Alignment.centerLeft,
+                        height: 48,
+                        child: Text(
+                          AppLocale(context).noCategoriesAvailable,
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
+                      )
               : state.categoriesState.error != null
               ? CustomErrorWidget(
                   errorMessage: getException(

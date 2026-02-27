@@ -33,7 +33,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
             showModalBottomSheet(
               backgroundColor: AppColors.whiteColor,
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadiusGeometry.circular(10)
+                  borderRadius: BorderRadius.circular(10)
               ),
               showDragHandle: true,
               enableDrag: true,

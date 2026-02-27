@@ -46,12 +46,19 @@ class _ProductCartItemState extends State<ProductCartItem> {
       }
     },);
   }
+
+  @override
+  dispose() {
+    productViewModel.close();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     double originalPrice = widget.productEntity?.price ?? 0;
     double discountedPrice = widget.productEntity?.priceAfterDiscount ?? 0;
-    double discount = ((originalPrice - discountedPrice) / originalPrice) *
-        100;
+    double discount = originalPrice > 0 ? ((originalPrice - discountedPrice) /
+        originalPrice) *
+        100 : 0;
     return BlocConsumer<ProductDetailsViewModel, ProductDetailsStates>(
       bloc: productViewModel,
       listener: (context, state) {

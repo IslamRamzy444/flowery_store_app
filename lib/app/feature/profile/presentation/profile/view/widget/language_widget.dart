@@ -24,7 +24,7 @@ class _LanguageWidgetState extends State<LanguageWidget> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            AppLocale(context).change_language,
+            AppLocale(context).changeLanguage,
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
               color: AppColors.primaryColor,
               fontWeight: FontWeight.bold,

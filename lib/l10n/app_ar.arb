@@ -166,7 +166,7 @@
   "occasions": "مناسبات",
   "occasions_title": "تزهر معنا مع أفضل منتجاتنا المميزة",
   "categoriesTitle": "الفئات",
-  "change_language":"تغيير اللغة",
+  "changeLanguage":"تغيير اللغة",
   "addedToCart":"تم اضافة المنتج الى السلة",
    "sortBy":"رتب بواسطة",
       "lowestPrice":"الاقل سعرا",
@@ -174,5 +174,7 @@
       "newArrival":"جديد",
       "old":"قديم",
       "discount":"خصم",
-      "filter":"فلتر"
+      "filter":"فلتر",
+      "noCategoriesAvailable":"لا توجد فئات متاحة"
+
   }

@@ -24,11 +24,13 @@ class ProductDetailsViewModel
     switch (intent) {
       case GetProductDetailsAction():
         _getProductDetails(intent.productId);
+        break;
       case NavigateToProductDetailsAction():
         streamController.add(
             NavigateToProductDetailsEvent(productId: intent.productId ?? ''));
+        break;
       case AddProductToCartEvent():
-        _addProductToCart(intent.productId, 1);
+        _addProductToCart(intent.productId, intent.quantity);
         break;
     }
   }
@@ -39,8 +41,10 @@ class ProductDetailsViewModel
     switch(response){
       case SuccessResponse<ProductDetailsModel>():
         emit(state.copyWith(productDetailsStateParam: BaseState(isLoading: false,success: response.data)));
+        break;
       case ErrorResponse<ProductDetailsModel>():
         emit(state.copyWith(productDetailsStateParam: BaseState(isLoading: false,error: response.error)));
+        break;
     }
   }
 
@@ -53,9 +57,12 @@ class ProductDetailsViewModel
       case SuccessResponse<UpdateCartModel>():
         emit(state.copyWith(addProductToCartStateParam: BaseState(
             isLoading: false, success: response.data)));
+        break;
       case ErrorResponse<UpdateCartModel>():
         emit(state.copyWith(addProductToCartStateParam: BaseState(
             isLoading: false, error: response.error)));
+        break;
+
     }
   }
 }

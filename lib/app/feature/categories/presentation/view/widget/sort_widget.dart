@@ -48,7 +48,7 @@ class _SortWidgetState extends State<SortWidget> {
                 )
                 .toList(),
           ),
-          Spacer(),
+          const SizedBox(height: 10),
           ElevatedButton(
             onPressed: () {
               if (savedSort == widget.sortController.productSort) {

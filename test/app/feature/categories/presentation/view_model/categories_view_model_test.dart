@@ -35,7 +35,7 @@ void main() {
     );
     productsEntity =
         ProductsEntity(product: [ProductDetailsModel(title: "flower")]);
-    queryProductRequest = QueryProductRequest(category: '1');;
+    queryProductRequest = QueryProductRequest(category: '1');
     categories = CategoriesEntity(categoriesEntity: []);
   });
   setUp(() {

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flower_app/app/config/base_state/custom_cubit.dart';
 import 'package:flower_app/app/feature/categories/domain/use_case/get_all_categories_use_case.dart';
 import 'package:injectable/injectable.dart';
@@ -10,7 +12,6 @@ import '../../../product_details/domain/use_cases/get_products_category_use_case
 import 'categories_event.dart';
 import 'categories_intent.dart';
 import 'categories_state.dart';
-
 @injectable
 class CategoriesViewModel
     extends CustomCubit<CategoriesEvent, CategoriesState> {
@@ -59,13 +60,18 @@ class CategoriesViewModel
     }
   }
 
-  void _getCategory(int index, {Sort? sort}) {
-    baseState = state.copyWith(
-      categoriesState: CategoryBaseState(index: index),
-    );
-    emit(baseState);
+  void _getCategory({int? index, Sort? sort}) {
+    if (index != null) {
+      baseState = state.copyWith(
+        categoriesState: CategoryBaseState(index: index),
+      );
+      emit(baseState);
+    }
+    log('base state index: ${baseState.categoriesState.index}',
+        name: 'base_state_index');
     _getProductsCategory(
-        '${state.categoriesState.success?.categoriesEntity?[index].id}',
+        '${state.categoriesState.success?.categoriesEntity?[baseState
+            .categoriesState.index].id}',
         sort: sort
     );
   }
@@ -116,13 +122,13 @@ class CategoriesViewModel
         _getAllCategories();
         break;
       case GetCategoryIntent():
-        _getCategory((intent.index));
+        _getCategory(index: intent.index);
         break;
       case GetProductsCategoryIntent():
         _getProductsCategory(intent.categoryId);
         break;
       case GetSortedProducts():
-        _getCategory(intent.index, sort: intent.sort);
+        _getCategory(sort: intent.sort);
         break;
       case ShowSortBottomSheet():
         streamController.add(ShowSortBottomSheetEvent());

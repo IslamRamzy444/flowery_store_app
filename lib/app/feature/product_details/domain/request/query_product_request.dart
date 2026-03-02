@@ -13,7 +13,7 @@ class QueryProductRequest extends Equatable {
   }
 
   @override
-  List<Object?> get props => [category, occasion, sort];
+  List<Object?> get props => [];
 }
 enum Sort {
   priceAsc('price'),

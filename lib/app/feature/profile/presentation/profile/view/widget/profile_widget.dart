@@ -18,9 +18,10 @@ import '../../../../../../core/utils/helper_function.dart';
 import '../../../../../start/presentation/view_model/start_view_model.dart';
 import '../../view_model/profile_state.dart';
 import '../../view_model/profile_view_model.dart';
+import 'change_notification_widget.dart';
 import 'logout_widget.dart';
 
-class ProfileWidget extends StatelessWidget {
+class ProfileWidget extends StatefulWidget {
   const ProfileWidget({
     super.key,
     required this.profileViewModel,
@@ -29,6 +30,12 @@ class ProfileWidget extends StatelessWidget {
 
   final ProfileViewModel profileViewModel;
   final ProfileState profileState;
+
+  @override
+  State<ProfileWidget> createState() => _ProfileWidgetState();
+}
+
+class _ProfileWidgetState extends State<ProfileWidget> {
 
   @override
   Widget build(BuildContext context) {
@@ -67,15 +74,16 @@ class ProfileWidget extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 20),
-              profileState.profileState.isLoading == true
+            widget.profileState.profileState.isLoading == true
                   ? Center(child: CircularProgressIndicator())
-                  : profileState.profileState.success != null
+                : widget.profileState.profileState.success != null
                   ? _buildProfileSection(
                 context,
-                profileState.profileState.success!,
+              widget.profileState.profileState.success!,
               )
-                  : profileState.profileState.error != null
-                  ? Text(getException(context, profileState.profileState.error))
+                : widget.profileState.profileState.error != null
+                ? Text(
+                getException(context, widget.profileState.profileState.error))
                   : Container(),
               const SizedBox(height: 10),
               ProfileItemsWidget(
@@ -86,54 +94,48 @@ class ProfileWidget extends StatelessWidget {
                 data: AppLocale(context).saved_addresses,
                 leading: Icon(Icons.location_on_outlined),
                 onTap: () =>
-                    profileViewModel.doIntent(NavigateToAddressScreenAction()),
+                  widget.profileViewModel.doIntent(
+                      NavigateToAddressScreenAction()),
               ),
               Divider(thickness: 1),
-              ProfileItemsWidget(
-                data: AppLocale(context).notifications,
-                leading: Switch(
-                  value: true,
-                  onChanged: null,
-                  activeTrackColor: AppColors.primaryColor,
-                ),
-              ),
+            ChangeNotificationWidget(),
               Divider(thickness: 1),
               ProfileItemsWidget(
                 data: AppLocale(context).language,
                 leading: Icon(Icons.translate),
                 trailing: TextButton(
                   onPressed: () {
-                    profileViewModel.doIntent(ChangeLanguageAction());
+                  widget.profileViewModel.doIntent(ChangeLanguageAction());
                   },
                   child: Text(
                   startViewModel.language == 'en'
                       ? AppLocale(context).english
                       : AppLocale(context).arabic,
                   style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                        color: AppColors.primaryColor,
+                    color: AppColors.primaryColor,
                   ),
-                ),
               ),
+            ),
             ),
             ProfileItemsWidget(
               data: AppLocale(context).about_us,
               onTap: () {
-                Navigator.pushNamed(context, Routes.aboutApp);
+              Navigator.pushNamed(context, Routes.aboutApp);
               },
             ),
 
             ProfileItemsWidget(
               data: AppLocale(context).terms_and_conditions,
-                onTap: () {
-                  Navigator.pushNamed(context, Routes.terms);
-                },
-              ),
-              Divider(thickness: 1),
-              ProfileItemsWidget(
-                data: AppLocale(context).logout,
-                leading: Icon(Icons.logout),
-                trailing: Icon(Icons.logout),
-                onTap: () {
+              onTap: () {
+                Navigator.pushNamed(context, Routes.terms);
+              },
+            ),
+            Divider(thickness: 1),
+            ProfileItemsWidget(
+              data: AppLocale(context).logout,
+              leading: Icon(Icons.logout),
+              trailing: Icon(Icons.logout),
+              onTap: () {
                 showDialog(
                   context: context,
                   builder: (context) {
@@ -185,7 +187,7 @@ class ProfileWidget extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.edit),
               onPressed: () {
-                profileViewModel.doIntent(NavigateToEditProfileAction());
+                widget.profileViewModel.doIntent(NavigateToEditProfileAction());
               },
             ),
           ],

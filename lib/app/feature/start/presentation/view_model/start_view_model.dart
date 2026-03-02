@@ -1,6 +1,9 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flower_app/app/config/local_storage_processes/domain/use_case/set_notification_use_case.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../../config/local_storage_processes/domain/use_case/get_notification_use_case.dart';
 import '../../domain/use_case/add_language_use_case.dart';
 import '../../domain/use_case/get_saved_language_use_case.dart';
 
@@ -8,9 +11,45 @@ import '../../domain/use_case/get_saved_language_use_case.dart';
 class StartViewModel extends ChangeNotifier {
   final GetSavedLanguageUseCase _getSavedLanguageUseCase;
   final AddLanguageUseCase _addLanguageUseCase;
+  final SetNotificationUseCase _notificationUseCase;
+  final GetNotificationUseCase _getNotificationUseCase;
+  bool? enableNotification;
 
-  StartViewModel(this._getSavedLanguageUseCase, this._addLanguageUseCase);
+  StartViewModel(
+    this._getSavedLanguageUseCase,
+    this._addLanguageUseCase,
+    this._notificationUseCase,
+    this._getNotificationUseCase,
+  );
 
+  Future<void> setNotification(bool enable) async {
+    FirebaseMessaging messaging = FirebaseMessaging.instance;
+    enableNotification = enable;
+    try {
+      await _notificationUseCase.invoke(enable);
+      await messaging.setAutoInitEnabled(enable);
+    } catch (e, stackTrace) {
+      debugPrint('Failed to update notification setting: $e');
+      debugPrint('$stackTrace');
+      rethrow;
+    } finally {
+      notifyListeners();
+    }
+  }
+
+  void getNotification() {
+    enableNotification = _getNotificationUseCase.invoke();
+    notifyListeners();
+  }
+  Future<void> requestNotification() async {
+    FirebaseMessaging messaging = FirebaseMessaging.instance;
+    await messaging.requestPermission(
+      alert: true,
+      badge: true,
+      sound: true,
+    );
+
+  }
   void initLanguage() {
     String? savedLanguage = _getSavedLanguageUseCase.invoke();
     language = savedLanguage ?? _getSystemLanguageCode();

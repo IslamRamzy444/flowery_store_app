@@ -11,16 +11,17 @@ import 'package:flower_app/app/feature/forget_password/presentation/reset_passwo
 import 'package:flower_app/app/feature/forget_password/presentation/verify_otp/view/verify_otp_screen.dart';
 import 'package:flower_app/app/feature/home/presentation/views/screen/home_screen.dart';
 import 'package:flower_app/app/feature/occasion/presentation/views/screen/occasion_screen.dart';
+import 'package:flower_app/app/feature/product_details/presentation/view_model/product_details_args.dart';
 import 'package:flower_app/app/feature/product_details/presentation/views/screens/product_details_screen.dart';
 import 'package:flower_app/app/feature/profile/domain/model/user_entity.dart';
 import 'package:flower_app/app/feature/profile/presentation/reset_password/view/change_password_screen.dart';
 import 'package:flower_app/app/feature/profile/presentation/update_profile/view/update_profile_widget.dart';
+import 'package:flower_app/app/feature/search/presentation/views/screen/search_screen.dart';
 import 'package:flower_app/app/feature/signup/presentation/views/signup_screen.dart';
 import 'package:flower_app/app/feature/splash/presentation/views/splash_screen.dart';
 import 'package:flower_app/app/feature/terms_and_conditions/presentation/views/screen/terms_and_conditions_screen.dart';
 import 'package:flutter/material.dart';
-
-import '../../feature/auth/presentation/views/screen/login/login_Screen.dart';
+import '../../feature/auth/presentation/views/screen/login/login_screen.dart';
 
 class RouteGenerator {
   static Route<dynamic> getRoutes(RouteSettings settings) {
@@ -40,14 +41,20 @@ class RouteGenerator {
       case Routes.verifyOtp:
         final email = settings.arguments;
         if (email is String) {
-          return MaterialPageRoute(builder: (_) => VerifyOtpScreen(email));
+          return MaterialPageRoute(
+            builder: (_) => VerifyOtpScreen(email),
+            settings: settings,
+          );
         }
         return unDefinedRoute();
 
       case Routes.resetPassword:
         final email = settings.arguments;
         if (email is String) {
-          return MaterialPageRoute(builder: (_) => ResetPasswordScreen(email));
+          return MaterialPageRoute(
+            builder: (_) => ResetPasswordScreen(email),
+            settings: settings,
+          );
         }
         return unDefinedRoute();
 
@@ -61,14 +68,24 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const BestSellerScreen());
 
       case Routes.productDetails:
-        final args = settings.arguments as String;
-        return MaterialPageRoute(
-            builder: (_) => ProductDetailsScreen(productId: args));
+        final args = settings.arguments;
+        if (args is ProductDetailsArgs) {
+          return MaterialPageRoute(
+            builder: (_) =>
+                ProductDetailsScreen(productId: args.productId),
+            settings: settings,
+          );
+        }
+        return unDefinedRoute();
+
       case Routes.addressDetails:
         final args = settings.arguments;
         if (args is UserAddressEntity? || args == null) {
           return MaterialPageRoute(
-              builder: (_) => AddressDetailsScreen(userAddressEntity: args));
+            builder: (_) =>
+                AddressDetailsScreen(userAddressEntity: args),
+            settings: settings,
+          );
         }
         return unDefinedRoute();
 
@@ -79,7 +96,9 @@ class RouteGenerator {
         final userEntity = settings.arguments;
         if (userEntity is UserEntity) {
           return MaterialPageRoute(
-              builder: (_) => UpdateProfileWidget(user: userEntity));
+            builder: (_) => UpdateProfileWidget(user: userEntity),
+            settings: settings,
+          );
         }
         return unDefinedRoute();
 
@@ -91,13 +110,23 @@ class RouteGenerator {
 
       case Routes.terms:
         return MaterialPageRoute(
-            builder: (_) => const TermsAndConditionsScreen());
+          builder: (_) => const TermsAndConditionsScreen(),
+        );
 
       case Routes.checkOut:
-        return MaterialPageRoute(builder: (_) => const CheckOutScreen());
+        return MaterialPageRoute(
+          builder: (_) => const CheckOutScreen(),
+          settings: settings,
+        );
+
+      case Routes.search:
+        return MaterialPageRoute(builder: (_) => const SearchScreen());
 
       case Routes.onlinePayment:
-        return MaterialPageRoute(builder: (_) => const OnlinePaymentWebViewScreen());
+        return MaterialPageRoute(
+          builder: (_) => const OnlinePaymentWebViewScreen(),
+          settings: settings,
+        );
 
       default:
         return unDefinedRoute();

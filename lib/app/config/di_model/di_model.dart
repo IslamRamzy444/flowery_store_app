@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:flower_app/app/config/di_model/token_interceptors.dart';
-import 'package:flower_app/app/config/local_storage_processes/domain/use_case/read_and_write_tokin_usecase.dart';
 import 'package:flower_app/app/core/endpoint/app_endpoint.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -39,24 +38,10 @@ abstract class DiModel {
       BaseOptions baseOptions,
       PrettyDioLogger logger,
       TokenInterceptor tokenInterceptor,
-      ReadAndWriteTokinUsecase readAndWriteTokinUsecase
       ) {
     final Dio dio = Dio(BaseOptions(baseUrl: AppEndPoint.baseUrl));
     dio.interceptors.add(tokenInterceptor);
     dio.interceptors.add(logger);
-    
-    InterceptorsWrapper(
-      onRequest: (options, handler) async {
-        String? token = await readAndWriteTokinUsecase.invokeGetToken();
-        if (token != null && token.isNotEmpty) {
-        options.headers["Authorization"] = "Bearer $token";
-       }
-        return handler.next(options);
-      },
-    );
-  
-
-
     return dio;
   }
 

@@ -3,8 +3,9 @@ import 'package:flower_app/app/core/utils/app_locale.dart';
 import 'package:flutter/material.dart';
 
 class SearchWidget extends StatelessWidget {
-  const SearchWidget({super.key});
+  const SearchWidget({super.key, this.onTap});
 
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -15,6 +16,7 @@ class SearchWidget extends StatelessWidget {
           flex: 4,
           child: TextFormField(
             readOnly: true,
+            onTap: onTap,
             decoration: InputDecoration(
               hintText: AppLocale(context).search,
               hintStyle: Theme.of(

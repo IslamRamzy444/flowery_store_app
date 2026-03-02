@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../config/di/di.dart';
 import '../../../../core/resources/app_colors.dart';
+import '../../../../core/routes/app_route.dart';
 import '../../../../core/utils/app_locale.dart';
 import '../view_model/categories_event.dart';
 import '../view_model/categories_state.dart';
@@ -55,6 +56,12 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                   sort: sortController.productSort));
             },);
           }
+          break;
+        case NavigateToSearchScreenEvent():
+          if (mounted) {
+            Navigator.pushNamed(context, Routes.search);
+          }
+          break;
       }
     },);
   }

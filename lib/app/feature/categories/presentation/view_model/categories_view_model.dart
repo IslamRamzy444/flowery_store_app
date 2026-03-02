@@ -133,6 +133,9 @@ class CategoriesViewModel
       case ShowSortBottomSheet():
         streamController.add(ShowSortBottomSheetEvent());
         break;
+      case NavigateToSearchScreen():
+        streamController.add(NavigateToSearchScreenEvent());
+        break;
     }
   }
 }

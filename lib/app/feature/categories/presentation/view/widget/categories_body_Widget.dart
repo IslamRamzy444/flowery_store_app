@@ -29,7 +29,11 @@ class CategoriesBodyWidget extends StatelessWidget {
       child: Column(
         children: [
           const SizedBox(height: 8),
-          SearchWidget(),
+          SearchWidget(
+            onTap: () {
+              categoriesViewModel.doIntent(NavigateToSearchScreen());
+            },
+          ),
           const SizedBox(height: 18),
           state.categoriesState.isLoading == true
               ? LoadingWidget()

@@ -11,7 +11,6 @@ import 'package:flower_app/app/feature/forget_password/presentation/reset_passwo
 import 'package:flower_app/app/feature/forget_password/presentation/verify_otp/view/verify_otp_screen.dart';
 import 'package:flower_app/app/feature/home/presentation/views/screen/home_screen.dart';
 import 'package:flower_app/app/feature/occasion/presentation/views/screen/occasion_screen.dart';
-import 'package:flower_app/app/feature/product_details/presentation/view_model/product_details_args.dart';
 import 'package:flower_app/app/feature/product_details/presentation/views/screens/product_details_screen.dart';
 import 'package:flower_app/app/feature/profile/domain/model/user_entity.dart';
 import 'package:flower_app/app/feature/profile/presentation/reset_password/view/change_password_screen.dart';
@@ -21,6 +20,7 @@ import 'package:flower_app/app/feature/signup/presentation/views/signup_screen.d
 import 'package:flower_app/app/feature/splash/presentation/views/splash_screen.dart';
 import 'package:flower_app/app/feature/terms_and_conditions/presentation/views/screen/terms_and_conditions_screen.dart';
 import 'package:flutter/material.dart';
+
 import '../../feature/auth/presentation/views/screen/login/login_screen.dart';
 
 class RouteGenerator {
@@ -68,22 +68,17 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const BestSellerScreen());
 
       case Routes.productDetails:
-        final args = settings.arguments;
-        if (args is ProductDetailsArgs) {
-          return MaterialPageRoute(
-            builder: (_) =>
-                ProductDetailsScreen(productId: args.productId),
-            settings: settings,
-          );
-        }
-        return unDefinedRoute();
+        final args = settings.arguments as String?;
+        return MaterialPageRoute(
+          builder: (_) => ProductDetailsScreen(productId: args),
+          settings: settings,
+        );
 
       case Routes.addressDetails:
         final args = settings.arguments;
         if (args is UserAddressEntity? || args == null) {
           return MaterialPageRoute(
-            builder: (_) =>
-                AddressDetailsScreen(userAddressEntity: args),
+            builder: (_) => AddressDetailsScreen(userAddressEntity: args),
             settings: settings,
           );
         }

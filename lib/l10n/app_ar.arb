@@ -175,7 +175,7 @@
       "old":"قديم",
       "discount":"خصم",
       "filter":"فلتر",
-      "noCategoriesAvailable":"لا توجد فئات متاحة"
+      "noCategoriesAvailable":"لا توجد فئات متاحة",
 
   "online_payment_window": "شاشة الدفع الإلكتروني",
   "enableNotification":"تفعيل الاشعارات",

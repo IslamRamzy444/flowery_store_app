@@ -23,3 +23,5 @@ class GetSortedProducts extends CategoriesIntent {
 }
 
 class ShowSortBottomSheet extends CategoriesIntent {}
+
+class NavigateToSearchScreen extends CategoriesIntent {}

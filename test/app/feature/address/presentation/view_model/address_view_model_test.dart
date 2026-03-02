@@ -78,7 +78,8 @@ void main() {
         var state = AddressState(addressState: BaseState());
         return [
           state.copyWith(addressState: BaseState(isLoading: true)),
-          state.copyWith(addressState: BaseState(error: UnexpectedError())),
+          state.copyWith(addressState: BaseState(
+              isLoading: false, error: UnexpectedError())),
         ];
       },
     );
@@ -94,6 +95,9 @@ void main() {
           return Future.value(SuccessResponse(data: [userAddressEntity]));
     });
         when(deleteUserAddressUseCase.invoke('1')).thenAnswer((realInvocation) {
+          return Future.value(SuccessResponse(data: [userAddressEntity]));
+        });
+        when(getUserAddressesUseCase.invoke()).thenAnswer((realInvocation) {
           return Future.value(SuccessResponse(data: [userAddressEntity]));
         });
       },
@@ -134,8 +138,9 @@ void main() {
       expect: () {
         var state = AddressState(addressState: BaseState());
         return [
-          state.copyWith(addressState: BaseState(isLoading: true)),
-          state.copyWith(addressState: BaseState(error: UnexpectedError())),
+          // state.copyWith(addressState: BaseState(isLoading: true)),
+          state.copyWith(addressState: BaseState(
+              isLoading: false, error: UnexpectedError())),
         ];
       },
     );

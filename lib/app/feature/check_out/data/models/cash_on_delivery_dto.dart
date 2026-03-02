@@ -1,6 +1,7 @@
 import 'package:flower_app/app/feature/check_out/domain/models/cash_on_delivery_model.dart';
-import 'package:flower_app/app/feature/product_details/data/models/product_details_dto.dart';
 import 'package:json_annotation/json_annotation.dart';
+
+import '../../../product_details/data/models/product_details_dto.dart';
 
 part 'cash_on_delivery_dto.g.dart';
 
@@ -74,8 +75,8 @@ class Order {
 
 @JsonSerializable()
 class OrderItem {
-    @JsonKey(name: "product")
-    Product? product;
+  @JsonKey(name: "product_details")
+  Product? product;
     @JsonKey(name: "price")
     int? price;
     @JsonKey(name: "quantity")

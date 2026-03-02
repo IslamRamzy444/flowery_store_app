@@ -18,10 +18,11 @@ void main() {
     provideDummy<BaseResponse<ClearUserCartDto>>(SuccessResponse<ClearUserCartDto>(data: ClearUserCartDto()));
 
   },);
-  
 
-  group("Testing add product to cart function",(){
-  test("Testing add product to cart function with success response", ()async {
+
+  group("Testing add product_details to cart function", () {
+    test(
+      "Testing add product_details to cart function with success response", () async {
     when(cartRemoteDataSourceImpl.addProductToCart(productId: "dwqe21ewqdssqw",quantity: 2)).thenAnswer (
       (_)async{
         return SuccessResponse<UpdateCartResponse>(data: UpdateCartResponse(cart: CartDto(),message: "success",numOfCartItems: 2) );
@@ -34,10 +35,12 @@ void main() {
     expect((response ).data.numOfCartItems, equals(2));
   },);
 
-  test("Testing add product to cart function with error response", ()async {
+    test(
+      "Testing add product_details to cart function with error response", () async {
     when(cartRemoteDataSourceImpl.addProductToCart(productId: "dwqe21ewqdssqw",quantity: 2)).thenAnswer (
       (_)async{
-        return ErrorResponse<UpdateCartResponse>(error: Exception("Failed to add product to cart") );
+        return ErrorResponse<UpdateCartResponse>(
+            error: Exception("Failed to add product_details to cart"));
       }
     );
 
@@ -80,7 +83,8 @@ void main() {
   );
 
   group("Testing remove Specific Item from cart function", () {
-    test("Testing remove product from cart function with success response", ()async {
+    test(
+      "Testing remove product_details from cart function with success response", () async {
 
 
 
@@ -96,10 +100,12 @@ void main() {
       expect((response as SuccessResponse<UpdateCartResponse>).data.message, equals("success"));
     },);
 
-    test("Testing remove product from cart function with error response", () async{
+    test(
+      "Testing remove product_details from cart function with error response", () async {
       when(cartRemoteDataSourceImpl.removeSpecificItemFromCart(productId: "dwqe21ewqdssqw")).thenAnswer (
         (_)async{
-          return ErrorResponse<UpdateCartResponse>(error: Exception("Failed to remove product from cart") );
+          return ErrorResponse<UpdateCartResponse>(
+              error: Exception("Failed to remove product_details from cart"));
         }
       );
 

@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flower_app/app/core/resources/app_colors.dart';
 import 'package:flower_app/app/core/routes/app_route.dart';
-import 'package:flower_app/app/feature/product_details/presentation/view_model/product_details_args.dart';
 import 'package:flower_app/app/feature/search/domain/models/search_product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -40,7 +39,7 @@ class _ProductCard extends StatelessWidget {
         Navigator.pushNamed(
           context,
           Routes.productDetails,
-          arguments: ProductDetailsArgs(productId: product.id),
+            arguments: product.id
         );
       },
       child: Container(

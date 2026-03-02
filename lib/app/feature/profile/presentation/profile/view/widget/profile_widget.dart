@@ -21,7 +21,6 @@ import '../../view_model/profile_view_model.dart';
 import 'change_notification_widget.dart';
 import 'logout_widget.dart';
 
-
 class ProfileWidget extends StatefulWidget {
   const ProfileWidget({
     super.key,
@@ -71,7 +70,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     ),
                   ),
                   Spacer(),
-                  NotificationWidget()
+                NotificationWidget(),
                 ],
               ),
               const SizedBox(height: 20),
@@ -97,7 +96,6 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                 onTap: () =>
                   widget.profileViewModel.doIntent(
                       NavigateToAddressScreenAction()),
-
               ),
               Divider(thickness: 1),
             ChangeNotificationWidget(),
@@ -110,22 +108,24 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   widget.profileViewModel.doIntent(ChangeLanguageAction());
                   },
                   child: Text(
-                      startViewModel.language == 'en' ?
-                      AppLocale(context).english : AppLocale(context).arabic,
-                      style: Theme
-                          .of(context)
-                          .textTheme
-                          .titleSmall
-                          ?.copyWith(
+                  startViewModel.language == 'en'
+                      ? AppLocale(context).english
+                      : AppLocale(context).arabic,
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
                     color: AppColors.primaryColor,
-                  )),
+                  ),
               ),
             ),
-            ProfileItemsWidget(data: AppLocale(context).about_us,onTap: () {
+            ),
+            ProfileItemsWidget(
+              data: AppLocale(context).about_us,
+              onTap: () {
               Navigator.pushNamed(context, Routes.aboutApp);
-            },),
+              },
+            ),
 
-            ProfileItemsWidget(data: AppLocale(context).terms_and_conditions,
+            ProfileItemsWidget(
+              data: AppLocale(context).terms_and_conditions,
               onTap: () {
                 Navigator.pushNamed(context, Routes.terms);
               },
@@ -136,7 +136,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
               leading: Icon(Icons.logout),
               trailing: Icon(Icons.logout),
               onTap: () {
-                showDialog(context: context, builder: (context) {
+                showDialog(
+                  context: context,
+                  builder: (context) {
                     return AlertDialog(
                       backgroundColor: AppColors.whiteColor,
                       shape: RoundedRectangleBorder(
@@ -145,9 +147,10 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                       content: LogoutWidget(),
                       contentPadding: EdgeInsets.zero,
                     );
-                  },).then((value) {
+                  },
+                ).then((value) {
                     homeViewModel.doIntent(GetTokenAction());
-                  },);
+                });
                 },
               ),
 

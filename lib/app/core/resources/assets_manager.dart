@@ -9,10 +9,12 @@ abstract class AssetsImage {
 abstract class AssetsIcons {
   static const String logo = '$iconsPath/flower_logo.png';
   static const String dropIcon='$iconsPath/drop -down icon.png';
+  static const String homeIcon='$iconsPath/home-icon.png';
 }
 
 abstract class AssetsSvg {
   static const String logoSvg = '$svgPath/flower_logo.svg';
+  static const String homeSvg='$svgPath/home-icon.svg';
 }
 abstract class AssetsFiles{
   static const String aboutAppFile='$filesPath/Flowery About Section JSON with Expanded Content.json';

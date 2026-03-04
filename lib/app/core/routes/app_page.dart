@@ -6,6 +6,7 @@ import 'package:flower_app/app/feature/best_seller/presentation/views/screen/bes
 import 'package:flower_app/app/feature/check_out/presentation/views/screen/check_out_screen.dart';
 import 'package:flower_app/app/feature/check_out/presentation/views/screen/online_payment_web_view_screen.dart';
 import 'package:flower_app/app/feature/home/presentation/views/screen/home_screen.dart';
+import 'package:flower_app/app/feature/map_flowery_app/presentation/views/screens/map_flowery_app_screen.dart';
 import 'package:flower_app/app/feature/occasion/presentation/views/screen/occasion_screen.dart';
 import 'package:flower_app/app/feature/product_details/presentation/view_model/product_details_args.dart';
 import 'package:flower_app/app/feature/product_details/presentation/views/screens/product_details_screen.dart';
@@ -86,7 +87,11 @@ class RouteGenerator {
           builder: (_) => const OnlinePaymentWebViewScreen(),
           settings: settings,
         );
-
+      case Routes.mapFlowery:
+        return MaterialPageRoute(
+          builder: (_) => const MapFloweryAppScreen(),
+          settings: settings,
+        );
       default:
         return unDefinedRoute();
     }

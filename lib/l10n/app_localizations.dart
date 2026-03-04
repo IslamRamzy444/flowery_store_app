@@ -1189,6 +1189,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'products found'**
   String get products_found;
+
+  /// No description provided for @estimated_arrival.
+  ///
+  /// In en, this message translates to:
+  /// **'Estimated arrival'**
+  String get estimated_arrival;
+
+  /// No description provided for @your_driver_hero.
+  ///
+  /// In en, this message translates to:
+  /// **'Is your delivery hero for today'**
+  String get your_driver_hero;
+
+  /// No description provided for @order_details.
+  ///
+  /// In en, this message translates to:
+  /// **'Order details'**
+  String get order_details;
+
+  /// No description provided for @apartment.
+  ///
+  /// In en, this message translates to:
+  /// **'Apartment'**
+  String get apartment;
 }
 
 class _AppLocalizationsDelegate

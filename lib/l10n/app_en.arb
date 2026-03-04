@@ -181,5 +181,9 @@
   "search_empty_state": "Search For Any Product You Want",
   "no_products_found": "No products found",
   "try_different_keywords": "Try searching with different keywords",
-  "products_found": "products found"
+  "products_found": "products found",
+  "estimated_arrival":"Estimated arrival",
+  "your_driver_hero":"Is your delivery hero for today",
+  "order_details":"Order details",
+  "apartment":"Apartment"
 }

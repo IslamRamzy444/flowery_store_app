@@ -565,4 +565,16 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get products_found => 'منتج';
+
+  @override
+  String get estimated_arrival => 'الوصول المتوقع';
+
+  @override
+  String get your_driver_hero => 'هو بطل التوصيل الخاص بك اليوم';
+
+  @override
+  String get order_details => 'تفاصيل الطلب';
+
+  @override
+  String get apartment => 'شقة';
 }

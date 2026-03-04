@@ -239,7 +239,7 @@ class _AddressDetailsScreenState extends State<AddressDetailsScreen> {
         },
         listener: (context, state) {
           
-          if(state.addressDetailsState?.isLoading==true){
+      if(state.addressDetailsState?.isLoading==true){
         ShowDialogUtils.showLoading(context);
       }else if (state.addressDetailsState?.isLoading==false && state.addressDetailsState?.error!=null){
         ShowDialogUtils.hideLoading(context);

@@ -70,7 +70,8 @@ void main() {
       var state = ProfileState(profileState: BaseState());
       return [
         state.copyWith(profileState: BaseState(isLoading: true)),
-        state.copyWith(profileState: BaseState(error: UnexpectedError())),
+        state.copyWith(profileState: BaseState(
+            isLoading: false, error: UnexpectedError())),
       ];
     },
   );

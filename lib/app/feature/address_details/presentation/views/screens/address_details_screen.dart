@@ -42,11 +42,12 @@ class _AddressDetailsScreenState extends State<AddressDetailsScreen> {
 
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
-    if (widget.userAddressEntity != null) {
+    if (widget.userAddressEntity != null && widget.userAddressEntity?.lat != null && widget.userAddressEntity?.long != null) {
       viewmodel.doIntent(GetAddressFromCoordinatesEvent(
-        latitude: double.parse(widget.userAddressEntity!.lat!),
-        longitude: double.parse(widget.userAddressEntity!.long!)
+        latitude: double.tryParse(widget.userAddressEntity?.lat??"0.0")??0.0,
+        longitude: double.tryParse(widget.userAddressEntity?.long??"0.0")??0.0
       ));
+      viewmodel.area=widget.userAddressEntity?.city;
     }
     
     return Scaffold(
@@ -108,7 +109,7 @@ class _AddressDetailsScreenState extends State<AddressDetailsScreen> {
                         decoration: InputDecoration(
                           labelText: AppLocale(context).address,
                         ),
-                        initialValue: widget.userAddressEntity==null?null: viewmodel.address,
+                        initialValue: widget.userAddressEntity==null?viewmodel.address: null,
                         controller: viewmodel.addressController,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -194,12 +195,6 @@ class _AddressDetailsScreenState extends State<AddressDetailsScreen> {
                           onPressed: () {
                             if (formKey.currentState!.validate()) {
                               if(widget.userAddressEntity == null){
-                                print(viewmodel.address??"no address");
-                                print(viewmodel.phone??"no phone");
-                                print(viewmodel.area??"no area");
-                                print(viewmodel.latitude??"no latitude");
-                                print(viewmodel.longitude??"no longitude");
-                                print(viewmodel.recipientName??"no recipient name");
                                 viewmodel.doIntent(AddAddressEvent(
                                   street: viewmodel.address!,
                                   phone: viewmodel.phone!,

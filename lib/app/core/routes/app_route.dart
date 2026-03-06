@@ -18,6 +18,8 @@ abstract class Routes {
   static const String orders = _Paths.ordersScreen;
   static const String aboutApp = _Paths.aboutApp;
   static const String checkOut = _Paths.checkOut;
+  static const String search = _Paths.searchScreen;
+  static const String onlinePayment = _Paths.onlinePayment;
 }
 
 abstract class _Paths {
@@ -36,4 +38,6 @@ abstract class _Paths {
   static const String termsAndConditions = 'terms_and_conditions';
   static const String ordersScreen = 'Orders';
   static const String checkOut = 'check_out';
+  static const String searchScreen = 'Search';
+  static const String onlinePayment = 'online_payment';
 }

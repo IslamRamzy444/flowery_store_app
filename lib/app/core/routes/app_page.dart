@@ -6,17 +6,18 @@ import 'package:flower_app/app/feature/address_details/presentation/views/screen
 import 'package:flower_app/app/feature/auth/presentation/views/screen/login/login_Screen.dart';
 import 'package:flower_app/app/feature/best_seller/presentation/views/screen/best_seller_screen.dart';
 import 'package:flower_app/app/feature/check_out/presentation/views/screen/check_out_screen.dart';
+import 'package:flower_app/app/feature/check_out/presentation/views/screen/online_payment_web_view_screen.dart';
 import 'package:flower_app/app/feature/forget_password/presentation/forget_password/view/forget_password_screen.dart';
 import 'package:flower_app/app/feature/forget_password/presentation/reset_password/view/reset_password_screen.dart';
 import 'package:flower_app/app/feature/forget_password/presentation/verify_otp/view/verify_otp_screen.dart';
 import 'package:flower_app/app/feature/home/presentation/views/screen/home_screen.dart';
 import 'package:flower_app/app/feature/occasion/presentation/views/screen/occasion_screen.dart';
 import 'package:flower_app/app/feature/orders/presentation/views/screen/orders_screen.dart';
-import 'package:flower_app/app/feature/product_details/presentation/view_model/product_details_args.dart';
 import 'package:flower_app/app/feature/product_details/presentation/views/screens/product_details_screen.dart';
 import 'package:flower_app/app/feature/profile/domain/model/user_entity.dart';
 import 'package:flower_app/app/feature/profile/presentation/reset_password/view/change_password_screen.dart';
 import 'package:flower_app/app/feature/profile/presentation/update_profile/view/update_profile_widget.dart';
+import 'package:flower_app/app/feature/search/presentation/views/screen/search_screen.dart';
 import 'package:flower_app/app/feature/signup/presentation/views/signup_screen.dart';
 import 'package:flower_app/app/feature/splash/presentation/views/splash_screen.dart';
 import 'package:flower_app/app/feature/terms_and_conditions/presentation/views/screen/terms_and_conditions_screen.dart';
@@ -67,28 +68,34 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const BestSellerScreen());
 
       case Routes.productDetails:
-        final args = settings.arguments as ProductDetailsArgs;
+        final args = settings.arguments as String?;
         return MaterialPageRoute(
-          builder: (_) => ProductDetailsScreen(productId: args.productId),
+          builder: (_) => ProductDetailsScreen(productId: args),
           settings: settings,
         );
 
       case Routes.addressDetails:
-        final args = settings.arguments as UserAddressEntity?;
-        return MaterialPageRoute(
-          builder: (_) => AddressDetailsScreen(userAddressEntity: args),
-          settings: settings,
-        );
+        final args = settings.arguments;
+        if (args is UserAddressEntity? || args == null) {
+          return MaterialPageRoute(
+            builder: (_) => AddressDetailsScreen(userAddressEntity: args),
+            settings: settings,
+          );
+        }
+        return unDefinedRoute();
 
       case Routes.userAddress:
         return MaterialPageRoute(builder: (_) => const AddressScreen());
 
       case Routes.updateProfile:
-        final UserEntity userEntity = settings.arguments as UserEntity;
-        return MaterialPageRoute(
-          builder: (_) => UpdateProfileWidget(user: userEntity),
-          settings: settings,
-        );
+        final userEntity = settings.arguments;
+        if (userEntity is UserEntity) {
+          return MaterialPageRoute(
+            builder: (_) => UpdateProfileWidget(user: userEntity),
+            settings: settings,
+          );
+        }
+        return unDefinedRoute();
 
       case Routes.changePassword:
         return MaterialPageRoute(builder: (_) => const ChangePasswordScreen());
@@ -107,6 +114,15 @@ class RouteGenerator {
       case Routes.checkOut:
         return MaterialPageRoute(
           builder: (_) => const CheckOutScreen(),
+          settings: settings,
+        );
+
+      case Routes.search:
+        return MaterialPageRoute(builder: (_) => const SearchScreen());
+
+      case Routes.onlinePayment:
+        return MaterialPageRoute(
+          builder: (_) => const OnlinePaymentWebViewScreen(),
           settings: settings,
         );
 

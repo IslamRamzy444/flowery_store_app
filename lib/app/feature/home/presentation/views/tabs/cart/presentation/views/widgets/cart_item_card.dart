@@ -23,7 +23,7 @@ class _CartItemCardState extends State<CartItemCard> {
     return Container(
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(12),border: Border.all(width: 1)),
       width: double.infinity,
-      height: height*0.13 ,
+      height: height*0.146 ,
       padding: EdgeInsets.symmetric(vertical: 6),
       margin: EdgeInsets.symmetric(vertical: 4),
       child: Row(
@@ -33,7 +33,7 @@ class _CartItemCardState extends State<CartItemCard> {
             flex: 1,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12),
-              child: Image.network(widget.cartItem?.product?.coverImage??""),
+              child: Image.network(widget.cartItem?.product?.imgCover ?? ""),
             ),
           ),
           SizedBox(width: width*0.02,),

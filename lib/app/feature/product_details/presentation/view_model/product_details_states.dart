@@ -9,8 +9,8 @@ class ProductDetailsStates {
 
   ProductDetailsStates copyWith({BaseState<ProductDetailsModel>? productDetailsStateParam, BaseState<UpdateCartModel>? addProductToCartStateParam}){
     
-    return ProductDetailsStates(productDetailsState: productDetailsStateParam??this.productDetailsState, 
-    addProductToCartState: addProductToCartStateParam??this.addProductToCartState);
+    return ProductDetailsStates(productDetailsState: productDetailsStateParam??productDetailsState, 
+    addProductToCartState: addProductToCartStateParam??addProductToCartState);
     
   }
 }

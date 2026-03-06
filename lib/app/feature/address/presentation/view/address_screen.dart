@@ -31,7 +31,10 @@ class _AddressScreenState extends State<AddressScreen> {
             Navigator.of(
               context,
               rootNavigator: true,
-            ).pushNamed(Routes.updateAddress, arguments: event.address);
+            ).pushNamed(Routes.addressDetails, arguments: event.address).then((
+                value) {
+              addressViewModel.doIntent(GetUserAddressesAction());
+            });
           }
           break;
         case NavigateBackToProfileEvent():

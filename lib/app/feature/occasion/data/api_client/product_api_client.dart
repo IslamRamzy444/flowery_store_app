@@ -8,6 +8,6 @@ part 'product_api_client.g.dart';
 abstract class ProductApiClient {
   factory ProductApiClient(Dio dio, {String baseUrl}) = _ProductApiClient;
 
-  @GET(AppEndPoint.productsList)
+  @GET(AppEndPoint.products)
   Future<dynamic> getProductsByOccasion(@Query('occasion') String occasionId);
 }

@@ -245,7 +245,7 @@ class SignupScreen extends StatelessWidget {
       }else if (state.signupState?.success!=null){
         ShowDialogUtils.hideLoading(context);
         ShowDialogUtils.showMessage(
-            context, title: AppLocale(context).accountcreatedsuccessfully,
+            context, title: AppLocale(context).account_created_successfully,
             nigActionName: "ok",
             nigAction: () {
               Navigator.pop(context);

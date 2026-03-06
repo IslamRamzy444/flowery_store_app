@@ -212,6 +212,12 @@ abstract class AppLocalizations {
   /// **'Don\'t have an account?'**
   String get dontHaveAnAccount;
 
+  /// No description provided for @alreadyHaveAnAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Already have an account?'**
+  String get alreadyHaveAnAccount;
+
   /// No description provided for @register.
   ///
   /// In en, this message translates to:
@@ -260,12 +266,6 @@ abstract class AppLocalizations {
   /// **'Enter your last name'**
   String get enterLastName;
 
-  /// No description provided for @alreadyHaveAnAccount.
-  ///
-  /// In en, this message translates to:
-  /// **'Already have an account?'**
-  String get alreadyHaveAnAccount;
-
   /// No description provided for @passwordConfirmation.
   ///
   /// In en, this message translates to:
@@ -281,7 +281,7 @@ abstract class AppLocalizations {
   /// No description provided for @phoneNumber.
   ///
   /// In en, this message translates to:
-  /// **'Phone Number'**
+  /// **'Phone number'**
   String get phoneNumber;
 
   /// No description provided for @enterPhoneNumber.
@@ -497,19 +497,19 @@ abstract class AppLocalizations {
   /// No description provided for @account_created_successfully.
   ///
   /// In en, this message translates to:
-  /// **'Account created successfully'**
+  /// **'Account Created Successfully'**
   String get account_created_successfully;
 
   /// No description provided for @creating_an_account_you_agree_to_our.
   ///
   /// In en, this message translates to:
-  /// **'By creating an account, you agree to our'**
+  /// **'Creating an account, you agree to our'**
   String get creating_an_account_you_agree_to_our;
 
   /// No description provided for @terms_and_conditions.
   ///
   /// In en, this message translates to:
-  /// **'Terms and conditions'**
+  /// **'Terms & Conditions'**
   String get terms_and_conditions;
 
   /// No description provided for @profile.
@@ -535,12 +535,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Description'**
   String get description;
-
-  /// No description provided for @add_to_cart.
-  ///
-  /// In en, this message translates to:
-  /// **'Add to cart'**
-  String get add_to_cart;
 
   /// No description provided for @out_of_stock.
   ///
@@ -569,13 +563,13 @@ abstract class AppLocalizations {
   /// No description provided for @my_orders.
   ///
   /// In en, this message translates to:
-  /// **'My orders'**
+  /// **'My Orders'**
   String get my_orders;
 
   /// No description provided for @saved_addresses.
   ///
   /// In en, this message translates to:
-  /// **'Saved addresses'**
+  /// **'Saved Addresses'**
   String get saved_addresses;
 
   /// No description provided for @notifications.
@@ -605,7 +599,7 @@ abstract class AppLocalizations {
   /// No description provided for @about_us.
   ///
   /// In en, this message translates to:
-  /// **'About us'**
+  /// **'About Us'**
   String get about_us;
 
   /// No description provided for @logout.
@@ -659,7 +653,7 @@ abstract class AppLocalizations {
   /// No description provided for @update_profile_error.
   ///
   /// In en, this message translates to:
-  /// **'Error updating profile'**
+  /// **'Error in update profile'**
   String get update_profile_error;
 
   /// No description provided for @uploading_photo.
@@ -671,13 +665,13 @@ abstract class AppLocalizations {
   /// No description provided for @uploading_photo_error.
   ///
   /// In en, this message translates to:
-  /// **'Error uploading photo'**
+  /// **'Error in uploading photo'**
   String get uploading_photo_error;
 
   /// No description provided for @logOutAction.
   ///
   /// In en, this message translates to:
-  /// **'Logout'**
+  /// **'Do you want to log out?'**
   String get logOutAction;
 
   /// No description provided for @no.
@@ -746,23 +740,11 @@ abstract class AppLocalizations {
   /// **'Add to cart'**
   String get addToCart;
 
-  /// No description provided for @addtocart.
-  ///
-  /// In en, this message translates to:
-  /// **'Add to cart'**
-  String get addtocart;
-
   /// No description provided for @viewAll.
   ///
   /// In en, this message translates to:
   /// **'View all'**
   String get viewAll;
-
-  /// No description provided for @view_all.
-  ///
-  /// In en, this message translates to:
-  /// **'View all'**
-  String get view_all;
 
   /// No description provided for @networkError.
   ///
@@ -821,7 +803,7 @@ abstract class AppLocalizations {
   /// No description provided for @savedAddress.
   ///
   /// In en, this message translates to:
-  /// **'Saved addresses'**
+  /// **'Saved address'**
   String get savedAddress;
 
   /// No description provided for @someThingWrong.
@@ -902,28 +884,10 @@ abstract class AppLocalizations {
   /// **'Update Address'**
   String get updateAddress;
 
-  /// No description provided for @accountcreatedsuccessfully.
-  ///
-  /// In en, this message translates to:
-  /// **'Account created successfully'**
-  String get accountcreatedsuccessfully;
-
-  /// No description provided for @creatinganaccountyouagreetoour.
-  ///
-  /// In en, this message translates to:
-  /// **'By creating an account, you agree to our'**
-  String get creatinganaccountyouagreetoour;
-
-  /// No description provided for @termsandconditions.
-  ///
-  /// In en, this message translates to:
-  /// **'Terms and conditions'**
-  String get termsandconditions;
-
   /// No description provided for @connectionFailed.
   ///
   /// In en, this message translates to:
-  /// **'No internet connection'**
+  /// **'No Internet Connection'**
   String get connectionFailed;
 
   /// No description provided for @flowery.
@@ -959,38 +923,8 @@ abstract class AppLocalizations {
   /// No description provided for @bestSeller.
   ///
   /// In en, this message translates to:
-  /// **'Best seller'**
+  /// **'Best Seller'**
   String get bestSeller;
-
-  /// No description provided for @allpricesincludetax.
-  ///
-  /// In en, this message translates to:
-  /// **'All prices include tax'**
-  String get allpricesincludetax;
-
-  /// No description provided for @outofstock.
-  ///
-  /// In en, this message translates to:
-  /// **'Out of stock'**
-  String get outofstock;
-
-  /// No description provided for @instock.
-  ///
-  /// In en, this message translates to:
-  /// **'In stock'**
-  String get instock;
-
-  /// No description provided for @bouquetinclude.
-  ///
-  /// In en, this message translates to:
-  /// **'Bouquet includes'**
-  String get bouquetinclude;
-
-  /// No description provided for @changeLanguage.
-  ///
-  /// In en, this message translates to:
-  /// **'Change language'**
-  String get changeLanguage;
 
   /// No description provided for @items.
   ///
@@ -1073,8 +1007,206 @@ abstract class AppLocalizations {
   /// No description provided for @refresh.
   ///
   /// In en, this message translates to:
-  /// **'ٌRefresh'**
+  /// **'Refresh'**
   String get refresh;
+
+  /// No description provided for @payment_method.
+  ///
+  /// In en, this message translates to:
+  /// **'Payment Method'**
+  String get payment_method;
+
+  /// No description provided for @cash_method.
+  ///
+  /// In en, this message translates to:
+  /// **'Cash on delivery'**
+  String get cash_method;
+
+  /// No description provided for @credit_method.
+  ///
+  /// In en, this message translates to:
+  /// **'Credit card'**
+  String get credit_method;
+
+  /// No description provided for @payment_error.
+  ///
+  /// In en, this message translates to:
+  /// **'Error in configuration of payment methods system! Try ordering later'**
+  String get payment_error;
+
+  /// No description provided for @gift.
+  ///
+  /// In en, this message translates to:
+  /// **'It is a gift'**
+  String get gift;
+
+  /// No description provided for @name.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get name;
+
+  /// No description provided for @enter_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the name'**
+  String get enter_name;
+
+  /// No description provided for @enter_phone_number.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the phone number'**
+  String get enter_phone_number;
+
+  /// No description provided for @subtotal.
+  ///
+  /// In en, this message translates to:
+  /// **'Sub Total'**
+  String get subtotal;
+
+  /// No description provided for @delivery_fee.
+  ///
+  /// In en, this message translates to:
+  /// **'Delivery Fee'**
+  String get delivery_fee;
+
+  /// No description provided for @place_order.
+  ///
+  /// In en, this message translates to:
+  /// **'Place order'**
+  String get place_order;
+
+  /// No description provided for @online_payment_window.
+  ///
+  /// In en, this message translates to:
+  /// **'Online payment window'**
+  String get online_payment_window;
+
+  /// No description provided for @occasions.
+  ///
+  /// In en, this message translates to:
+  /// **'Occasions'**
+  String get occasions;
+
+  /// No description provided for @occasions_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Bloom with our exquisite best sellers'**
+  String get occasions_title;
+
+  /// No description provided for @categoriesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Categories Title'**
+  String get categoriesTitle;
+
+  /// No description provided for @changeLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'change language'**
+  String get changeLanguage;
+
+  /// No description provided for @addedToCart.
+  ///
+  /// In en, this message translates to:
+  /// **'product added to cart'**
+  String get addedToCart;
+
+  /// No description provided for @sortBy.
+  ///
+  /// In en, this message translates to:
+  /// **'sort by'**
+  String get sortBy;
+
+  /// No description provided for @lowestPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'lowest price'**
+  String get lowestPrice;
+
+  /// No description provided for @highestPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'highest price'**
+  String get highestPrice;
+
+  /// No description provided for @newArrival.
+  ///
+  /// In en, this message translates to:
+  /// **'new'**
+  String get newArrival;
+
+  /// No description provided for @old.
+  ///
+  /// In en, this message translates to:
+  /// **'old'**
+  String get old;
+
+  /// No description provided for @discount.
+  ///
+  /// In en, this message translates to:
+  /// **'discount'**
+  String get discount;
+
+  /// No description provided for @filter.
+  ///
+  /// In en, this message translates to:
+  /// **'filter'**
+  String get filter;
+
+  /// No description provided for @noCategoriesAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No categories available'**
+  String get noCategoriesAvailable;
+
+  /// No description provided for @enableNotification.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable Notification'**
+  String get enableNotification;
+
+  /// No description provided for @notificationMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'We use notifications to keep you informed about important updates.Would you like to enable notifications?'**
+  String get notificationMessage;
+
+  /// No description provided for @notNow.
+  ///
+  /// In en, this message translates to:
+  /// **'not now'**
+  String get notNow;
+
+  /// No description provided for @allow.
+  ///
+  /// In en, this message translates to:
+  /// **'allow'**
+  String get allow;
+
+  /// No description provided for @search_empty_state.
+  ///
+  /// In en, this message translates to:
+  /// **'Search For Any Product You Want'**
+  String get search_empty_state;
+
+  /// No description provided for @no_products_found.
+  ///
+  /// In en, this message translates to:
+  /// **'No products found'**
+  String get no_products_found;
+
+  /// No description provided for @try_different_keywords.
+  ///
+  /// In en, this message translates to:
+  /// **'Try searching with different keywords'**
+  String get try_different_keywords;
+
+  /// No description provided for @products_found.
+  ///
+  /// In en, this message translates to:
+  /// **'products found'**
+  String get products_found;
 }
 
 class _AppLocalizationsDelegate

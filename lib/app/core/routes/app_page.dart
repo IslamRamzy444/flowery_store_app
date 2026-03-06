@@ -27,52 +27,87 @@ class RouteGenerator {
     switch (settings.name) {
       case Routes.splash:
         return MaterialPageRoute(builder: (_) => const SplashScreen());
+
       case Routes.login:
         return MaterialPageRoute(builder: (_) => LoginScreen());
+
       case Routes.register:
         return MaterialPageRoute(builder: (_) => SignupScreen());
+
       case Routes.forgetPassword:
         return MaterialPageRoute(builder: (_) => const ForgetPasswordScreen());
+
       case Routes.verifyOtp:
-        String email = settings.arguments as String;
-        return MaterialPageRoute(builder: (_) => VerifyOtpScreen(email));
+        final email = settings.arguments;
+        if (email is String) {
+          return MaterialPageRoute(
+            builder: (_) => VerifyOtpScreen(email),
+            settings: settings,
+          );
+        }
+        return unDefinedRoute();
+
       case Routes.resetPassword:
-        String email = settings.arguments as String;
-        return MaterialPageRoute(builder: (_) => ResetPasswordScreen(email));
+        final email = settings.arguments;
+        if (email is String) {
+          return MaterialPageRoute(
+            builder: (_) => ResetPasswordScreen(email),
+            settings: settings,
+          );
+        }
+        return unDefinedRoute();
+
       case Routes.home:
         return MaterialPageRoute(builder: (_) => const HomeScreen());
+
       case Routes.occasion:
         return MaterialPageRoute(builder: (_) => const OccasionScreen());
+
       case Routes.bestSeller:
         return MaterialPageRoute(builder: (_) => const BestSellerScreen());
+
       case Routes.productDetails:
         final args = settings.arguments as ProductDetailsArgs;
         return MaterialPageRoute(
           builder: (_) => ProductDetailsScreen(productId: args.productId),
+          settings: settings,
         );
-      case Routes.updateProfile:
-        final UserEntity userEntity = settings.arguments as UserEntity;
-        return MaterialPageRoute(
-          builder: (_) => UpdateProfileWidget(user: userEntity),
-        );
-      case Routes.changePassword:
-        return MaterialPageRoute(builder: (_) => const ChangePasswordScreen());
-      case Routes.terms:
-        return MaterialPageRoute(
-          builder: (_) => const TermsAndConditionsScreen(),
-        );
-      case Routes.userAddress:
-        return MaterialPageRoute(builder: (_) => const AddressScreen());
-      case Routes.orders:
-        return MaterialPageRoute(builder: (_) => const OrdersScreen());
-      case Routes.aboutApp:
-        return MaterialPageRoute(builder: (_) => const AboutAppScreen());
-      case Routes.checkOut:
-        return MaterialPageRoute(builder: (_) => const CheckOutScreen());
+
       case Routes.addressDetails:
         final args = settings.arguments as UserAddressEntity?;
         return MaterialPageRoute(
           builder: (_) => AddressDetailsScreen(userAddressEntity: args),
+          settings: settings,
+        );
+
+      case Routes.userAddress:
+        return MaterialPageRoute(builder: (_) => const AddressScreen());
+
+      case Routes.updateProfile:
+        final UserEntity userEntity = settings.arguments as UserEntity;
+        return MaterialPageRoute(
+          builder: (_) => UpdateProfileWidget(user: userEntity),
+          settings: settings,
+        );
+
+      case Routes.changePassword:
+        return MaterialPageRoute(builder: (_) => const ChangePasswordScreen());
+
+      case Routes.orders:
+        return MaterialPageRoute(builder: (_) => const OrdersScreen());
+
+      case Routes.aboutApp:
+        return MaterialPageRoute(builder: (_) => const AboutAppScreen());
+
+      case Routes.terms:
+        return MaterialPageRoute(
+          builder: (_) => const TermsAndConditionsScreen(),
+        );
+
+      case Routes.checkOut:
+        return MaterialPageRoute(
+          builder: (_) => const CheckOutScreen(),
+          settings: settings,
         );
 
       default:

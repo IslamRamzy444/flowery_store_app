@@ -577,4 +577,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get apartment => 'Apartment';
+
+  @override
+  String get no_order_id_provided => 'No order ID provided';
+
+  @override
+  String get no_tracking_data => 'No tracking data available';
 }

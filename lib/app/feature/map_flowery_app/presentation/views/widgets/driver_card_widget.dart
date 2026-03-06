@@ -3,8 +3,12 @@ import 'package:flower_app/app/core/resources/font_manager.dart';
 import 'package:flower_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 class DriverCardWidget extends StatelessWidget {
-  const DriverCardWidget({super.key});
+  final String? driverName;
+  final String? driverImage;
+  final String? driverPhoneNumber;
+  const DriverCardWidget({super.key,this.driverName,this.driverImage,this.driverPhoneNumber});
 
   @override
   Widget build(BuildContext context) {
@@ -13,9 +17,12 @@ class DriverCardWidget extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 0.04*width),
       child: Row(
         children: [
-          CircleAvatar(
-            radius: 0.03*width,
-            backgroundColor: AppColors.primaryColor,
+          Container(
+            width: 0.1*width,
+            height: 0.1*width,
+            decoration: BoxDecoration(
+              image: driverImage==null?null:DecorationImage(image: NetworkImage(driverImage!,),fit: BoxFit.cover)
+            ),
           ),
           SizedBox(
             width: 0.01*width,
@@ -23,7 +30,7 @@ class DriverCardWidget extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Muhammed",style: Theme.of(context).textTheme.bodyMedium,),
+              Text(driverName ?? '',style: Theme.of(context).textTheme.bodyMedium,),
               Text(AppLocalizations.of(context)!.your_driver_hero,style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                 color: AppColors.grayColor,
                 fontSize: FontSize.s12
@@ -34,14 +41,22 @@ class DriverCardWidget extends StatelessWidget {
           Row(
             children: [
               InkWell(
-                onTap: () {
-                  
+                onTap: () async{
+                  final uri=Uri.parse('tel:$driverPhoneNumber');
+                  await launchUrl(uri, mode: LaunchMode.externalApplication);
                 },
                 child: Icon(Icons.call_outlined,color: AppColors.primaryColor,),
               ),
               InkWell(
-                onTap: () {
-                  
+                onTap: () async{
+                  final phone=driverPhoneNumber?.substring(1);
+                  final uri = Uri.parse("whatsapp://send?phone=$phone");
+                  if (await canLaunchUrl(uri)) {
+                    await launchUrl(uri, mode: LaunchMode.externalApplication);
+                  } else {
+                    final fallback = Uri.parse("https://wa.me/$driverPhoneNumber",);
+                    await launchUrl(fallback, mode: LaunchMode.externalApplication);
+                  }
                 },
                 child: Icon(FontAwesomeIcons.whatsapp,color: AppColors.primaryColor,),
               )

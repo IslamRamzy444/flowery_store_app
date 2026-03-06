@@ -185,5 +185,7 @@
   "estimated_arrival": "الوصول المتوقع",
   "your_driver_hero": "هو بطل التوصيل الخاص بك اليوم",
   "order_details": "تفاصيل الطلب",
-  "apartment": "شقة"
+  "apartment": "شقة",
+  "no_order_id_provided": "لم يتم توفير رقم الطلب",
+  "no_tracking_data": "لا توجد بيانات تتبع متوفرة"
 }

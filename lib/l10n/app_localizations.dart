@@ -1213,6 +1213,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Apartment'**
   String get apartment;
+
+  /// No description provided for @no_order_id_provided.
+  ///
+  /// In en, this message translates to:
+  /// **'No order ID provided'**
+  String get no_order_id_provided;
+
+  /// No description provided for @no_tracking_data.
+  ///
+  /// In en, this message translates to:
+  /// **'No tracking data available'**
+  String get no_tracking_data;
 }
 
 class _AppLocalizationsDelegate

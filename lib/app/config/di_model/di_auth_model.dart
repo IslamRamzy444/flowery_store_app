@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
 import 'package:flower_app/app/config/di_model/token_interceptors.dart';
 import 'package:flower_app/app/core/endpoint/app_endpoint.dart';
@@ -67,4 +68,6 @@ abstract class DiAuthModel {
   @preResolve
   Future<SharedPreferences> provideSharedPreferences() =>
       SharedPreferences.getInstance();
+  @singleton
+  FirebaseFirestore get firestore => FirebaseFirestore.instance;
 }

@@ -577,4 +577,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get apartment => 'شقة';
+
+  @override
+  String get no_order_id_provided => 'لم يتم توفير رقم الطلب';
+
+  @override
+  String get no_tracking_data => 'لا توجد بيانات تتبع متوفرة';
 }

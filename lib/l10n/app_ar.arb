@@ -182,5 +182,15 @@
     "logOutAction":"تسجيل الخروج",
     "yes":"نعم",
     "no":"لا",
-    "refresh":"إعاده تحميل"
+    "refresh":"إعاده تحميل",
+    "no_driver_has_accepted_you_order_yet":"لا يوجد سائق قد قبل طلبك بعد",
+    "is_your_delivery_hero_for_today":"هو بطل التوصيل الخاص بك لليوم",
+    "received_your_order":"تم استلام طلبك",
+    "preparing_your_order":"يتم تجهيز طلبك",
+    "out_for_delivery":"في الطريق للتوصيل",
+    "delivered":"تم التوصيل",
+    "no_internet_connection":"لا يوجد اتصال بالإنترنت",
+    "estimated_arrival":"الوقت المتوقع للوصول",
+    "show_map":"اظهار الخريطه",
+    "trackOrder":"تتبع الطلب"
 }

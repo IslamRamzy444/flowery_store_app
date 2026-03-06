@@ -219,5 +219,15 @@
   "logOutAction":"Logout",
   "yes":"Yes",
   "no":"No",
-  "refresh":"ٌRefresh"
-}
+  "refresh":"ٌRefresh",
+  "no_driver_has_accepted_you_order_yet":"No Driver Has Accepted Your Order Yet",
+  "is_your_delivery_hero_for_today":"Is your delivery hero for today",
+  "received_your_order":"Received your order",
+  "preparing_your_order":"Preparing your order",
+  "out_for_delivery":"Out for delivery",
+  "delivered":"Delivered",
+  "no_internet_connection":"No internet connection",
+  "estimated_arrival":"Estimated arrival",
+  "show_map":"Show map",
+  "trackOrder":"Track Order"
+} 

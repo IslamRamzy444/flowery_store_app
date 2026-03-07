@@ -43,6 +43,7 @@ class OrderDetailsModel {
       driverPhoto: safeString(data['driverPhoto']),
       storeLat: safeString(data['storeLat']),
       storeLong: safeString(data['storeLong']),
+      orderState: safeString(data['orderState']),
     );
   }
   LatLng? get clientLocation {

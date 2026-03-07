@@ -111,18 +111,22 @@ class _MapFloweryAppScreenState extends State<MapFloweryAppScreen> {
                         ),
                         if (data.storeLocation != null &&
                             data.clientLocation != null)
-                          PolylineLayer(
+                          BlocBuilder<MapFloweryAppViewModel, MapFloweryAppStates>(builder: (context, state) {
+                            
+                            return PolylineLayer(
                             polylines: [
                               Polyline(
                                 points: [
-                                  data.storeLocation!,
-                                  data.clientLocation!,
+                                  data.driverLocation!,
+                                  state.switchTrackingState?.success==1?data.storeLocation!: data.clientLocation!,
                                 ],
                                 color: AppColors.primaryColor,
-                                strokeWidth: 4,
+                                strokeWidth: 9,
                               ),
                             ],
-                          ),
+                          );
+                          },)  
+                          ,
                         MarkerLayer(
                           markers: [
                             if (data.storeLocation != null)

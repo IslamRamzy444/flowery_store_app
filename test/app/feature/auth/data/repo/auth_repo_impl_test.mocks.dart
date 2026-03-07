@@ -74,6 +74,14 @@ class MockStorageDataSourceContract extends _i1.Mock
           as _i3.Future<String?>);
 
   @override
+  _i3.Future<String?> getDeviceToken() =>
+      (super.noSuchMethod(
+            Invocation.method(#getDeviceToken, []),
+            returnValue: _i3.Future<String?>.value(),
+          )
+          as _i3.Future<String?>);
+
+  @override
   _i3.Future<_i4.BaseResponse<bool>> addToken(String? token) =>
       (super.noSuchMethod(
             Invocation.method(#addToken, [token]),
@@ -81,6 +89,19 @@ class MockStorageDataSourceContract extends _i1.Mock
               _i6.dummyValue<_i4.BaseResponse<bool>>(
                 this,
                 Invocation.method(#addToken, [token]),
+              ),
+            ),
+          )
+          as _i3.Future<_i4.BaseResponse<bool>>);
+
+  @override
+  _i3.Future<_i4.BaseResponse<bool>> addDeviceToken(String? token) =>
+      (super.noSuchMethod(
+            Invocation.method(#addDeviceToken, [token]),
+            returnValue: _i3.Future<_i4.BaseResponse<bool>>.value(
+              _i6.dummyValue<_i4.BaseResponse<bool>>(
+                this,
+                Invocation.method(#addDeviceToken, [token]),
               ),
             ),
           )
@@ -113,6 +134,19 @@ class MockStorageDataSourceContract extends _i1.Mock
           as _i3.Future<_i4.BaseResponse<bool>>);
 
   @override
+  _i3.Future<_i4.BaseResponse<bool>> clearDeviceToken() =>
+      (super.noSuchMethod(
+            Invocation.method(#clearDeviceToken, []),
+            returnValue: _i3.Future<_i4.BaseResponse<bool>>.value(
+              _i6.dummyValue<_i4.BaseResponse<bool>>(
+                this,
+                Invocation.method(#clearDeviceToken, []),
+              ),
+            ),
+          )
+          as _i3.Future<_i4.BaseResponse<bool>>);
+
+  @override
   _i3.Future<_i4.BaseResponse<bool>> clearRememberMe() =>
       (super.noSuchMethod(
             Invocation.method(#clearRememberMe, []),
@@ -120,6 +154,19 @@ class MockStorageDataSourceContract extends _i1.Mock
               _i6.dummyValue<_i4.BaseResponse<bool>>(
                 this,
                 Invocation.method(#clearRememberMe, []),
+              ),
+            ),
+          )
+          as _i3.Future<_i4.BaseResponse<bool>>);
+
+  @override
+  _i3.Future<_i4.BaseResponse<bool>> setNotification(bool? enable) =>
+      (super.noSuchMethod(
+            Invocation.method(#setNotification, [enable]),
+            returnValue: _i3.Future<_i4.BaseResponse<bool>>.value(
+              _i6.dummyValue<_i4.BaseResponse<bool>>(
+                this,
+                Invocation.method(#setNotification, [enable]),
               ),
             ),
           )

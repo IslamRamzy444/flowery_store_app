@@ -403,7 +403,6 @@ void main() {
       expect: () {
         var state = categoriesViewModel.baseState;
         return [
-          state.copyWith(categoriesState: CategoryBaseState(index: 0)),
           state.copyWith(
             productsCategoryState: BaseState(isLoading: true),
             clearSuccess: true,
@@ -440,7 +439,6 @@ void main() {
       expect: () {
         var state = categoriesViewModel.baseState;
         return [
-          state.copyWith(categoriesState: CategoryBaseState(index: 0)),
           state.copyWith(
             productsCategoryState: BaseState(isLoading: true),
             clearSuccess: true,

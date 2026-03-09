@@ -176,7 +176,6 @@
     "discount":"discount",
       "filter":"filter",
       "noCategoriesAvailable":"No categories available",
-  "online_payment_window": "Online payment window",
   "enableNotification":"Enable Notification",
   "notificationMessage":"We use notifications to keep you informed about important updates.Would you like to enable notifications?",
   "notNow":"not now",

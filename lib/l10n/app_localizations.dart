@@ -212,6 +212,12 @@ abstract class AppLocalizations {
   /// **'Don\'t have an account?'**
   String get dontHaveAnAccount;
 
+  /// No description provided for @alreadyHaveAnAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Already have an account?'**
+  String get alreadyHaveAnAccount;
+
   /// No description provided for @register.
   ///
   /// In en, this message translates to:
@@ -259,12 +265,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Enter your last name'**
   String get enterLastName;
-
-  /// No description provided for @alreadyHaveAnAccount.
-  ///
-  /// In en, this message translates to:
-  /// **'Already have an account?'**
-  String get alreadyHaveAnAccount;
 
   /// No description provided for @passwordConfirmation.
   ///
@@ -467,25 +467,25 @@ abstract class AppLocalizations {
   /// No description provided for @cancel.
   ///
   /// In en, this message translates to:
-  /// **'cancel'**
+  /// **'Cancel'**
   String get cancel;
 
   /// No description provided for @ok.
   ///
   /// In en, this message translates to:
-  /// **'ok'**
+  /// **'OK'**
   String get ok;
 
   /// No description provided for @confirm.
   ///
   /// In en, this message translates to:
-  /// **'confirm'**
+  /// **'Confirm'**
   String get confirm;
 
   /// No description provided for @invalidOtp.
   ///
   /// In en, this message translates to:
-  /// **'invalid code'**
+  /// **'Invalid code'**
   String get invalidOtp;
 
   /// No description provided for @continueAsGuest.
@@ -521,7 +521,7 @@ abstract class AppLocalizations {
   /// No description provided for @status.
   ///
   /// In en, this message translates to:
-  /// **'status'**
+  /// **'Status'**
   String get status;
 
   /// No description provided for @all_prices_include_tax.
@@ -535,12 +535,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Description'**
   String get description;
-
-  /// No description provided for @add_to_cart.
-  ///
-  /// In en, this message translates to:
-  /// **'Add to cart'**
-  String get add_to_cart;
 
   /// No description provided for @out_of_stock.
   ///
@@ -617,79 +611,79 @@ abstract class AppLocalizations {
   /// No description provided for @current_password.
   ///
   /// In en, this message translates to:
-  /// **'current password'**
+  /// **'Current password'**
   String get current_password;
 
   /// No description provided for @new_password.
   ///
   /// In en, this message translates to:
-  /// **'new password'**
+  /// **'New password'**
   String get new_password;
 
   /// No description provided for @update.
   ///
   /// In en, this message translates to:
-  /// **'update'**
+  /// **'Update'**
   String get update;
 
   /// No description provided for @password_changed.
   ///
   /// In en, this message translates to:
-  /// **'password changed successfully'**
+  /// **'Password changed successfully'**
   String get password_changed;
 
   /// No description provided for @change.
   ///
   /// In en, this message translates to:
-  /// **'change'**
+  /// **'Change'**
   String get change;
 
   /// No description provided for @edit_profile.
   ///
   /// In en, this message translates to:
-  /// **'edit profile'**
+  /// **'Edit profile'**
   String get edit_profile;
 
   /// No description provided for @update_profile.
   ///
   /// In en, this message translates to:
-  /// **'update profile'**
+  /// **'Update profile'**
   String get update_profile;
 
   /// No description provided for @update_profile_error.
   ///
   /// In en, this message translates to:
-  /// **'error in update profile'**
+  /// **'Error in update profile'**
   String get update_profile_error;
 
   /// No description provided for @uploading_photo.
   ///
   /// In en, this message translates to:
-  /// **'uploading photo'**
+  /// **'Uploading photo'**
   String get uploading_photo;
 
   /// No description provided for @uploading_photo_error.
   ///
   /// In en, this message translates to:
-  /// **'error in uploading photo'**
+  /// **'Error in uploading photo'**
   String get uploading_photo_error;
 
   /// No description provided for @logOutAction.
   ///
   /// In en, this message translates to:
-  /// **'do you want to log out ?'**
+  /// **'Do you want to log out?'**
   String get logOutAction;
 
   /// No description provided for @no.
   ///
   /// In en, this message translates to:
-  /// **'no'**
+  /// **'No'**
   String get no;
 
   /// No description provided for @yes.
   ///
   /// In en, this message translates to:
-  /// **'yes'**
+  /// **'Yes'**
   String get yes;
 
   /// No description provided for @welcome.
@@ -746,23 +740,11 @@ abstract class AppLocalizations {
   /// **'Add to cart'**
   String get addToCart;
 
-  /// No description provided for @addtocart.
-  ///
-  /// In en, this message translates to:
-  /// **'Add to cart'**
-  String get addtocart;
-
   /// No description provided for @viewAll.
   ///
   /// In en, this message translates to:
   /// **'View all'**
   String get viewAll;
-
-  /// No description provided for @view_all.
-  ///
-  /// In en, this message translates to:
-  /// **'View all'**
-  String get view_all;
 
   /// No description provided for @networkError.
   ///
@@ -815,19 +797,19 @@ abstract class AppLocalizations {
   /// No description provided for @addNewAddress.
   ///
   /// In en, this message translates to:
-  /// **'add new address'**
+  /// **'Add new address'**
   String get addNewAddress;
 
   /// No description provided for @savedAddress.
   ///
   /// In en, this message translates to:
-  /// **'saved address'**
+  /// **'Saved address'**
   String get savedAddress;
 
   /// No description provided for @someThingWrong.
   ///
   /// In en, this message translates to:
-  /// **'some thing wrong'**
+  /// **'Something went wrong'**
   String get someThingWrong;
 
   /// No description provided for @addressdetails.
@@ -902,28 +884,10 @@ abstract class AppLocalizations {
   /// **'Update Address'**
   String get updateAddress;
 
-  /// No description provided for @accountcreatedsuccessfully.
-  ///
-  /// In en, this message translates to:
-  /// **'Account created successfully'**
-  String get accountcreatedsuccessfully;
-
-  /// No description provided for @creatinganaccountyouagreetoour.
-  ///
-  /// In en, this message translates to:
-  /// **'By creating an account, you agree to our'**
-  String get creatinganaccountyouagreetoour;
-
-  /// No description provided for @termsandconditions.
-  ///
-  /// In en, this message translates to:
-  /// **'Terms and conditions'**
-  String get termsandconditions;
-
   /// No description provided for @connectionFailed.
   ///
   /// In en, this message translates to:
-  /// **'No internet connection'**
+  /// **'No Internet Connection'**
   String get connectionFailed;
 
   /// No description provided for @flowery.
@@ -959,32 +923,8 @@ abstract class AppLocalizations {
   /// No description provided for @bestSeller.
   ///
   /// In en, this message translates to:
-  /// **'Best seller'**
+  /// **'Best Seller'**
   String get bestSeller;
-
-  /// No description provided for @outofstock.
-  ///
-  /// In en, this message translates to:
-  /// **'Out of stock'**
-  String get outofstock;
-
-  /// No description provided for @instock.
-  ///
-  /// In en, this message translates to:
-  /// **'In stock'**
-  String get instock;
-
-  /// No description provided for @bouquetinclude.
-  ///
-  /// In en, this message translates to:
-  /// **'Bouquet includes'**
-  String get bouquetinclude;
-
-  /// No description provided for @changeLanguage.
-  ///
-  /// In en, this message translates to:
-  /// **'Change language'**
-  String get changeLanguage;
 
   /// No description provided for @items.
   ///
@@ -1067,7 +1007,7 @@ abstract class AppLocalizations {
   /// No description provided for @refresh.
   ///
   /// In en, this message translates to:
-  /// **'ٌRefresh'**
+  /// **'Refresh'**
   String get refresh;
 
   /// No description provided for @payment_method.
@@ -1141,6 +1081,84 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Online payment window'**
   String get online_payment_window;
+
+  /// No description provided for @occasions.
+  ///
+  /// In en, this message translates to:
+  /// **'Occasions'**
+  String get occasions;
+
+  /// No description provided for @occasions_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Bloom with our exquisite best sellers'**
+  String get occasions_title;
+
+  /// No description provided for @categoriesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Categories Title'**
+  String get categoriesTitle;
+
+  /// No description provided for @changeLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'change language'**
+  String get changeLanguage;
+
+  /// No description provided for @addedToCart.
+  ///
+  /// In en, this message translates to:
+  /// **'product added to cart'**
+  String get addedToCart;
+
+  /// No description provided for @sortBy.
+  ///
+  /// In en, this message translates to:
+  /// **'sort by'**
+  String get sortBy;
+
+  /// No description provided for @lowestPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'lowest price'**
+  String get lowestPrice;
+
+  /// No description provided for @highestPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'highest price'**
+  String get highestPrice;
+
+  /// No description provided for @newArrival.
+  ///
+  /// In en, this message translates to:
+  /// **'new'**
+  String get newArrival;
+
+  /// No description provided for @old.
+  ///
+  /// In en, this message translates to:
+  /// **'old'**
+  String get old;
+
+  /// No description provided for @discount.
+  ///
+  /// In en, this message translates to:
+  /// **'discount'**
+  String get discount;
+
+  /// No description provided for @filter.
+  ///
+  /// In en, this message translates to:
+  /// **'filter'**
+  String get filter;
+
+  /// No description provided for @noCategoriesAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No categories available'**
+  String get noCategoriesAvailable;
 
   /// No description provided for @enableNotification.
   ///

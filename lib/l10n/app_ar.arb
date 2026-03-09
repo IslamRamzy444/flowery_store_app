@@ -176,8 +176,6 @@
       "discount":"خصم",
       "filter":"فلتر",
       "noCategoriesAvailable":"لا توجد فئات متاحة",
-
-  "online_payment_window": "شاشة الدفع الإلكتروني",
   "enableNotification":"تفعيل الاشعارات",
     "notificationMessage":"نستخدم الإشعارات لإبقائك على اطلاع بأهم التحديثات.هل ترغب في تفعيل الإشعارات؟",
     "notNow":"ليس الان",

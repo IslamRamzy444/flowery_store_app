@@ -96,7 +96,7 @@ class CategoriesBodyWidget extends StatelessWidget {
               : state.productsCategoryState.success != null
               ? state.productsCategoryState.success?.product != null &&
                         state.productsCategoryState.success!.product!.isEmpty
-                    ? Container(
+                    ? SizedBox(
                         height: MediaQuery.sizeOf(context).height * .25,
                         child: ProductCartItem(productEntity: null),
                       )

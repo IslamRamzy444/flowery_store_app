@@ -181,5 +181,12 @@
   "search_empty_state": "Search For Any Product You Want",
   "no_products_found": "No products found",
   "try_different_keywords": "Try searching with different keywords",
-  "products_found": "products found"
+  "products_found": "products found",
+  "track_order":"Track order",
+  "success_placing_order":"Your order placed successfully!",
+  "payment_confirmation": "Payment Confirmation",
+  "was_payment_successful": "Was the payment completed successfully?",
+  "payment_failed_title": "Payment Failed",
+  "payment_failed_message": "No successful payment was detected. Please complete the payment process.",
+  "continue_payment": "Continue Payment"
 }

@@ -4,6 +4,7 @@ const String svgPath = "assets/svg";
 const String filesPath="assets/files";
 abstract class AssetsImage {
   static const String flower='$imagePath/Flower.png';
+  static const String successLogo='$imagePath/success-logo.png';
 }
 
 abstract class AssetsIcons {

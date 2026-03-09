@@ -565,4 +565,27 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get products_found => 'منتج';
+
+  @override
+  String get track_order => 'تتبع الطلب';
+
+  @override
+  String get success_placing_order => 'تم تقديم طلبك بنجاح!';
+
+  @override
+  String get payment_confirmation => 'Payment Confirmation';
+
+  @override
+  String get was_payment_successful =>
+      'Was the payment completed successfully?';
+
+  @override
+  String get payment_failed_title => 'فشل الدفع';
+
+  @override
+  String get payment_failed_message =>
+      'لم يتم اكتشاف عملية دفع ناجحة. يرجى إكمال عملية الدفع.';
+
+  @override
+  String get continue_payment => 'مواصلة الدفع';
 }

@@ -7,10 +7,11 @@ import 'package:flower_app/app/feature/best_seller/presentation/view_model/best_
 import 'package:flower_app/app/feature/best_seller/presentation/view_model/best_seller_states.dart';
 import 'package:flower_app/app/feature/best_seller/presentation/view_model/best_seller_view_model.dart';
 import 'package:flower_app/app/feature/best_seller/presentation/views/widget/best_seller_card.dart';
-import 'package:flower_app/app/feature/product_details/presentation/views/screens/product_details_screen.dart';
 import 'package:flower_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../product_details/presentation/views/screens/product_details_screen.dart';
 
 class BestSellerScreen extends StatefulWidget {
   const BestSellerScreen({super.key});

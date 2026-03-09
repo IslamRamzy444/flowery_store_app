@@ -33,7 +33,7 @@ class _CartItemCardState extends State<CartItemCard> {
             flex: 1,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12),
-              child: Image.network(widget.cartItem?.product?.coverImage??""),
+              child: Image.network(widget.cartItem?.product?.imgCover ?? ""),
             ),
           ),
           SizedBox(width: width*0.02,),

@@ -2,11 +2,13 @@ import 'package:flower_app/app/config/di/di.dart';
 import 'package:flower_app/app/core/resources/app_colors.dart';
 import 'package:flower_app/app/core/reusable_widgets/show_dialog_utils.dart';
 import 'package:flower_app/app/core/utils/app_locale.dart';
-import 'package:flower_app/app/feature/product_details/presentation/view_model/product_details_events.dart';
 import 'package:flower_app/app/feature/product_details/presentation/view_model/product_details_states.dart';
-import 'package:flower_app/app/feature/product_details/presentation/view_model/product_details_view_model.dart';
+import 'package:flower_app/app/feature/product_details/presentation/view_model/product_intent.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../view_model/product_view_model.dart';
+
 
 // ignore: must_be_immutable
 class ProductDetailsScreen extends StatelessWidget{
@@ -19,7 +21,7 @@ class ProductDetailsScreen extends StatelessWidget{
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
-    viewModel.doIntent(GetProductDetailsEvent(productId??""));
+    viewModel.doIntent(GetProductDetailsAction(productId ?? ""));
     return BlocProvider<ProductDetailsViewModel>(
       create: (context) => viewModel,
       
@@ -73,8 +75,8 @@ class ProductDetailsScreen extends StatelessWidget{
                       Spacer(),
                       Text("${AppLocale(context).status} :",style: Theme.of(context).textTheme.headlineLarge),
                       Text(state.productDetailsState!.success!.quantity! <= 0
-                          ? AppLocale(context).outofstock
-                          : AppLocale(context).instock,
+                          ? AppLocale(context).out_of_stock
+                          : AppLocale(context).in_stock,
                       style: Theme.of(context).textTheme.headlineMedium)
                     ],
                   ),
@@ -116,7 +118,7 @@ class ProductDetailsScreen extends StatelessWidget{
               SliverToBoxAdapter(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: Text(AppLocale(context).bouquetinclude, style: Theme
+                  child: Text(AppLocale(context).bouquet_include, style: Theme
                       .of(context)
                       .textTheme
                       .headlineLarge,),
@@ -132,7 +134,7 @@ class ProductDetailsScreen extends StatelessWidget{
                   child: ElevatedButton(onPressed: () {
                     viewModel.doIntent(AddProductToCartEvent(productId??"", 1));
                   }, child: Text(AppLocale(
-                      context).add_to_cart, style: TextStyle(fontSize: 20),)),
+                      context).addToCart, style: TextStyle(fontSize: 20),)),
                 ),
               ),
               ],

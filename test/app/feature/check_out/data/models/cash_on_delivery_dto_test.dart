@@ -80,7 +80,7 @@ void main() {
       final json=dto.toJson();
       expect(json["_id"], equals(dto.id));
       expect(json["price"], equals(dto.price));
-      expect(json["product"], equals(dto.product));
+      expect(json["product_details"], equals(dto.product));
       expect(json["quantity"], equals(dto.quantity));
     },);
   });

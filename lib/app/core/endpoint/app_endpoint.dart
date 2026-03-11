@@ -5,10 +5,10 @@ abstract class AppEndPoint {
   static const String login = "/auth/signin";
   static const String signUp = '/auth/signup';
   //tabs end points
-  static const String home='/home';
-  static const String forgetPassword='/auth/forgotPassword';
-  static const String verifyOtp='/auth/verifyResetCode';
-  static const String resetPassword='/auth/resetPassword';
+  static const String home = '/home';
+  static const String forgetPassword = '/auth/forgotPassword';
+  static const String verifyOtp = '/auth/verifyResetCode';
+  static const String resetPassword = '/auth/resetPassword';
   static const String products = "/products";
 
   // profile
@@ -33,8 +33,15 @@ abstract class AppEndPoint {
   // Address endpoint
   static const String address = "/addresses";
   //this end point used for checkout page, ether cash on delivery or Credit card
-  static const String cashOnDelivery='/orders';
-  static const String creditCard ='/orders/checkout?url=http://localhost:3000';
+  static const String cashOnDelivery = '/orders';
+  static const String creditCard = '/orders/checkout?url=http://localhost:3000';
   static const String allOccasions = '/occasions';
   static const String allCategories = '/categories';
+
+  // Notifications endpoints
+  static const String getNotifications = '/notifications/user';
+  static const String getUnreadCount = '/notifications/unread-count';
+  static const String markNotificationsRead = '/notifications/mark-read';
+  static const String markAllNotificationsRead = '/notifications/mark-all-read';
+  static const String clearAllNotifications = '/notifications/clear-all';
 }

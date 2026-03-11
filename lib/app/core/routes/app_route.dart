@@ -20,6 +20,7 @@ abstract class Routes {
   static const String checkOut = _Paths.checkOut;
   static const String search = _Paths.searchScreen;
   static const String onlinePayment = _Paths.onlinePayment;
+  static const String notifications = _Paths.notificationsScreen;
 }
 
 abstract class _Paths {
@@ -40,4 +41,5 @@ abstract class _Paths {
   static const String checkOut = 'check_out';
   static const String searchScreen = 'Search';
   static const String onlinePayment = 'online_payment';
+  static const String notificationsScreen = 'Notifications';
 }

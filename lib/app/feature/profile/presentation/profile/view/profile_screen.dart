@@ -1,4 +1,3 @@
-
 import 'package:flower_app/app/core/resources/app_colors.dart';
 import 'package:flower_app/app/core/routes/app_route.dart';
 import 'package:flower_app/app/feature/profile/presentation/profile/view/widget/language_widget.dart';
@@ -34,24 +33,30 @@ class _ProfileScreenState extends State<ProfileScreen> {
               context,
               Routes.updateProfile,
               arguments: viewModel.state.profileState.success,
-            ).then((value) => viewModel.doIntent(GetProfileAction(),));
+            ).then((value) => viewModel.doIntent(GetProfileAction()));
           }
         case ChangeLanguageEvent():
           if (mounted) {
             showModalBottomSheet(
-            isScrollControlled: true,
-            enableDrag: true,
-            showDragHandle: true,
-            backgroundColor: AppColors.whiteColor,
-            context: context,
-            builder: (context) {
-              return LanguageWidget();
-            },);
+              isScrollControlled: true,
+              enableDrag: true,
+              showDragHandle: true,
+              backgroundColor: AppColors.whiteColor,
+              context: context,
+              builder: (context) {
+                return LanguageWidget();
+              },
+            );
           }
           break;
         case NavigateToAddressScreenEvent():
           if (mounted) {
             Navigator.pushNamed(context, Routes.userAddress);
+          }
+          break;
+        case NavigateToNotificationsScreenEvent():
+          if (mounted) {
+            Navigator.pushNamed(context, Routes.notifications);
           }
           break;
       }

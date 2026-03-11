@@ -1,4 +1,4 @@
- import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flower_app/app/config/di/di.dart';
 import 'package:flower_app/app/core/routes/app_page.dart';
 import 'package:flower_app/app/core/routes/app_route.dart';
@@ -13,12 +13,10 @@ import 'package:provider/provider.dart';
 import 'app/feature/start/presentation/view_model/start_view_model.dart';
 import 'firebase_options.dart';
 
-void main()async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   configureDependencies();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
@@ -26,7 +24,7 @@ void main()async {
   runApp(const StartScreen());
 }
 
- class MyApp extends StatefulWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override

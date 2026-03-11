@@ -67,6 +67,9 @@ class ProfileViewModel extends CustomCubit<ProfileEvent, ProfileState> {
       case NavigateToAddressScreenAction():
         streamController.add(NavigateToAddressScreenEvent());
         break;
+      case NavigateToNotificationsAction():
+        streamController.add(NavigateToNotificationsScreenEvent());
+        break;
     }
   }
 }

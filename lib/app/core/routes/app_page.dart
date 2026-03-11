@@ -10,6 +10,7 @@ import 'package:flower_app/app/feature/forget_password/presentation/forget_passw
 import 'package:flower_app/app/feature/forget_password/presentation/reset_password/view/reset_password_screen.dart';
 import 'package:flower_app/app/feature/forget_password/presentation/verify_otp/view/verify_otp_screen.dart';
 import 'package:flower_app/app/feature/home/presentation/views/screen/home_screen.dart';
+import 'package:flower_app/app/feature/notifications/presentation/views/screen/notifications_screen.dart';
 import 'package:flower_app/app/feature/occasion/presentation/views/screen/occasion_screen.dart';
 import 'package:flower_app/app/feature/product_details/presentation/views/screens/product_details_screen.dart';
 import 'package:flower_app/app/feature/profile/domain/model/user_entity.dart';
@@ -123,6 +124,8 @@ class RouteGenerator {
           settings: settings,
         );
 
+      case Routes.notifications:
+        return MaterialPageRoute(builder: (_) => const NotificationsScreen());
       default:
         return unDefinedRoute();
     }

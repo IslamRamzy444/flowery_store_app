@@ -13,6 +13,7 @@ import 'package:flower_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:intl/intl.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -27,6 +28,10 @@ class _MapFloweryAppScreenState extends State<MapFloweryAppScreen> {
   final MapController _mapController = MapController();
   late final MapFloweryAppViewModel _viewModel;
   bool _mapCentered = false;
+  DateTime now = DateTime.now();
+  DateTime get futureTime => now.add(Duration(hours: 3));
+  String get formattedDate => DateFormat('dd MMM yyyy').format(futureTime);
+  String get formattedTime => DateFormat('hh:mm a').format(futureTime);
   @override
   void initState() {
     super.initState();
@@ -43,18 +48,17 @@ class _MapFloweryAppScreenState extends State<MapFloweryAppScreen> {
   Widget build(BuildContext context) {
     var width = MediaQuery.sizeOf(context).width;
     var height = MediaQuery.sizeOf(context).height;
-    //final orderId = ModalRoute.of(context)?.settings.arguments as String?;
-    final orderId="696abaf4e364ef6140470e8d";
-    // if (orderId == null) {
-    //   return Scaffold(
-    //     body: Center(
-    //       child: Text(
-    //         AppLocalizations.of(context)!.no_order_id_provided,
-    //         style: Theme.of(context).textTheme.bodyMedium,
-    //       ),
-    //     ),
-    //   );
-    // }
+    final orderId = ModalRoute.of(context)?.settings.arguments as String?;
+    if (orderId == null) {
+      return Scaffold(
+        body: Center(
+          child: Text(
+            AppLocalizations.of(context)!.no_order_id_provided,
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
+        ),
+      );
+    }
     return Scaffold(
       body: BlocProvider<MapFloweryAppViewModel>(
         create: (context) => _viewModel..doIntent(StartTrackingEvent(orderId)),
@@ -193,7 +197,7 @@ class _MapFloweryAppScreenState extends State<MapFloweryAppScreen> {
                                 ),
                           ),
                           Text(
-                            '03 Sep 2026, 11:00 AM',
+                            '$formattedDate,$formattedTime',
                             style: Theme.of(context).textTheme.bodyMedium,
                           ),
                           SizedBox(height: 0.02 * height),

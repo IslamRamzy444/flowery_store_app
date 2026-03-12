@@ -60,7 +60,6 @@ class MapFloweryAppViewModel extends Cubit<MapFloweryAppStates>{
             ),
             mapCenter: center,
           ));
-          print(data.orderState);
           if(data.orderState=="Accepted"){
             emit(state.copyWith(switchTrackingState: BaseState(success: 1)));
           }else{

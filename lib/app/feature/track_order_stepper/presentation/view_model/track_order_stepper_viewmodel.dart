@@ -47,7 +47,6 @@ class TrackOrderStepperViewmodel extends Cubit<TrackOrderStepperStates>{
           currentStep=event.data;
           if(currentStep=="Accepted"){
               _getDriverInfo(orderId: orderId,context: context);
-              print("Reppeated NIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGEEEEEEEEEEEEEERRRRRRRRRRRRR");
           }
           emit(state.copyWith(orderStateNew: BaseState(success: activeStep,isLoading: false)));
         case ErrorResponse<String?>():

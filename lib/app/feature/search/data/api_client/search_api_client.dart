@@ -8,6 +8,6 @@ part 'search_api_client.g.dart';
 abstract class SearchApiClient {
   factory SearchApiClient(Dio dio, {String baseUrl}) = _SearchApiClient;
 
-  @GET(AppEndPoint.productsList)
+  @GET(AppEndPoint.products)
   Future<dynamic> searchProducts(@Query('keyword') String keyword);
 }

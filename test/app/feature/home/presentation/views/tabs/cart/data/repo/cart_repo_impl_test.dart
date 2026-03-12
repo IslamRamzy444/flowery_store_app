@@ -20,9 +20,10 @@ void main() {
 
   },);
 
-  
-  group("Testing add product to cart function",(){
-  test("Testing add product to cart function with success response", ()async {
+
+  group("Testing add product_details to cart function", () {
+    test(
+      "Testing add product_details to cart function with success response", () async {
     when(cartRepoImpl.addProductToCart(productId: "dwqe21ewqdssqw",quantity: 2)).thenAnswer (
       (_)async{
         return SuccessResponse<UpdateCartModel>(data: UpdateCartModel(cart: CartModel(),message: "success",numOfCartItems: 2) );
@@ -35,10 +36,12 @@ void main() {
     expect((response).data.numOfCartItems, equals(2));
   },);
 
-  test("Testing add product to cart function with error response", ()async {
+    test(
+      "Testing add product_details to cart function with error response", () async {
     when(cartRepoImpl.addProductToCart(productId: "dwqe21ewqdssqw",quantity: 2)).thenAnswer (
       (_)async{
-        return ErrorResponse<UpdateCartModel>(error: Exception("Failed to add product to cart") );
+        return ErrorResponse<UpdateCartModel>(
+            error: Exception("Failed to add product_details to cart"));
       }
     );
 
@@ -81,7 +84,8 @@ void main() {
   );
 
   group("Testing remove Specific Item from cart function", () {
-    test("Testing remove product from cart function with success response", ()async {
+    test(
+      "Testing remove product_details from cart function with success response", () async {
       when(cartRepoImpl.removeSpecificItemFromCart(productId: "dwqe21ewqdssqw")).thenAnswer ((_)async{
           return SuccessResponse<UpdateCartModel>(data: UpdateCartModel(cart: CartModel(),message: "success",numOfCartItems: 2) );
         }
@@ -92,10 +96,12 @@ void main() {
       expect((response as SuccessResponse<UpdateCartModel>).data.message, equals("success"));
     },);
 
-    test("Testing remove product from cart function with error response", () async{
+    test(
+      "Testing remove product_details from cart function with error response", () async {
       when(cartRepoImpl.removeSpecificItemFromCart(productId: "dwqe21ewqdssqw")).thenAnswer (
         (_)async{
-          return ErrorResponse<UpdateCartModel>(error: Exception("Failed to remove product from cart") );
+          return ErrorResponse<UpdateCartModel>(
+              error: Exception("Failed to remove product_details from cart"));
         }
       );
 

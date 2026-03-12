@@ -8,9 +8,9 @@ part 'occasion_api_client.g.dart';
 abstract class OccasionApiClient {
   factory OccasionApiClient(Dio dio, {String baseUrl}) = _OccasionApiClient;
 
-  @GET(AppEndPoint.occasions)
+  @GET(AppEndPoint.allOccasions)
   Future<dynamic> getAllOccasions();
 
-  @GET('/occasions/{id}')
+  @GET('${AppEndPoint.allOccasions}/{id}')
   Future<dynamic> getOccasionById(@Path('id') String id);
 }

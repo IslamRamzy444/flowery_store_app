@@ -1,7 +1,6 @@
 class ProductDetailsModel {
-  
   List<String?>? images;
-  String? coverImage;
+  String? imgCover;
   String? message;
   String? id;
   String? title;
@@ -14,17 +13,17 @@ class ProductDetailsModel {
   int? rateCount;
 
   ProductDetailsModel({
-  this.message,
-  this.id,
-  this.description,
-  this.images,
-  this.price,
-  this.priceAfterDiscount,
-  this.quantity,
-  this.rateAvg,
-  this.rateCount,
-  this.sold,
-  this.title,
-  this.coverImage
+    this.id,
+    this.imgCover,
+    this.title,
+    this.price,
+    this.priceAfterDiscount,
+    this.message,
+    this.description,
+    this.images,
+    this.quantity,
+    this.rateAvg,
+    this.rateCount,
+    this.sold,
   });
 }

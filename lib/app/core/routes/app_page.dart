@@ -77,7 +77,7 @@ class RouteGenerator {
 
       case Routes.addressDetails:
         final args = settings.arguments;
-        if (args is UserAddressEntity? || args == null) {
+        if (args is UserAddressEntity?) {
           return MaterialPageRoute(
             builder: (_) => AddressDetailsScreen(userAddressEntity: args),
             settings: settings,

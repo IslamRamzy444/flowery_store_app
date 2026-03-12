@@ -68,6 +68,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get dontHaveAnAccount => 'ليس لديك حساب؟';
 
   @override
+  String get alreadyHaveAnAccount => 'لديك حساب بالفعل؟';
+
+  @override
   String get register => 'تسجيل دخول';
 
   @override
@@ -90,9 +93,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get enterLastName => 'أدخل اسمك الأخير';
-
-  @override
-  String get alreadyHaveAnAccount => 'لديك حساب بالفعل؟';
 
   @override
   String get passwordConfirmation => 'تأكيد كلمة المرور';
@@ -196,7 +196,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get male => 'ذكر';
 
   @override
-  String get female => 'انثى';
+  String get female => 'أنثى';
 
   @override
   String get cancel => 'إلغاء';
@@ -234,9 +234,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get description => 'الوصف';
-
-  @override
-  String get add_to_cart => 'أضف إلى السلة';
 
   @override
   String get out_of_stock => 'إنتهى من المخزن';
@@ -342,13 +339,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get addToCart => 'أضف إلى عربة التسوق';
 
   @override
-  String get addtocart => 'أضف إلى السلة';
-
-  @override
   String get viewAll => 'عرض الكل';
-
-  @override
-  String get view_all => 'عرض الكل';
 
   @override
   String get networkError => 'لا يوجد اتصال بالإنترنت';
@@ -420,16 +411,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get updateAddress => 'تحديث العنوان';
 
   @override
-  String get accountcreatedsuccessfully => 'تم إنشاء الحساب بنجاح';
-
-  @override
-  String get creatinganaccountyouagreetoour =>
-      'بإنشاء حساب، فإنك توافق على شروطنا';
-
-  @override
-  String get termsandconditions => 'الشروط والأحكام';
-
-  @override
   String get connectionFailed => 'لا يوجد اتصال بالإنترنت';
 
   @override
@@ -449,18 +430,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get bestSeller => 'الأكثر مبيعاً';
-
-  @override
-  String get outofstock => 'إنتهى من المخزن';
-
-  @override
-  String get instock => 'في المخزن';
-
-  @override
-  String get bouquetinclude => 'الباقة تحتوي على';
-
-  @override
-  String get changeLanguage => 'تغيير اللغة';
 
   @override
   String get items => 'أغراض';
@@ -540,6 +509,45 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get online_payment_window => 'شاشة الدفع الإلكتروني';
+
+  @override
+  String get occasions => 'مناسبات';
+
+  @override
+  String get occasions_title => 'تزهر معنا مع أفضل منتجاتنا المميزة';
+
+  @override
+  String get categoriesTitle => 'الفئات';
+
+  @override
+  String get changeLanguage => 'تغيير اللغة';
+
+  @override
+  String get addedToCart => 'تم اضافة المنتج الى السلة';
+
+  @override
+  String get sortBy => 'رتب بواسطة';
+
+  @override
+  String get lowestPrice => 'الاقل سعرا';
+
+  @override
+  String get highestPrice => 'الاعلى سعرا';
+
+  @override
+  String get newArrival => 'جديد';
+
+  @override
+  String get old => 'قديم';
+
+  @override
+  String get discount => 'خصم';
+
+  @override
+  String get filter => 'فلتر';
+
+  @override
+  String get noCategoriesAvailable => 'لا توجد فئات متاحة';
 
   @override
   String get enableNotification => 'تفعيل الاشعارات';

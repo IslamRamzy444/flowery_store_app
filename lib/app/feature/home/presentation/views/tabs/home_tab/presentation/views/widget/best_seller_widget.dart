@@ -2,7 +2,6 @@ import 'package:flower_app/app/core/resources/app_colors.dart';
 import 'package:flower_app/app/core/resources/font_manager.dart';
 import 'package:flower_app/app/core/routes/app_route.dart';
 import 'package:flower_app/app/feature/home/presentation/views/tabs/home_tab/domain/models/best_seller_model.dart';
-import 'package:flower_app/app/feature/product_details/presentation/view_model/product_details_args.dart';
 import 'package:flower_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +20,8 @@ class BestSellerWidget extends StatelessWidget {
         itemBuilder: (context, index) {
           return InkWell(
             onTap: () {
-              Navigator.of(context).pushNamed(Routes.productDetails,arguments:ProductDetailsArgs(productId: bestSellers[index].id!));
+              Navigator.of(context).pushNamed(Routes.productDetails,
+                  arguments: bestSellers[index].id!);
             },
             child: SizedBox(
               width: 0.35*width,

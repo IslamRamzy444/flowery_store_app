@@ -12,10 +12,11 @@ class AppTheme {
       primary: AppColors.primaryColor,
       secondary: AppColors.secondaryColor,
     ),
-    scaffoldBackgroundColor: AppColors.secondaryColor,
+    scaffoldBackgroundColor: AppColors.whiteColor,
 
     // appBarTheme
     appBarTheme: AppBarTheme(
+      backgroundColor: AppColors.whiteColor,
       iconTheme: IconThemeData(color: AppColors.blackColor),
       leadingWidth: 20.w,
       titleTextStyle: TextStyle(
@@ -46,6 +47,11 @@ class AppTheme {
         fontSize: FontSize.s13,
         fontWeight: FontWeights.regular,
         color: AppColors.grayColor,
+      ),
+      labelLarge: GoogleFonts.roboto(
+        fontSize: AppSize.s16,
+        fontWeight: FontWeights.regular,
+        color: AppColors.grayColor
       ),
       headlineLarge: GoogleFonts.inter(
         fontSize: AppSize.s18,
@@ -96,17 +102,24 @@ InputDecorationTheme _inputDecorationTheme() => InputDecorationTheme(
   floatingLabelBehavior: FloatingLabelBehavior.always,
   floatingLabelStyle: TextStyle(color: AppColors.grayColor),
   errorStyle: TextStyle(color: AppColors.errorColor),
-  enabledBorder: const OutlineInputBorder(
+  enabledBorder: OutlineInputBorder(
     borderSide: BorderSide(color: AppColors.grayColor, width: 1),
+      borderRadius: BorderRadius.circular(10)
   ),
-  focusedBorder: const OutlineInputBorder(
+  focusedBorder: OutlineInputBorder(
     borderSide: BorderSide(color: AppColors.grayColor, width: 1),
+      borderRadius: BorderRadius.circular(10)
+
   ),
-  errorBorder: const OutlineInputBorder(
+  errorBorder: OutlineInputBorder(
     borderSide: BorderSide(color: AppColors.errorColor, width: 1),
+      borderRadius: BorderRadius.circular(10)
+
   ),
-  focusedErrorBorder: const OutlineInputBorder(
+  focusedErrorBorder: OutlineInputBorder(
     borderSide: BorderSide(color: AppColors.errorColor, width: 1),
+      borderRadius: BorderRadius.circular(10)
+
   ),
   hintStyle: GoogleFonts.inter(fontWeight: FontWeights.medium,fontSize:AppSize.s14,color: AppColors.lightGrayColor),
 );

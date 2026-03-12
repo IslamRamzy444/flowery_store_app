@@ -14,7 +14,7 @@ class CartRemoteDataSourceImpl implements CartRemoteDataSourceContract{
   @override
   Future<BaseResponse<UpdateCartResponse>> addProductToCart({String? productId, int? quantity})async {
     return await executeApi(() =>apiClient.addProductToCart({
-     "product": productId,
+      "product_details": productId,
      "quantity":quantity
     }));
   }

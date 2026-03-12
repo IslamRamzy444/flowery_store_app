@@ -7,7 +7,9 @@ import 'package:geocoding/geocoding.dart';
 class AddressCardWidget extends StatefulWidget {
   final AddressModel addressModel;
   final VoidCallback onEdit;
-  const AddressCardWidget({super.key,required this.addressModel,required this.onEdit});
+  final VoidCallback? onTap;
+  final bool isSelected;
+  const AddressCardWidget({super.key,required this.addressModel,required this.onEdit,this.onTap,this.isSelected=false});
 
   @override
   State<AddressCardWidget> createState() => _AddressCardWidgetState();
@@ -18,7 +20,19 @@ class _AddressCardWidgetState extends State<AddressCardWidget> {
   @override
   void initState() {
     super.initState();
+    addressDetails='';
+  }
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
     _getLocationDetails();
+  }
+  @override
+  void didUpdateWidget(covariant AddressCardWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.addressModel != oldWidget.addressModel) {
+      _getLocationDetails();
+    }
   }
   @override
   Widget build(BuildContext context) {
@@ -26,7 +40,7 @@ class _AddressCardWidgetState extends State<AddressCardWidget> {
     var height=MediaQuery.sizeOf(context).height;
     return Container(
       padding: EdgeInsetsDirectional.symmetric(horizontal: 0.04*width,vertical: 0.01*height),
-      height: 0.06*height,
+      height: 0.09*height,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(0.03*width),
         border: Border.all(width: 1,color: AppColors.lightGrayColor)
@@ -34,25 +48,41 @@ class _AddressCardWidgetState extends State<AddressCardWidget> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Container(
-                    width: 0.05*width,
-                    height: 0.05*width,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(width: 1,color: AppColors.primaryColor)
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Row(
+                  children: [
+                    InkWell(
+                      onTap: widget.onTap,
+                      child: Container(
+                        width: 0.05*width,
+                        height: 0.05*width,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(width: 1,color: AppColors.primaryColor)
+                        ),
+                        child: Center(
+                          child: Container(
+                            width: 0.03*width,
+                            height: 0.03*width,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: widget.isSelected?AppColors.primaryColor:AppColors.transparentColor
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
-                  Text(widget.addressModel.city??'',style: Theme.of(context).textTheme.bodyMedium,)
-                ],
-              ),
-              Expanded(child: Text(addressDetails,style: Theme.of(context).textTheme.labelMedium,maxLines: 1,overflow: TextOverflow.ellipsis,))
-            ],
+                    SizedBox(width: 0.02*width,),
+                    Text(widget.addressModel.city??'',style: Theme.of(context).textTheme.bodyMedium,)
+                  ],
+                ),
+                Text(addressDetails,style: Theme.of(context).textTheme.labelMedium,maxLines: 1,overflow: TextOverflow.ellipsis,)
+              ],
+            ),
           ),
           IconButton(
             onPressed: widget.onEdit, 

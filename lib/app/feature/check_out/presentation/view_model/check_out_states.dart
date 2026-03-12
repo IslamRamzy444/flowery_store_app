@@ -5,16 +5,22 @@ import 'package:flower_app/app/feature/check_out/domain/models/credit_card_model
 
 class CheckOutStates {
   BaseState<List<AddressModel>>? getAddressesState;
+  AddressModel ? selectedAddress;
+  String? selectedPaymentMethod;
   BaseState<CashOnDeliveryModel>? payCashState;
   BaseState<CreditCardModel>? payCreditState;
-  CheckOutStates({this.getAddressesState,this.payCashState,this.payCreditState});
+  CheckOutStates({this.getAddressesState,this.payCashState,this.payCreditState,this.selectedAddress,this.selectedPaymentMethod});
   CheckOutStates copyWith({
     BaseState<List<AddressModel>>? getAddressesState,
+    AddressModel ? selectedAddress,
+    String? selectedPaymentMethod,
     BaseState<CashOnDeliveryModel>? payCashState,
     BaseState<CreditCardModel>? payCreditState
     }){
     return CheckOutStates(
       getAddressesState: getAddressesState ?? this.getAddressesState,
+      selectedAddress: selectedAddress ?? this.selectedAddress,
+      selectedPaymentMethod: selectedPaymentMethod ?? this.selectedPaymentMethod,
       payCashState: payCashState ?? this.payCashState,
       payCreditState: payCreditState ?? this.payCreditState
     );

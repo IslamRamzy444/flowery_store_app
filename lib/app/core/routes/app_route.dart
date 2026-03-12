@@ -8,7 +8,7 @@ abstract class Routes {
   static const String verifyOtp = _Paths.verifyOtpScreen;
   static const String home = _Paths.homeScreen;
   static const String occasion = _Paths.occasionScreen;
-  static const String bestSeller=_Paths.bestSellerScreen;
+  static const String bestSeller = _Paths.bestSellerScreen;
   static const String productDetails = _Paths.productDetails;
   static const String updateProfile = 'update_profile';
   static const String userAddress = 'user_address';
@@ -16,8 +16,11 @@ abstract class Routes {
   static const String updateAddress = 'update_address';
   static const String aboutApp=_Paths.aboutApp;
   static const String terms=_Paths.termsAndConditions;
-  static const String checkOut=_Paths.checkOut;
   static const String trackOrderStepper="track_order_stepper";
+  static const String orders = _Paths.ordersScreen;
+  static const String checkOut = _Paths.checkOut;
+  static const String search = _Paths.searchScreen;
+  static const String onlinePayment = _Paths.onlinePayment;
 }
 
 abstract class _Paths {
@@ -29,10 +32,13 @@ abstract class _Paths {
   static const String resetPasswordScreen = 'Reset_Password';
   static const String homeScreen = 'Home';
   static const String occasionScreen = 'Occasion';
-  static const String bestSellerScreen='Best_Seller';
+  static const String bestSellerScreen = 'Best_Seller';
   static const String productDetails = 'productDetails';
   static const String addressDetails = 'addressDetails';
-  static const String aboutApp='about_app';
+  static const String aboutApp = 'about_app';
   static const String termsAndConditions = 'terms_and_conditions';
-  static const String checkOut='check_out';
+  static const String ordersScreen = 'Orders';
+  static const String checkOut = 'check_out';
+  static const String searchScreen = 'Search';
+  static const String onlinePayment = 'online_payment';
 }

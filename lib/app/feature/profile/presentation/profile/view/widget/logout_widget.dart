@@ -39,6 +39,7 @@ class _LogoutWidgetState extends State<LogoutWidget> {
                   TextButton(
                     onPressed: () {
                       profileViewModel.doIntent(LogoutUserAction());
+                      Navigator.pop(context);
                     },
                     child: Text(AppLocale(context).yes,
                       style: Theme

@@ -7,10 +7,11 @@ class UserAddressEntity extends Equatable {
   final String? lat;
   final String? long;
   final String? userName;
+  final String? street;
 
   const UserAddressEntity(
-      {this.city, this.phone, this.lat, this.long, this.addressId, this.userName});
+      {this.city,this.street ,this.phone, this.lat, this.long, this.addressId, this.userName});
 
   @override
-  List<Object?> get props => [addressId, city, phone, lat, long, userName];
+  List<Object?> get props => [addressId, city, phone, lat, long, userName, street];
 }

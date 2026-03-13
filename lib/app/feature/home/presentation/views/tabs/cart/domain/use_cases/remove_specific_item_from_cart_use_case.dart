@@ -7,7 +7,7 @@ import 'package:injectable/injectable.dart';
 class RemoveSpecificItemFromCartUseCase {
   CartRepoContract cartRepoContract;
   RemoveSpecificItemFromCartUseCase(this.cartRepoContract);
-  Future<BaseResponse<UpdateCartModel>> call ({String? productId}){
+  Future<BaseResponse<UpdateCartModel>> call ({required String productId}){
     return cartRepoContract.removeSpecificItemFromCart(productId: productId);
   }
 

@@ -1,34 +1,39 @@
+import 'package:flower_app/app/feature/home/presentation/views/tabs/cart/data/models/cart_product_dto.dart';
 import 'package:flower_app/app/feature/home/presentation/views/tabs/cart/domain/models/cart_item_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../../../../../../product_details/data/models/product_details_dto.dart';
 
 part 'cart_item_dto.g.dart';
 
 @JsonSerializable()
 class CartItemDto {
-  @JsonKey(name: "product_details")
-  Product? product;
+  
+  @JsonKey(name: "product")
+  ProductCartDto? cartProductDto;
   @JsonKey(name: "price")
-    int? price;
-    @JsonKey(name: "quantity")
-    int? quantity;
-    @JsonKey(name: "_id")
-    String? id;
+  int? price;
+  @JsonKey(name: "quantity")
+  int? quantity;
+  @JsonKey(name: "_id")
+  String? id;
 
     CartItemDto({
-        this.product,
+        this.cartProductDto,
         this.price,
         this.quantity,
         this.id,
     });
 
     CartItemModel toModel (){
+      for(int i=0; i<=4;i++){
+        print(id);
+      }
+      
       return CartItemModel(
         id: id,
         price: price,
         quantity: quantity,
-        product: product?.toModel()
+        cartProductModel: cartProductDto?.toModel()
       );
     }
 

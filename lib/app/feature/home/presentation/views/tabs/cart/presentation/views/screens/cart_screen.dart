@@ -68,18 +68,18 @@ class CartScreen extends StatelessWidget{
                     itemBuilder: (BuildContext context, int index) {
                       return CartItemCard(
                         decreaseItemQuantity: (){
-                          viewModel.doIntent(DecreaseItemQuantityEvent(productId: state.cartItems!.success![index].product!.id,
+                          viewModel.doIntent(DecreaseItemQuantityEvent(productId: state.cartItems!.success![index].cartProductModel!.id!,
                           quantity: state.cartItems!.success![index].quantity!
                           ));
                         },
                         increaseItemQuantity: (){
-                          viewModel.doIntent(IncreaseItemQuantityEvent(productId: state.cartItems!.success![index].product!.id,
+                          viewModel.doIntent(IncreaseItemQuantityEvent(productId: state.cartItems!.success![index].cartProductModel!.id!,
                           quantity: state.cartItems!.success![index].quantity!
                           ));
                         },
                         cartItem: state.cartItems!.success![index],
                         removeItemFromCart:(){
-                          viewModel.doIntent(RemoveItemFromCartEvent(productId: state.cartItems!.success![index].product!.id));
+                          viewModel.doIntent(RemoveItemFromCartEvent(productId: state.cartItems!.success![index].cartProductModel!.id!));
                         } ,
                       );
                     },

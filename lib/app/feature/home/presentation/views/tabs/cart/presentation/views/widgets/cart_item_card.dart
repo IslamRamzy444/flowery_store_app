@@ -18,6 +18,10 @@ class _CartItemCardState extends State<CartItemCard> {
   
   @override
   Widget build(BuildContext context) {
+    //print(widget.cartItem?.product?.imgCover);
+    //print(widget.cartItem?.product?.id);
+    //print(widget.cartItem?.product?.description);
+    print(widget.cartItem?.cartProductModel?.price);
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     return Container(
@@ -33,7 +37,7 @@ class _CartItemCardState extends State<CartItemCard> {
             flex: 1,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12),
-              child: Image.network(widget.cartItem?.product?.imgCover ?? ""),
+              child: Image.network(widget.cartItem?.cartProductModel?.imgCover ?? ""),
             ),
           ),
           SizedBox(width: width*0.02,),
@@ -49,10 +53,10 @@ class _CartItemCardState extends State<CartItemCard> {
                       children: [
                         SizedBox(
                           width: width*0.55,
-                          child: Text(widget.cartItem?.product?.title??"",style: Theme.of(context).textTheme.bodyMedium,overflow: TextOverflow.ellipsis,)),
+                          child: Text(widget.cartItem?.cartProductModel?.title??"",style: Theme.of(context).textTheme.bodyMedium,overflow: TextOverflow.ellipsis,)),
                         SizedBox(
                           width: width*0.55,
-                          child: Text(widget.cartItem?.product?.title??"",style: Theme.of(context).textTheme.labelMedium,overflow: TextOverflow.ellipsis,)),
+                          child: Text(widget.cartItem?.cartProductModel?.title??"",style: Theme.of(context).textTheme.labelMedium,overflow: TextOverflow.ellipsis,)),
             
                       ],
                     ),
@@ -67,7 +71,7 @@ class _CartItemCardState extends State<CartItemCard> {
                     Spacer(),
                     Text("${widget.cartItem?.price??0}",style: Theme.of(context).textTheme.bodyMedium,),
                     Spacer(),
-                    Visibility(visible: widget.cartItem!.quantity! >= 1? true:false,
+                    Visibility(visible: widget.cartItem!.quantity! == 1? false:true,
                     child: IconButton(onPressed: widget.decreaseItemQuantity, icon: Icon(Icons.remove,color: AppColors.blackColor,))),
                     Text("${widget.cartItem?.quantity??1}"),
                     IconButton(onPressed: widget.increaseItemQuantity, icon: Icon(Icons.add,color: AppColors.blackColor)),

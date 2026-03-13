@@ -1,9 +1,10 @@
-import 'package:flower_app/app/feature/product_details/domain/models/product_details_model.dart';
+
+import 'package:flower_app/app/feature/home/presentation/views/tabs/cart/domain/models/cart_product_model.dart';
 
 class CartItemModel {
-  ProductDetailsModel? product;
+  CartProductModel? cartProductModel;
   int? price;
   int? quantity;
   String? id;
-  CartItemModel({this.product,this.id,this.price,this.quantity});
+  CartItemModel({this.cartProductModel,this.id,this.price,this.quantity});
 }

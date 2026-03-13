@@ -12,7 +12,6 @@ import 'package:flower_app/app/feature/profile/presentation/profile/view_model/p
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
-
 import '../../../../../../core/resources/assets_manager.dart';
 import '../../../../../../core/utils/helper_function.dart';
 import '../../../../../start/presentation/view_model/start_view_model.dart';
@@ -36,7 +35,6 @@ class ProfileWidget extends StatefulWidget {
 }
 
 class _ProfileWidgetState extends State<ProfileWidget> {
-
   @override
   Widget build(BuildContext context) {
     StartViewModel startViewModel = Provider.of<StartViewModel>(context);
@@ -52,38 +50,34 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                 children: [
                   ImageIcon(
                     AssetImage(AssetsIcons.logo),
-                    color: Theme
-                        .of(context)
-                        .primaryColor,
+                    color: Theme.of(context).primaryColor,
                   ),
                   const SizedBox(width: 10),
                   Text(
                     AppConsts.appName,
-                    style: Theme
-                        .of(context)
-                        .textTheme
-                        .headlineMedium
-                        ?.copyWith(
-                      color: Theme
-                          .of(context)
-                          .primaryColor,
+                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                      color: Theme.of(context).primaryColor,
                     ),
                   ),
                   Spacer(),
-                NotificationWidget(),
+                  NotificationWidget(),
                 ],
               ),
               const SizedBox(height: 20),
-            widget.profileState.profileState.isLoading == true
+              widget.profileState.profileState.isLoading == true
                   ? Center(child: CircularProgressIndicator())
-                : widget.profileState.profileState.success != null
+                  : widget.profileState.profileState.success != null
                   ? _buildProfileSection(
-                context,
-              widget.profileState.profileState.success!,
-              )
-                : widget.profileState.profileState.error != null
-                ? Text(
-                getException(context, widget.profileState.profileState.error))
+                      context,
+                      widget.profileState.profileState.success!,
+                    )
+                  : widget.profileState.profileState.error != null
+                  ? Text(
+                      getException(
+                        context,
+                        widget.profileState.profileState.error,
+                      ),
+                    )
                   : Container(),
               const SizedBox(height: 10),
               ProfileItemsWidget(
@@ -93,78 +87,79 @@ class _ProfileWidgetState extends State<ProfileWidget> {
               ProfileItemsWidget(
                 data: AppLocale(context).saved_addresses,
                 leading: Icon(Icons.location_on_outlined),
-                onTap: () =>
-                  widget.profileViewModel.doIntent(
-                      NavigateToAddressScreenAction()),
+                onTap: () => widget.profileViewModel.doIntent(
+                  NavigateToAddressScreenAction(),
+                ),
               ),
               Divider(thickness: 1),
-            ChangeNotificationWidget(),
+              ChangeNotificationWidget(),
+              ProfileItemsWidget(
+                data: AppLocale(context).notifications,
+                leading: Icon(Icons.notifications_outlined),
+                onTap: () => widget.profileViewModel.doIntent(
+                  NavigateToNotificationsAction(),
+                ),
+              ),
               Divider(thickness: 1),
               ProfileItemsWidget(
                 data: AppLocale(context).language,
                 leading: Icon(Icons.translate),
                 trailing: TextButton(
                   onPressed: () {
-                  widget.profileViewModel.doIntent(ChangeLanguageAction());
+                    widget.profileViewModel.doIntent(ChangeLanguageAction());
                   },
                   child: Text(
-                  startViewModel.language == 'en'
-                      ? AppLocale(context).english
-                      : AppLocale(context).arabic,
-                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                    color: AppColors.primaryColor,
+                    startViewModel.language == 'en'
+                        ? AppLocale(context).english
+                        : AppLocale(context).arabic,
+                    style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                      color: AppColors.primaryColor,
+                    ),
                   ),
+                ),
               ),
-            ),
-            ),
-            ProfileItemsWidget(
-              data: AppLocale(context).about_us,
-              onTap: () {
-              Navigator.pushNamed(context, Routes.aboutApp);
-              },
-            ),
-
-            ProfileItemsWidget(
-              data: AppLocale(context).terms_and_conditions,
-              onTap: () {
-                Navigator.pushNamed(context, Routes.terms);
-              },
-            ),
-            Divider(thickness: 1),
-            ProfileItemsWidget(
-              data: AppLocale(context).logout,
-              leading: Icon(Icons.logout),
-              trailing: Icon(Icons.logout),
-              onTap: () {
-                showDialog(
-                  context: context,
-                  builder: (context) {
-                    return AlertDialog(
-                      backgroundColor: AppColors.whiteColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      content: LogoutWidget(),
-                      contentPadding: EdgeInsets.zero,
-                    );
-                  },
-                ).then((value) {
-                    homeViewModel.doIntent(GetTokenAction());
-                });
+              ProfileItemsWidget(
+                data: AppLocale(context).about_us,
+                onTap: () {
+                  Navigator.pushNamed(context, Routes.aboutApp);
                 },
               ),
-
+              ProfileItemsWidget(
+                data: AppLocale(context).terms_and_conditions,
+                onTap: () {
+                  Navigator.pushNamed(context, Routes.terms);
+                },
+              ),
+              Divider(thickness: 1),
+              ProfileItemsWidget(
+                data: AppLocale(context).logout,
+                leading: Icon(Icons.logout),
+                trailing: Icon(Icons.logout),
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        backgroundColor: AppColors.whiteColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        content: LogoutWidget(),
+                        contentPadding: EdgeInsets.zero,
+                      );
+                    },
+                  ).then((value) {
+                    homeViewModel.doIntent(GetTokenAction());
+                  });
+                },
+              ),
               Align(
                 alignment: Alignment.bottomCenter,
                 child: Text(
                   AppConsts.appVersion,
-                  style: Theme
-                      .of(
+                  style: Theme.of(
                     context,
-                  )
-                      .textTheme
-                      .titleSmall
-                      ?.copyWith(color: AppColors.grayColor),
+                  ).textTheme.titleSmall?.copyWith(color: AppColors.grayColor),
                 ),
               ),
             ],

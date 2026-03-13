@@ -21,6 +21,7 @@ abstract class Routes {
   static const String search = _Paths.searchScreen;
   static const String onlinePayment = _Paths.onlinePayment;
   static const String successPage=_Paths.successPage;
+  static const String notifications = _Paths.notificationsScreen;
 }
 
 abstract class _Paths {
@@ -42,4 +43,5 @@ abstract class _Paths {
   static const String searchScreen = 'Search';
   static const String onlinePayment = 'online_payment';
   static const String successPage='success_page';
+  static const String notificationsScreen = 'Notifications';
 }

@@ -8,9 +8,15 @@ abstract class AppEndPoint {
   static const String forgetPassword = '/auth/forgotPassword';
   static const String verifyOtp = '/auth/verifyResetCode';
   static const String resetPassword = '/auth/resetPassword';
+  //tabs end points
+  static const String home = '/home';
+  static const String forgetPassword = '/auth/forgotPassword';
+  static const String verifyOtp = '/auth/verifyResetCode';
+  static const String resetPassword = '/auth/resetPassword';
+  static const String products = "/products";
 
   // Tabs Endpoints
-  static const String home = '/home';
+  
 
   // Occasion Endpoints
   static const String occasions = '/occasions';
@@ -50,5 +56,18 @@ abstract class AppEndPoint {
   static const String creditCard = '/orders/checkout?url=http://localhost:3000';
 
   // Categories Endpoint
+  // Address endpoint
+  static const String address = "/addresses";
+  //this end point used for checkout page, ether cash on delivery or Credit card
+  static const String cashOnDelivery = '/orders';
+  static const String creditCard = '/orders/checkout?url=http://localhost:3000';
+  static const String allOccasions = '/occasions';
   static const String allCategories = '/categories';
+
+  // Notifications endpoints
+  static const String getNotifications = '/notifications/user';
+  static const String getUnreadCount = '/notifications/unread-count';
+  static const String markNotificationsRead = '/notifications/mark-read';
+  static const String markAllNotificationsRead = '/notifications/mark-all-read';
+  static const String clearAllNotifications = '/notifications/clear-all';
 }

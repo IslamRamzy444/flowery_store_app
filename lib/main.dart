@@ -16,7 +16,7 @@ import 'package:provider/provider.dart';
 import 'app/feature/start/presentation/view_model/start_view_model.dart';
 import 'firebase_options.dart';
 
-void main()async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   configureDependencies();
   await Firebase.initializeApp(
@@ -37,7 +37,7 @@ void main()async {
   runApp(const StartScreen());
 }
 
- class MyApp extends StatefulWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override

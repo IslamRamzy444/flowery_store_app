@@ -1,6 +1,7 @@
 import 'package:flower_app/app/feature/about_app/presentation/views/screen/about_app_screen.dart';
 import 'package:flower_app/app/feature/address/presentation/view/address_screen.dart';
 import 'package:flower_app/app/feature/orders/presentation/views/screen/orders_screen.dart';
+import 'package:flower_app/app/feature/notifications/presentation/views/screen/notifications_screen.dart';
 import 'package:flower_app/app/feature/profile/presentation/update_profile/view/update_profile_widget.dart';
 import 'package:flower_app/app/feature/terms_and_conditions/presentation/views/screen/terms_and_conditions_screen.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +30,7 @@ class _ProfileNavigatorWidgetState extends State<ProfileNavigatorWidget> {
                 return UpdateProfileWidget(user: user);
               },
             );
-            case Routes.aboutApp:
+          case Routes.aboutApp:
             return MaterialPageRoute(
               builder: (_) {
                 return const AboutAppScreen();
@@ -47,12 +48,17 @@ class _ProfileNavigatorWidgetState extends State<ProfileNavigatorWidget> {
                 return const AddressScreen();
               },
             );
+          case Routes.notifications:
+            return MaterialPageRoute(
+              builder: (_) => const NotificationsScreen(),
+            );
+              
           case Routes.orders:
             return MaterialPageRoute(
               builder: (_) {
                 return const OrdersScreen();
               },
-            );
+            );    
           default:
             return MaterialPageRoute(builder: (_) => const ProfileScreen());
         }

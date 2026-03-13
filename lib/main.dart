@@ -1,7 +1,6 @@
  import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flower_app/app/config/di/di.dart';
  import 'package:firebase_core/firebase_core.dart';
-import 'package:flower_app/app/config/di/di.dart';
 import 'package:flower_app/app/core/routes/app_page.dart';
 import 'package:flower_app/app/core/routes/app_route.dart';
 import 'package:flower_app/app/core/theme/app_theme.dart';

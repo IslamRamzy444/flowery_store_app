@@ -1249,6 +1249,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Continue Payment'**
   String get continue_payment;
+
+  /// No description provided for @estimated_arrival.
+  ///
+  /// In en, this message translates to:
+  /// **'Estimated arrival'**
+  String get estimated_arrival;
+
+  /// No description provided for @your_driver_hero.
+  ///
+  /// In en, this message translates to:
+  /// **'Is your delivery hero for today'**
+  String get your_driver_hero;
+
+  /// No description provided for @order_details.
+  ///
+  /// In en, this message translates to:
+  /// **'Order details'**
+  String get order_details;
+
+  /// No description provided for @apartment.
+  ///
+  /// In en, this message translates to:
+  /// **'Apartment'**
+  String get apartment;
+
+  /// No description provided for @no_order_id_provided.
+  ///
+  /// In en, this message translates to:
+  /// **'No order ID provided'**
+  String get no_order_id_provided;
+
+  /// No description provided for @no_tracking_data.
+  ///
+  /// In en, this message translates to:
+  /// **'No tracking data available'**
+  String get no_tracking_data;
 }
 
 class _AppLocalizationsDelegate

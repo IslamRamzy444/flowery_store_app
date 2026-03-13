@@ -190,5 +190,11 @@
   "was_payment_successful": "Was the payment completed successfully?",
   "payment_failed_title": "Payment Failed",
   "payment_failed_message": "No successful payment was detected. Please complete the payment process.",
-  "continue_payment": "Continue Payment"
+  "continue_payment": "Continue Payment",
+  "estimated_arrival":"Estimated arrival",
+  "your_driver_hero":"Is your delivery hero for today",
+  "order_details":"Order details",
+  "apartment":"Apartment",
+  "no_order_id_provided":"No order ID provided",
+  "no_tracking_data":"No tracking data available"
 }

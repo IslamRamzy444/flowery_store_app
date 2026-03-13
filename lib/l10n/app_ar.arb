@@ -190,5 +190,11 @@
   "was_payment_successful": "Was the payment completed successfully?",
   "payment_failed_title": "فشل الدفع",
   "payment_failed_message": "لم يتم اكتشاف عملية دفع ناجحة. يرجى إكمال عملية الدفع.",
-  "continue_payment": "مواصلة الدفع"
+  "continue_payment": "مواصلة الدفع",
+  "estimated_arrival": "الوصول المتوقع",
+  "your_driver_hero": "هو بطل التوصيل الخاص بك اليوم",
+  "order_details": "تفاصيل الطلب",
+  "apartment": "شقة",
+  "no_order_id_provided": "لم يتم توفير رقم الطلب",
+  "no_tracking_data": "لا توجد بيانات تتبع متوفرة"
 }

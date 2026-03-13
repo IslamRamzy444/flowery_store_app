@@ -22,6 +22,7 @@ abstract class Routes {
   static const String onlinePayment = _Paths.onlinePayment;
   static const String successPage=_Paths.successPage;
   static const String notifications = _Paths.notificationsScreen;
+  static const String mapFlowery=_Paths.mapFlowery;
 }
 
 abstract class _Paths {
@@ -44,4 +45,5 @@ abstract class _Paths {
   static const String onlinePayment = 'online_payment';
   static const String successPage='success_page';
   static const String notificationsScreen = 'Notifications';
+  static const String mapFlowery="map_flowery";
 }

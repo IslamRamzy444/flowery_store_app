@@ -1,13 +1,9 @@
 import 'package:flower_app/app/config/di/di.dart';
 import 'package:flower_app/app/core/resources/app_colors.dart';
-import 'package:flower_app/app/feature/categories/presentation/view/categories_screen.dart';
 import 'package:flower_app/app/feature/home/presentation/view_model/app_tab.dart';
 import 'package:flower_app/app/feature/home/presentation/view_model/home_intent.dart';
 import 'package:flower_app/app/feature/home/presentation/view_model/home_states.dart';
 import 'package:flower_app/app/feature/home/presentation/view_model/home_view_model.dart';
-import 'package:flower_app/app/feature/home/presentation/views/tabs/cart/presentation/views/screens/cart_screen.dart';
-import 'package:flower_app/app/feature/home/presentation/views/tabs/home_tab/presentation/views/screen/home_tab.dart';
-import 'package:flower_app/app/feature/profile/presentation/profile/view/widget/profile_navigator_widget.dart';
 import 'package:flower_app/l10n/app_localizations.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
       value: viewModel,
       child: BlocBuilder<HomeViewModel, HomeStates>(
         builder: (context, state) {
-          final tabs = _buildTabs(state);
+          final tabs = viewModel.tabs;
           final navItems = _buildNavItems(context, state);
 
           return Scaffold(
@@ -71,19 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  List<Widget> _buildTabs(HomeStates state) {
-    final tabs = <Widget>[
-      const HomeTab(),
-      const CategoriesScreen(),
-    ];
-
-    if (state.isLoggedIn) {
-      tabs.add(CartScreen());
-      tabs.add(const ProfileNavigatorWidget());
-    }
-
-    return tabs;
-  }
+  
 
   List<BottomNavigationBarItem> _buildNavItems(
       BuildContext context, HomeStates state) {

@@ -10,11 +10,7 @@ abstract class AppEndPoint {
   static const String resetPassword = '/auth/resetPassword';
   //tabs end points
   static const String home = '/home';
-  static const String forgetPassword = '/auth/forgotPassword';
-  static const String verifyOtp = '/auth/verifyResetCode';
-  static const String resetPassword = '/auth/resetPassword';
   static const String products = "/products";
-
   // Tabs Endpoints
   
 
@@ -24,7 +20,6 @@ abstract class AppEndPoint {
   static String occasionById(String id) => '/occasions/$id';
 
   // Product Endpoints
-  static const String products = "/products";
   static const String productsList = '/products';
   static String productsByOccasion(String occasionId) =>
       '/products?occasion=$occasionId';
@@ -57,11 +52,8 @@ abstract class AppEndPoint {
 
   // Categories Endpoint
   // Address endpoint
-  static const String address = "/addresses";
+  
   //this end point used for checkout page, ether cash on delivery or Credit card
-  static const String cashOnDelivery = '/orders';
-  static const String creditCard = '/orders/checkout?url=http://localhost:3000';
-  static const String allOccasions = '/occasions';
   static const String allCategories = '/categories';
 
   // Notifications endpoints

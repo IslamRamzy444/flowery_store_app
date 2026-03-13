@@ -281,7 +281,7 @@ abstract class AppLocalizations {
   /// No description provided for @phoneNumber.
   ///
   /// In en, this message translates to:
-  /// **'Phone number'**
+  /// **'Phone Number'**
   String get phoneNumber;
 
   /// No description provided for @enterPhoneNumber.
@@ -798,6 +798,267 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'Add new address'**
+<<<<<<< HEAD
+=======
+  String get addNewAddress;
+
+  /// No description provided for @savedAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved addresses'**
+  String get savedAddress;
+
+  /// No description provided for @someThingWrong.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong'**
+  String get someThingWrong;
+
+  /// No description provided for @addressdetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Address Details'**
+  String get addressdetails;
+
+  /// No description provided for @address.
+  ///
+  /// In en, this message translates to:
+  /// **'Address'**
+  String get address;
+
+  /// No description provided for @pleaseEnterYourAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Please Enter Your Address'**
+  String get pleaseEnterYourAddress;
+
+  /// No description provided for @pleaseEnterYourPhoneNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Please Enter Your PhoneNumber'**
+  String get pleaseEnterYourPhoneNumber;
+
+  /// No description provided for @recipientName.
+  ///
+  /// In en, this message translates to:
+  /// **'Recipient name'**
+  String get recipientName;
+
+  /// No description provided for @pleaseEnterTheRecipientname.
+  ///
+  /// In en, this message translates to:
+  /// **'Please Enter Recipient name'**
+  String get pleaseEnterTheRecipientname;
+
+  /// No description provided for @city.
+  ///
+  /// In en, this message translates to:
+  /// **'City'**
+  String get city;
+
+  /// No description provided for @pleaseSelectCity.
+  ///
+  /// In en, this message translates to:
+  /// **'Please Select City'**
+  String get pleaseSelectCity;
+
+  /// No description provided for @area.
+  ///
+  /// In en, this message translates to:
+  /// **'Area'**
+  String get area;
+
+  /// No description provided for @pleaseSelectArea.
+  ///
+  /// In en, this message translates to:
+  /// **'Please Select Area'**
+  String get pleaseSelectArea;
+
+  /// No description provided for @addAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Address'**
+  String get addAddress;
+
+  /// No description provided for @updateAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Update Address'**
+  String get updateAddress;
+
+  /// No description provided for @accountcreatedsuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Account created successfully'**
+  String get accountcreatedsuccessfully;
+
+  /// No description provided for @creatinganaccountyouagreetoour.
+  ///
+  /// In en, this message translates to:
+  /// **'By creating an account, you agree to our'**
+  String get creatinganaccountyouagreetoour;
+
+  /// No description provided for @termsandconditions.
+  ///
+  /// In en, this message translates to:
+  /// **'Terms and conditions'**
+  String get termsandconditions;
+
+  /// No description provided for @connectionFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'No internet connection'**
+  String get connectionFailed;
+
+  /// No description provided for @flowery.
+  ///
+  /// In en, this message translates to:
+  /// **'Flowery'**
+  String get flowery;
+
+  /// No description provided for @search.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get search;
+
+  /// No description provided for @deliveryLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Deliver to 2XVP+XC - Sheikh Zayed'**
+  String get deliveryLocation;
+
+  /// No description provided for @empty_data.
+  ///
+  /// In en, this message translates to:
+  /// **'No products to show'**
+  String get empty_data;
+
+  /// No description provided for @egyptianLivre.
+  ///
+  /// In en, this message translates to:
+  /// **'EGP'**
+  String get egyptianLivre;
+
+  /// No description provided for @bestSeller.
+  ///
+  /// In en, this message translates to:
+  /// **'Best seller'**
+  String get bestSeller;
+
+  /// No description provided for @allpricesincludetax.
+  ///
+  /// In en, this message translates to:
+  /// **'All prices include tax'**
+  String get allpricesincludetax;
+
+  /// No description provided for @bloomWithOurExquisiteBestSellers.
+  ///
+  /// In en, this message translates to:
+  /// **'Bloom with our exquisite best sellers'**
+  String get bloomWithOurExquisiteBestSellers;
+
+  /// No description provided for @wedding.
+  ///
+  /// In en, this message translates to:
+  /// **'Wedding'**
+  String get wedding;
+
+  /// No description provided for @graduation.
+  ///
+  /// In en, this message translates to:
+  /// **'Graduation'**
+  String get graduation;
+
+  /// No description provided for @birthday.
+  ///
+  /// In en, this message translates to:
+  /// **'Birthday'**
+  String get birthday;
+
+  /// No description provided for @katbKetab.
+  ///
+  /// In en, this message translates to:
+  /// **'Katb Ketab'**
+  String get katbKetab;
+
+  /// No description provided for @addToCart.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to cart'**
+  String get addToCart;
+
+  /// No description provided for @addtocart.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to cart'**
+  String get addtocart;
+
+  /// No description provided for @viewAll.
+  ///
+  /// In en, this message translates to:
+  /// **'View all'**
+  String get viewAll;
+
+  /// No description provided for @view_all.
+  ///
+  /// In en, this message translates to:
+  /// **'View all'**
+  String get view_all;
+
+  /// No description provided for @networkError.
+  ///
+  /// In en, this message translates to:
+  /// **'No internet connection'**
+  String get networkError;
+
+  /// No description provided for @serverError.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong. Please try again'**
+  String get serverError;
+
+  /// No description provided for @retry.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get retry;
+
+  /// No description provided for @noProductsForOccasion.
+  ///
+  /// In en, this message translates to:
+  /// **'No products available for this occasion'**
+  String get noProductsForOccasion;
+
+  /// No description provided for @categories.
+  ///
+  /// In en, this message translates to:
+  /// **'Categories'**
+  String get categories;
+
+  /// No description provided for @cart.
+  ///
+  /// In en, this message translates to:
+  /// **'Cart'**
+  String get cart;
+
+  /// No description provided for @success.
+  ///
+  /// In en, this message translates to:
+  /// **'Success'**
+  String get success;
+
+  /// No description provided for @error.
+  ///
+  /// In en, this message translates to:
+  /// **'Error'**
+  String get error;
+
+  /// No description provided for @addNewAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'add new address'**
+>>>>>>> origin/feature/TEAM-55-tracking-stepper-flowery-app
   String get addNewAddress;
 
   /// No description provided for @savedAddress.
@@ -1008,6 +1269,78 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'Refresh'**
+  String get refresh;
+
+  /// No description provided for @no_driver_has_accepted_you_order_yet.
+  ///
+  /// In en, this message translates to:
+  /// **'No Driver Has Accepted Your Order Yet'**
+  String get no_driver_has_accepted_you_order_yet;
+
+  /// No description provided for @is_your_delivery_hero_for_today.
+  ///
+  /// In en, this message translates to:
+  /// **'Is your delivery hero for today'**
+  String get is_your_delivery_hero_for_today;
+
+  /// No description provided for @received_your_order.
+  ///
+  /// In en, this message translates to:
+  /// **'Received your order'**
+  String get received_your_order;
+
+  /// No description provided for @preparing_your_order.
+  ///
+  /// In en, this message translates to:
+  /// **'Preparing your order'**
+  String get preparing_your_order;
+
+  /// No description provided for @out_for_delivery.
+  ///
+  /// In en, this message translates to:
+  /// **'Out for delivery'**
+  String get out_for_delivery;
+
+  /// No description provided for @delivered.
+  ///
+  /// In en, this message translates to:
+  /// **'Delivered'**
+  String get delivered;
+
+  /// No description provided for @no_internet_connection.
+  ///
+  /// In en, this message translates to:
+  /// **'No internet connection'**
+  String get no_internet_connection;
+
+  /// No description provided for @estimated_arrival.
+  ///
+  /// In en, this message translates to:
+  /// **'Estimated arrival'**
+  String get estimated_arrival;
+
+  /// No description provided for @show_map.
+  ///
+  /// In en, this message translates to:
+  /// **'Show map'**
+  String get show_map;
+
+  /// No description provided for @trackOrder.
+  ///
+  /// In en, this message translates to:
+  /// **'Track Order'**
+  String get trackOrder;
+
+  /// No description provided for @add_new.
+  ///
+  /// In en, this message translates to:
+  /// **'Add new'**
+  String get add_new;
+
+  /// No description provided for @refresh.
+  ///
+  /// In en, this message translates to:
+  /// **'ٌRefresh'**
   String get refresh;
 
   /// No description provided for @payment_method.

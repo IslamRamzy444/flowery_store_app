@@ -22,14 +22,10 @@ import 'package:flower_app/app/feature/splash/presentation/views/splash_screen.d
 import 'package:flower_app/app/feature/track_order_stepper/presentation/views/screens/track_order_stepper_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flower_app/app/feature/terms_and_conditions/presentation/views/screen/terms_and_conditions_screen.dart';
-import '../../feature/address/presentation/view/address_screen.dart';
-import '../../feature/forget_password/presentation/forget_password/view/forget_password_screen.dart';
-import '../../feature/forget_password/presentation/reset_password/view/reset_password_screen.dart';
-import '../../feature/forget_password/presentation/verify_otp/view/verify_otp_screen.dart';
-import 'package:flower_app/app/feature/terms_and_conditions/presentation/views/screen/terms_and_conditions_screen.dart';
-import 'package:flutter/material.dart';
 
-import '../../feature/auth/presentation/views/screen/login/login_screen.dart';
+
+// ignore: unused_import
+import '../../feature/auth/presentation/views/screen/login/login_screen.dart' hide LoginScreen;
 
 class RouteGenerator {
   static Route<dynamic> getRoutes(RouteSettings settings) {
@@ -84,6 +80,7 @@ class RouteGenerator {
 
       case Routes.addressDetails:
         final args = settings.arguments;
+        // ignore: unnecessary_null_comparison
         if (args is UserAddressEntity? || args == null) {
           return MaterialPageRoute(
             builder: (_) => AddressDetailsScreen(userAddressEntity: args),
@@ -113,15 +110,11 @@ class RouteGenerator {
 
       case Routes.terms:
         return MaterialPageRoute(builder: (_) => const TermsAndConditionsScreen());
+
       case Routes.trackOrderStepper:
-        //String orderId = settings.arguments as String;
-        String orderId="696abaf4e364ef6140470e8d";
+        String orderId = settings.arguments as String;
+        //String orderId="696abaf4e364ef6140470e8d";
         return MaterialPageRoute(builder: (_) =>  TrackOrderStepperScreen(orderId: orderId,));
-      case Routes.checkOut:
-        return MaterialPageRoute(builder: (_) => const CheckOutScreen());
-        return MaterialPageRoute(
-          builder: (_) => const TermsAndConditionsScreen(),
-        );
 
       case Routes.checkOut:
         return MaterialPageRoute(

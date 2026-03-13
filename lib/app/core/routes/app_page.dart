@@ -3,6 +3,7 @@ import 'package:flower_app/app/feature/about_app/presentation/views/screen/about
 import 'package:flower_app/app/feature/address/domain/model/user_address_entity.dart';
 import 'package:flower_app/app/feature/address/presentation/view/address_screen.dart';
 import 'package:flower_app/app/feature/address_details/presentation/views/screens/address_details_screen.dart';
+import 'package:flower_app/app/feature/auth/presentation/views/screen/login/login_Screen.dart';
 import 'package:flower_app/app/feature/best_seller/presentation/views/screen/best_seller_screen.dart';
 import 'package:flower_app/app/feature/check_out/presentation/views/screen/check_out_screen.dart';
 import 'package:flower_app/app/feature/check_out/presentation/views/screen/online_payment_web_view_screen.dart';
@@ -11,6 +12,7 @@ import 'package:flower_app/app/feature/forget_password/presentation/reset_passwo
 import 'package:flower_app/app/feature/forget_password/presentation/verify_otp/view/verify_otp_screen.dart';
 import 'package:flower_app/app/feature/home/presentation/views/screen/home_screen.dart';
 import 'package:flower_app/app/feature/occasion/presentation/views/screen/occasion_screen.dart';
+import 'package:flower_app/app/feature/orders/presentation/views/screen/orders_screen.dart';
 import 'package:flower_app/app/feature/product_details/presentation/views/screens/product_details_screen.dart';
 import 'package:flower_app/app/feature/profile/domain/model/user_entity.dart';
 import 'package:flower_app/app/feature/profile/presentation/reset_password/view/change_password_screen.dart';
@@ -20,8 +22,6 @@ import 'package:flower_app/app/feature/signup/presentation/views/signup_screen.d
 import 'package:flower_app/app/feature/splash/presentation/views/splash_screen.dart';
 import 'package:flower_app/app/feature/terms_and_conditions/presentation/views/screen/terms_and_conditions_screen.dart';
 import 'package:flutter/material.dart';
-
-import '../../feature/auth/presentation/views/screen/login/login_screen.dart';
 
 class RouteGenerator {
   static Route<dynamic> getRoutes(RouteSettings settings) {
@@ -99,6 +99,9 @@ class RouteGenerator {
 
       case Routes.changePassword:
         return MaterialPageRoute(builder: (_) => const ChangePasswordScreen());
+
+      case Routes.orders:
+        return MaterialPageRoute(builder: (_) => const OrdersScreen());
 
       case Routes.aboutApp:
         return MaterialPageRoute(builder: (_) => const AboutAppScreen());

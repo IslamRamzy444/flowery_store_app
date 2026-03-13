@@ -4,7 +4,6 @@ import 'package:flower_app/app/feature/auth/presentation/views/screen/login/logi
 import 'package:flower_app/app/feature/address/domain/model/user_address_entity.dart';
 import 'package:flower_app/app/feature/address/presentation/view/address_screen.dart';
 import 'package:flower_app/app/feature/address_details/presentation/views/screens/address_details_screen.dart';
-import 'package:flower_app/app/feature/auth/presentation/views/screen/login/login_Screen.dart';
 import 'package:flower_app/app/feature/best_seller/presentation/views/screen/best_seller_screen.dart';
 import 'package:flower_app/app/feature/check_out/presentation/views/screen/check_out_screen.dart';
 import 'package:flower_app/app/feature/check_out/presentation/views/screen/online_payment_web_view_screen.dart';
@@ -27,7 +26,6 @@ import 'package:flower_app/app/feature/success_page_flowery_app/presentation/vie
 import 'package:flower_app/app/feature/terms_and_conditions/presentation/views/screen/terms_and_conditions_screen.dart';
 import 'package:flower_app/app/feature/track_order_stepper/presentation/views/screens/track_order_stepper_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flower_app/app/feature/terms_and_conditions/presentation/views/screen/terms_and_conditions_screen.dart';
 
 
 // ignore: unused_import

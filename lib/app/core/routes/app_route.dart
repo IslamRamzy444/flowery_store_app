@@ -16,10 +16,8 @@ abstract class Routes {
   static const String addressDetails = _Paths.addressDetails;
   static const String updateAddress = 'update_address';
   static const String aboutApp=_Paths.aboutApp;
-  static const String terms=_Paths.termsAndConditions;
   static const String trackOrderStepper="track_order_stepper";
   static const String orders = _Paths.ordersScreen;
-  static const String aboutApp = _Paths.aboutApp;
   static const String checkOut = _Paths.checkOut;
   static const String search = _Paths.searchScreen;
   static const String onlinePayment = _Paths.onlinePayment;

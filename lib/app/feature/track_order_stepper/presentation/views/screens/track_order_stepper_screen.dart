@@ -10,6 +10,7 @@ import 'package:flower_app/app/feature/track_order_stepper/presentation/view_mod
 import 'package:flower_app/app/feature/track_order_stepper/presentation/views/widgets/driver_info_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 
 // ignore: must_be_immutable
 class TrackOrderStepperScreen extends StatefulWidget{
@@ -84,7 +85,7 @@ class _TrackOrderStepperScreenState extends State<TrackOrderStepperScreen> {
                       },
                       ),
                       SizedBox(height: height*AppSize.s0_01,),
-                      Image.asset(AssetsImage.car,height: height*0.25,),
+                      SvgPicture.asset(AssetsSvg.carSvg),
                       SizedBox(height: height*AppSize.s0_01,),
                       Row(
                         children: [

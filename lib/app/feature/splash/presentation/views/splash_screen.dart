@@ -32,8 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
       switch (event) {
         case NavigateToLoginEvent():
           if (mounted) {
-            //Navigator.pushReplacementNamed(context, Routes.login);
-            Navigator.pushReplacementNamed(context, Routes.trackOrderStepper);
+            Navigator.pushReplacementNamed(context, Routes.login);
 
           }
           break;

@@ -33,8 +33,9 @@ void main() {
     categoriesEntity = CategoriesEntity(
       categoriesEntity: [CategoryEntity(title: "flower")],
     );
-    productsEntity =
-        ProductsEntity(product: [ProductDetailsModel(title: "flower")]);
+    productsEntity = ProductsEntity(
+      product: [ProductDetailsModel(title: "flower")],
+    );
     queryProductRequest = QueryProductRequest(category: '1');
     categories = CategoriesEntity(categoriesEntity: []);
   });
@@ -117,7 +118,7 @@ void main() {
           return Future.value(SuccessResponse(data: categories));
         });
         when(getProductsCategoryUseCase.invoke(queryProductRequest)).thenAnswer(
-              (realInvocation) {
+          (realInvocation) {
             return Future.value(SuccessResponse(data: productsEntity));
           },
         );
@@ -139,7 +140,6 @@ void main() {
               success: categories,
             ),
           ),
-
         ];
       },
     );
@@ -383,25 +383,27 @@ void main() {
   });
   group('get sorted products  intent', () {
     blocTest(
-      'when calling dointent with get sorted products  with success in get products intent it should emit correct state',
+      'when calling dointent with get sorted products with success in get products intent it should emit correct state',
       setUp: () {
         provideDummy<BaseResponse<ProductsEntity>>(
           SuccessResponse(data: productsEntity),
         );
 
         when(getProductsCategoryUseCase.invoke(queryProductRequest)).thenAnswer(
-              (realInvocation) {
+          (realInvocation) {
             return Future.value(SuccessResponse(data: productsEntity));
           },
         );
       },
       build: () => categoriesViewModel,
       act: (bloc) {
-        categoriesViewModel.doIntent(GetSortedProducts(sort: Sort.priceAsc,
-            index: 1));
+        categoriesViewModel.doIntent(
+          GetSortedProducts(sort: Sort.priceAsc, index: 1),
+        );
       },
       expect: () {
-        var state = categoriesViewModel.baseState;
+        var state = categoriesViewModel.state;
+
         return [
           state.copyWith(
             productsCategoryState: BaseState(isLoading: true),
@@ -418,6 +420,7 @@ void main() {
         ];
       },
     );
+
     blocTest(
       'when calling dointent with get sorted products with error in get products intent it should emit correct state',
       setUp: () {
@@ -426,18 +429,19 @@ void main() {
         );
 
         when(getProductsCategoryUseCase.invoke(queryProductRequest)).thenAnswer(
-              (realInvocation) {
+          (realInvocation) {
             return Future.value(ErrorResponse(error: UnexpectedError()));
           },
         );
       },
       build: () => categoriesViewModel,
       act: (bloc) {
-        categoriesViewModel.doIntent(GetSortedProducts(sort: Sort.priceAsc,
-            index: 1));
+        categoriesViewModel.doIntent(
+          GetSortedProducts(sort: Sort.priceAsc, index: 1),
+        );
       },
       expect: () {
-        var state = categoriesViewModel.baseState;
+        var state = categoriesViewModel.state;
         return [
           state.copyWith(
             productsCategoryState: BaseState(isLoading: true),

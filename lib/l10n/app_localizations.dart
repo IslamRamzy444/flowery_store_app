@@ -1207,6 +1207,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'products found'**
   String get products_found;
+
+  /// No description provided for @track_order.
+  ///
+  /// In en, this message translates to:
+  /// **'Track order'**
+  String get track_order;
+
+  /// No description provided for @success_placing_order.
+  ///
+  /// In en, this message translates to:
+  /// **'Your order placed successfully!'**
+  String get success_placing_order;
+
+  /// No description provided for @payment_confirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'Payment Confirmation'**
+  String get payment_confirmation;
+
+  /// No description provided for @was_payment_successful.
+  ///
+  /// In en, this message translates to:
+  /// **'Was the payment completed successfully?'**
+  String get was_payment_successful;
+
+  /// No description provided for @payment_failed_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Payment Failed'**
+  String get payment_failed_title;
+
+  /// No description provided for @payment_failed_message.
+  ///
+  /// In en, this message translates to:
+  /// **'No successful payment was detected. Please complete the payment process.'**
+  String get payment_failed_message;
+
+  /// No description provided for @continue_payment.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue Payment'**
+  String get continue_payment;
 }
 
 class _AppLocalizationsDelegate

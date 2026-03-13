@@ -161,14 +161,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                 ShowDialogUtils.showLoading(context);
               }else if(cashState?.isLoading==false && cashState?.success!=null){
                 ShowDialogUtils.hideLoading(context);
-                ShowDialogUtils.showMessage(
-                  context,
-                  title: cashState!.success!.message!,
-                  posActionName: AppLocalizations.of(context)!.ok,
-                  posAction: (){
-                    Navigator.pop(context);
-                  }
-                );
+                Navigator.pushReplacementNamed(context, Routes.successPage);
               }else if(cashState?.isLoading==false && cashState?.error!=null){
                 ShowDialogUtils.hideLoading(context);
                 ShowDialogUtils.showMessage(
@@ -184,15 +177,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                 ShowDialogUtils.showLoading(context);
               }else if(creditState?.isLoading==false && creditState?.success!=null){
                 ShowDialogUtils.hideLoading(context);
-                ShowDialogUtils.showMessage(
-                  context,
-                  title: creditState!.success!.message,
-                  posActionName: AppLocalizations.of(context)!.ok,
-                  posAction: (){
-                    Navigator.pop(context);
-                  }
-                );
-                Navigator.pushNamed(context, Routes.onlinePayment,arguments: creditState.success?.url);
+                Navigator.pushNamed(context, Routes.onlinePayment,arguments: creditState!.success!.url!);
               }else if(creditState?.isLoading==false && creditState?.error!=null){
                 ShowDialogUtils.showLoading(context);
                 ShowDialogUtils.showMessage(

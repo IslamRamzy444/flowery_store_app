@@ -573,4 +573,27 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get products_found => 'products found';
+
+  @override
+  String get track_order => 'Track order';
+
+  @override
+  String get success_placing_order => 'Your order placed successfully!';
+
+  @override
+  String get payment_confirmation => 'Payment Confirmation';
+
+  @override
+  String get was_payment_successful =>
+      'Was the payment completed successfully?';
+
+  @override
+  String get payment_failed_title => 'Payment Failed';
+
+  @override
+  String get payment_failed_message =>
+      'No successful payment was detected. Please complete the payment process.';
+
+  @override
+  String get continue_payment => 'Continue Payment';
 }

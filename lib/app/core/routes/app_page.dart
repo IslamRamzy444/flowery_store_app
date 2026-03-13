@@ -20,6 +20,7 @@ import 'package:flower_app/app/feature/profile/presentation/update_profile/view/
 import 'package:flower_app/app/feature/search/presentation/views/screen/search_screen.dart';
 import 'package:flower_app/app/feature/signup/presentation/views/signup_screen.dart';
 import 'package:flower_app/app/feature/splash/presentation/views/splash_screen.dart';
+import 'package:flower_app/app/feature/success_page_flowery_app/presentation/view/screen/success_page_flowery_app_screen.dart';
 import 'package:flower_app/app/feature/terms_and_conditions/presentation/views/screen/terms_and_conditions_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -76,7 +77,7 @@ class RouteGenerator {
 
       case Routes.addressDetails:
         final args = settings.arguments;
-        if (args is UserAddressEntity? || args == null) {
+        if (args is UserAddressEntity?) {
           return MaterialPageRoute(
             builder: (_) => AddressDetailsScreen(userAddressEntity: args),
             settings: settings,
@@ -125,7 +126,11 @@ class RouteGenerator {
           builder: (_) => const OnlinePaymentWebViewScreen(),
           settings: settings,
         );
-
+      case Routes.successPage:
+        return MaterialPageRoute(
+          builder: (_) => const SuccessPageFloweryAppScreen(),
+          settings: settings,
+        );
       default:
         return unDefinedRoute();
     }

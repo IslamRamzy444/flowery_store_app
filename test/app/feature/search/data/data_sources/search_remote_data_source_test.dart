@@ -62,8 +62,8 @@ void main() {
       verify(mockApiClient.searchProducts(testKeyword)).called(1);
 
       final successResponse = result as SuccessResponse<SearchProductsResponse>;
-      expect(successResponse.data!.products!.length, 1);
-      expect(successResponse.data!.products!.first.title, 'Red Rose');
+      expect(successResponse.data.products!.length, 1);
+      expect(successResponse.data.products!.first.title, 'Red Rose');
     });
 
     test(
@@ -106,7 +106,7 @@ void main() {
       // Assert
       expect(result, isA<SuccessResponse<SearchProductsResponse>>());
       final successResponse = result as SuccessResponse<SearchProductsResponse>;
-      expect(successResponse.data!.products, isEmpty);
+      expect(successResponse.data.products, isEmpty);
     });
   });
 }

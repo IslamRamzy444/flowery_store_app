@@ -214,8 +214,8 @@ class _AddressDetailsScreenState extends State<AddressDetailsScreen> {
                                   street: viewmodel.addressController.text,
                                   phone: widget.userAddressEntity!.phone ?? viewmodel.phoneController.text,
                                   city: viewmodel.city?? widget.userAddressEntity!.city ?? "",
-                                  lat: widget.userAddressEntity!.lat ?? viewmodel.latitude!.toString(),
-                                  long: widget.userAddressEntity!.long ?? viewmodel.longitude!.toString(),
+                                  lat: viewmodel.latitude?.toString()?? widget.userAddressEntity!.lat??"",
+                                  long: viewmodel.longitude?.toString()?? widget.userAddressEntity!.long??"",
                                   username: widget.userAddressEntity!.userName ?? viewmodel.recipientNameController.text
                                 ));
                               }

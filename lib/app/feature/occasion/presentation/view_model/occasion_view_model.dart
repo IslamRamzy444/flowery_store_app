@@ -1,4 +1,7 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flower_app/app/config/base_state/custom_cubit.dart';
+import 'package:flower_app/app/feature/home/presentation/views/tabs/cart/domain/models/update_cart_model.dart';
+import 'package:flower_app/app/feature/occasion/presentation/view_model/occasion_temp_events.dart';
+import 'package:flower_app/app/feature/product_details/domain/use_cases/add_product_to_cart_use_case.dart';
 import 'package:flower_app/app/config/base_response/base_response.dart';
 import 'package:flower_app/app/config/base_state/base_state.dart';
 import 'package:flower_app/app/feature/occasion/data/models/occasion_model.dart';
@@ -8,10 +11,10 @@ import 'package:flower_app/app/feature/occasion/presentation/view_model/occasion
 import 'package:injectable/injectable.dart';
 
 @injectable
-class OccasionViewModel extends Cubit<OccasionStates> {
+class OccasionViewModel extends CustomCubit<OccasionTempEvents,OccasionStates> {
   final GetAllOccasionsUseCase _getAllOccasionsUseCase;
-
-  OccasionViewModel(this._getAllOccasionsUseCase)
+  final AddProductToCartUsecase _addProductToCartUsecase;
+  OccasionViewModel(this._getAllOccasionsUseCase,this._addProductToCartUsecase)
     : super(const OccasionStates());
 
   void doIntent(OccasionEvents event) {
@@ -22,6 +25,8 @@ class OccasionViewModel extends Cubit<OccasionStates> {
       case SelectTabEvent():
         _selectTab(event.index);
         break;
+      case AddProductToCartEventOccasion():
+        _addProductToCart(productId: event.productId, quantity: event.quantity);
     }
   }
 
@@ -53,6 +58,20 @@ class OccasionViewModel extends Cubit<OccasionStates> {
 
   void _selectTab(int index) {
     emit(state.copyWith(selectedTabIndex: index));
+  }
+  void _addProductToCart({String? productId, int? quantity}) async {
+    
+    var response = await _addProductToCartUsecase.call(
+        productId: productId, quantity: quantity);
+    switch (response) {
+      case SuccessResponse<UpdateCartModel>():
+        streamController.add(ShowDialogTempEvent(message: response.data.message));
+        break;
+      case ErrorResponse<UpdateCartModel>():
+        streamController.add(ShowDialogTempEvent(message: response.error.toString()));
+        break;
+
+    }
   }
 
   OccasionModel? get selectedOccasion {

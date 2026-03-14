@@ -12,6 +12,15 @@ class OrdersRepositoryImpl implements OrdersRepository {
 
   @override
   Future<BaseResponse<OrdersResponseModel>> getUserOrders() async {
-    return await _remoteDataSource.getUserOrders();
+    var response = await _remoteDataSource.getUserOrders();
+    switch (response) {
+      case SuccessResponse<OrdersResponseModel>():
+        print(response.data);
+        print(response.data);
+        print(response.data);
+        return SuccessResponse<OrdersResponseModel>(data: response.data);
+      case ErrorResponse<OrdersResponseModel>():
+        return ErrorResponse<OrdersResponseModel>(error: response.error);
+    }
   }
 }

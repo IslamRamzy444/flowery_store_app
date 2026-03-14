@@ -216,5 +216,9 @@
   "order_details": "تفاصيل الطلب",
   "apartment": "شقة",
   "no_order_id_provided": "لم يتم توفير رقم الطلب",
-  "no_tracking_data": "لا توجد بيانات تتبع متوفرة"
+  "no_tracking_data": "لا توجد بيانات تتبع متوفرة",
+  "reorder":"إعاده طلب",
+  "unknown_product":"منتج غير معروف",
+  "delivered_on":"تم التوصيل في",
+  "order_number":"رقم الطلب #"
 }

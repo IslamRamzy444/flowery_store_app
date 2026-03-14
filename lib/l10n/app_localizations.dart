@@ -1339,6 +1339,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No tracking data available'**
   String get no_tracking_data;
+
+  /// No description provided for @reorder.
+  ///
+  /// In en, this message translates to:
+  /// **'Reorder'**
+  String get reorder;
+
+  /// No description provided for @unknown_product.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown product'**
+  String get unknown_product;
+
+  /// No description provided for @delivered_on.
+  ///
+  /// In en, this message translates to:
+  /// **'Delivered on'**
+  String get delivered_on;
+
+  /// No description provided for @order_number.
+  ///
+  /// In en, this message translates to:
+  /// **'Order number#'**
+  String get order_number;
 }
 
 class _AppLocalizationsDelegate

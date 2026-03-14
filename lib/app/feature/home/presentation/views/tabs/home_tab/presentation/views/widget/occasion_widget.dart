@@ -1,5 +1,6 @@
 import 'package:flower_app/app/core/resources/font_manager.dart';
 import 'package:flower_app/app/feature/home/presentation/views/tabs/home_tab/domain/models/occasion_model.dart';
+import 'package:flower_app/app/feature/occasion/presentation/views/screen/occasion_screen.dart';
 import 'package:flutter/material.dart';
 
 class OccasionWidget extends StatelessWidget {
@@ -20,10 +21,19 @@ class OccasionWidget extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Container(
-                  height: 0.18*height,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(image: NetworkImage(occasions[index].image ??''),fit: BoxFit.cover)
+                InkWell(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(
+                          builder: (_) {
+                            return  OccasionScreen(occasionTab:index,);
+                          },
+                        ));   
+                  },
+                  child: Container(
+                    height: 0.18*height,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(image: NetworkImage(occasions[index].image ??''),fit: BoxFit.cover)
+                    ),
                   ),
                 ),
                 SizedBox(height: 0.01*height,),

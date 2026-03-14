@@ -70,7 +70,7 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const HomeScreen());
 
       case Routes.occasion:
-        return MaterialPageRoute(builder: (_) => const OccasionScreen());
+        return MaterialPageRoute(builder: (_) => OccasionScreen());
 
       case Routes.bestSeller:
         return MaterialPageRoute(builder: (_) => const BestSellerScreen());

@@ -111,6 +111,7 @@ class _OccasionTabWidgetState extends State<OccasionTabWidget> {
             itemBuilder: (context, index) {
               final product = products[index];
               return ProductCardWidget(
+                productId: product.id,
                 name: product.title,
                 price: product.priceAfterDiscount.toInt(),
                 oldPrice: product.price.toInt(),

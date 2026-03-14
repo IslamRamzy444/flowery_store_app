@@ -2,6 +2,7 @@ import 'package:flower_app/app/core/resources/app_colors.dart';
 import 'package:flower_app/app/core/resources/assets_manager.dart';
 import 'package:flower_app/app/core/resources/font_manager.dart';
 import 'package:flower_app/app/core/routes/app_route.dart';
+import 'package:flower_app/app/feature/orders/presentation/views/screen/orders_screen.dart';
 import 'package:flower_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
@@ -45,7 +46,7 @@ class SuccessPageFloweryAppScreen extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => OrdersScreen()));
                   }, 
                   child: Text(AppLocalizations.of(context)!.track_order)
                 ),

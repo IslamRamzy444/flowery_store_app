@@ -2,7 +2,10 @@ import 'package:flower_app/app/core/resources/app_colors.dart';
 import 'package:flower_app/app/core/resources/font_manager.dart';
 import 'package:flower_app/app/core/resources/values_manager.dart';
 import 'package:flower_app/app/core/utils/app_locale.dart';
+import 'package:flower_app/app/feature/occasion/presentation/view_model/occasion_events.dart';
+import 'package:flower_app/app/feature/occasion/presentation/view_model/occasion_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProductCardWidget extends StatelessWidget {
@@ -11,6 +14,7 @@ class ProductCardWidget extends StatelessWidget {
   final int oldPrice;
   final int discount;
   final String imageUrl;
+  final String productId;
 
   const ProductCardWidget({
     super.key,
@@ -19,6 +23,7 @@ class ProductCardWidget extends StatelessWidget {
     required this.oldPrice,
     required this.discount,
     required this.imageUrl,
+    required this.productId,
   });
 
   @override
@@ -125,7 +130,9 @@ class ProductCardWidget extends StatelessWidget {
                   child: Material(
                     color: Colors.transparent,
                     child: InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        context.read<OccasionViewModel>().doIntent(AddProductToCartEventOccasion(productId: productId, quantity: 1));
+                      },
                       borderRadius: BorderRadius.circular(100.r),
                       child: Padding(
                         padding: EdgeInsets.symmetric(

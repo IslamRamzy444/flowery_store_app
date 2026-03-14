@@ -1,3 +1,4 @@
+import 'package:flower_app/app/config/api_utils/api_utils.dart';
 import 'package:flower_app/app/config/base_response/base_response.dart';
 import 'package:injectable/injectable.dart';
 import '../api_client/orders_api_client.dart';
@@ -12,12 +13,6 @@ class OrdersRemoteDataSourceImpl implements OrdersRemoteDataSource {
 
   @override
   Future<BaseResponse<OrdersResponseModel>> getUserOrders() async {
-    try {
-      final response = await _apiClient.getUserOrders();
-      final ordersResponse = OrdersResponseModel.fromJson(response);
-      return SuccessResponse(data: ordersResponse);
-    } catch (e) {
-      return ErrorResponse(error: Exception(e.toString()));
-    }
+    return await executeApi(() => _apiClient.getUserOrders(),);
   }
 }

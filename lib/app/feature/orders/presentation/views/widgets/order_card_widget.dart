@@ -1,10 +1,11 @@
+import 'package:flower_app/app/core/utils/app_locale.dart';
+import 'package:flower_app/app/feature/orders/data/models/orders_response_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
-import '../../../data/models/order_model.dart';
 
 class OrderCardWidget extends StatelessWidget {
-  final OrderModel order;
+  final Order order;
   final VoidCallback onActionPressed;
   final bool isCompleted;
 
@@ -16,11 +17,11 @@ class OrderCardWidget extends StatelessWidget {
   });
 
   String? _formatDeliveryDate() {
-    if (!isCompleted || order.deliveredAt == null) return null;
+    if (!isCompleted || order.isDelivered == null) return null;
 
     try {
-      final date = DateTime.parse(order.deliveredAt!);
-      return DateFormat('d MMM yyyy').format(date);
+      //final date = DateTime.parse(order.createdAt!);
+      return DateFormat('d MMM yyyy').format(order.createdAt!);
     } catch (e) {
       return null;
     }
@@ -73,7 +74,7 @@ class OrderCardWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  product?.title ?? 'Unknown Product',
+                  product?.title ?? AppLocale(context).unknown_product,
                   style: TextStyle(
                     fontSize: 12.sp,
                     fontWeight: FontWeight.w400,
@@ -94,35 +95,19 @@ class OrderCardWidget extends StatelessWidget {
                 SizedBox(height: 8.h),
                 Text(
                   deliveryDate != null
-                      ? 'Delivered on $deliveryDate'
-                      : 'Order number# ${_getOrderNumber()}',
+                      ? '${AppLocale(context).delivered_on} $deliveryDate'
+                      : '${AppLocale(context).order_number} ${_getOrderNumber()}',
                   style: TextStyle(
                     fontSize: 12.sp,
                     color: const Color(0xFF535353),
                   ),
                 ),
                 SizedBox(height: 16.h),
-                SizedBox(
-                  width: 152.w,
-                  height: 30.h,
-                  child: ElevatedButton(
-                    onPressed: onActionPressed,
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFFD21E6A),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(100.r),
-                      ),
-                    ),
-                    child: Text(
-                      isCompleted ? 'Reorder' : 'Track order',
-                      style: TextStyle(
-                        fontSize: 13.sp,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
+                Container(
+                  width: double.infinity,
+                  child: ElevatedButton(onPressed: onActionPressed, child: Text(isCompleted ? AppLocale(context).reorder : AppLocale(context).track_order,style: Theme.of(context).textTheme.titleMedium,)),
                 ),
+                
               ],
             ),
           ),

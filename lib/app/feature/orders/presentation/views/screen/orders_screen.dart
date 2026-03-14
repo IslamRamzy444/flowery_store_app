@@ -1,4 +1,5 @@
 import 'package:flower_app/app/config/di/di.dart' show getIt;
+import 'package:flower_app/app/feature/track_order_stepper/presentation/views/screens/track_order_stepper_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -77,7 +78,7 @@ class _OrdersScreenState extends State<OrdersScreen> {
             }
             // Success State
             final ordersResponse = ordersState.success;
-            final allOrders = ordersResponse?.data ?? [];
+            final allOrders = ordersResponse?.orders ?? [];
 
             final filteredOrders = allOrders.where((order) {
               if (state.selectedTabIndex == 0) {
@@ -181,7 +182,7 @@ class _OrdersScreenState extends State<OrdersScreen> {
               viewModel.doIntent(ReorderEvent(order.id ?? ''));
               // Navigate to product detail or add to cart
             } else {
-              viewModel.doIntent(TrackOrderEvent(order.id ?? ''));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => TrackOrderStepperScreen(orderId: order.id ?? '')));
               // Navigate to order tracking screen
             }
           },

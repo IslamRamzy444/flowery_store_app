@@ -81,6 +81,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   : Container(),
               const SizedBox(height: 10),
               ProfileItemsWidget(
+                onTap: () {
+                  Navigator.pushNamed(context, Routes.orders);
+                },
                 data: AppLocale(context).my_orders,
                 leading: Icon(Icons.reorder_outlined),
               ),

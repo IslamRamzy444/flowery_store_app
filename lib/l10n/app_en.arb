@@ -210,5 +210,9 @@
   "order_details":"Order details",
   "apartment":"Apartment",
   "no_order_id_provided":"No order ID provided",
-  "no_tracking_data":"No tracking data available"
+  "no_tracking_data":"No tracking data available",
+  "reorder":"Reorder",
+  "unknown_product":"Unknown product",
+  "delivered_on":"Delivered on",
+  "order_number":"Order number#"
 }

@@ -224,7 +224,9 @@ class _MapFloweryAppScreenState extends State<MapFloweryAppScreen> {
                     child: SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
                         child: Text(
                           AppLocalizations.of(context)!.order_details,
                         ),

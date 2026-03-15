@@ -57,7 +57,7 @@ class TrackOrderStepperRemoteDataSourceImpl implements TrackOrderStepperRemoteDa
       try{
      var response = await FirebaseFirestore.instance.collection('orderDetails').doc(orderId).update({
       'orderId': orderId,
-      'orderState': 'Pending',
+      
      })
      .then((value) => SuccessResponse<String>(data: ""));
       return response;

@@ -18,9 +18,10 @@ class TrackOrderStepperViewmodel extends Cubit<TrackOrderStepperStates>{
   GetDriverInfoUsecase _getDriverInfoUsecase;
   AddNewOrderDocumentToFirebaseUsecase _addNewOrderDocumentToFirebaseUsecase;
   StreamSubscription? subscription;
-  int? activeStep = 0;
+  int activeStep = 0;
   String? currentStep;
   bool firstTime=true;
+  bool trackable=false;
   TrackOrderStepperViewmodel(this._addNewOrderDocumentToFirebaseUsecase,this._getNewOrderStateUsecase,this._getDriverInfoUsecase): super(TrackOrderStepperStates());
 
   void doIntent(TrackOrderStepperEvents event){
@@ -44,6 +45,9 @@ class TrackOrderStepperViewmodel extends Cubit<TrackOrderStepperStates>{
         
         case SuccessResponse<String?>():
           activeStep=editOrderState(event.data);
+          if (activeStep > 0){
+            trackable=true;
+          }
           currentStep=event.data;
           if(currentStep=="Accepted"){
               _getDriverInfo(orderId: orderId,context: context);
@@ -60,9 +64,7 @@ class TrackOrderStepperViewmodel extends Cubit<TrackOrderStepperStates>{
     await _getDriverInfoUsecase.call(orderId: orderId,context: context).then((event) {
       switch(event){
         case SuccessResponse<DriverInfoToModel?>():
-        
           emit(state.copyWith(driverInfoStateNew: BaseState(success: event.data,isLoading: false)));
-          
         case ErrorResponse<DriverInfoToModel?>():
           emit(state.copyWith(driverInfoStateNew: BaseState(error: event.error,isLoading: false)));
         
@@ -84,12 +86,12 @@ class TrackOrderStepperViewmodel extends Cubit<TrackOrderStepperStates>{
     });
   }
 
-  int? editOrderState(String? state){
+  int editOrderState(String? state){
     print(state);
     if(state=="Pending"){
       return 0;
     }else if (state=="Accepted"){
-      return 0;
+      return 1;
     }else if(state=="Picked"){
       return 1;
     }else if(state=="Out For Delivery"){
@@ -99,7 +101,7 @@ class TrackOrderStepperViewmodel extends Cubit<TrackOrderStepperStates>{
     }else if(state=="Delivered"){
       return 3;
     }
-    return null;
+    return 0;
   }
   String getFormattedNow() {
   final now = DateTime.now();

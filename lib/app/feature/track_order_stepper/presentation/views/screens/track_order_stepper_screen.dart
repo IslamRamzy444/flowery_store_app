@@ -3,7 +3,9 @@ import 'package:flower_app/app/config/di/di.dart';
 import 'package:flower_app/app/core/resources/app_colors.dart';
 import 'package:flower_app/app/core/resources/assets_manager.dart';
 import 'package:flower_app/app/core/resources/values_manager.dart';
+import 'package:flower_app/app/core/routes/app_route.dart';
 import 'package:flower_app/app/core/utils/app_locale.dart';
+import 'package:flower_app/app/feature/map_flowery_app/presentation/views/screens/map_flowery_app_screen.dart';
 import 'package:flower_app/app/feature/track_order_stepper/presentation/view_model/track_order_stepper_events.dart';
 import 'package:flower_app/app/feature/track_order_stepper/presentation/view_model/track_order_stepper_states.dart';
 import 'package:flower_app/app/feature/track_order_stepper/presentation/view_model/track_order_stepper_viewmodel.dart';
@@ -32,7 +34,7 @@ class _TrackOrderStepperScreenState extends State<TrackOrderStepperScreen> {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     if (trackOrderStepperViewmodel.firstTime== true) {
-      trackOrderStepperViewmodel.doIntent(  AddNewOrderDocumentToFirebaseEvent(context:context,orderId: widget.orderId));
+      trackOrderStepperViewmodel.doIntent( AddNewOrderDocumentToFirebaseEvent(context:context,orderId: widget.orderId));
       trackOrderStepperViewmodel.doIntent(GetOrderStateEvent(context:context,orderId:widget.orderId));
       trackOrderStepperViewmodel.doIntent(GetDriverInfoEvent(orderId:widget.orderId,context: context));
       trackOrderStepperViewmodel.firstTime=false;
@@ -208,9 +210,12 @@ class _TrackOrderStepperScreenState extends State<TrackOrderStepperScreen> {
                         ],
                       ),
                       SizedBox(height: height*AppSize.s0_05,),
-                      ElevatedButton(onPressed: (){
-                
-                      }, child: Text(AppLocale(context).show_map,style: Theme.of(context).textTheme.titleMedium),)
+                      Visibility(
+                        visible: trackOrderStepperViewmodel.trackable?true:false,
+                        child: ElevatedButton(onPressed: (){
+                           Navigator.push(context, MaterialPageRoute(builder: (context) => MapFloweryAppScreen(),settings:  RouteSettings(arguments: widget.orderId),));
+                        }, child: Text(AppLocale(context).show_map,style: Theme.of(context).textTheme.titleMedium),),
+                      )
                     ],
                   ),
                 ),

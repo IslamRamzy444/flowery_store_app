@@ -51,6 +51,7 @@ class _BestSellerScreenState extends State<BestSellerScreen> {
                       child: Text(event.message??"",style: Theme.of(context).textTheme.headlineLarge?.copyWith(color: AppColors.whiteColor),textAlign: TextAlign.center,),
                     ),
                   )
+                  
             ,);
           }
           break;

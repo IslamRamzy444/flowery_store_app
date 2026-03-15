@@ -3,7 +3,6 @@ import 'package:flower_app/app/config/di/di.dart';
 import 'package:flower_app/app/core/resources/app_colors.dart';
 import 'package:flower_app/app/core/resources/assets_manager.dart';
 import 'package:flower_app/app/core/resources/values_manager.dart';
-import 'package:flower_app/app/core/routes/app_route.dart';
 import 'package:flower_app/app/core/utils/app_locale.dart';
 import 'package:flower_app/app/feature/map_flowery_app/presentation/views/screens/map_flowery_app_screen.dart';
 import 'package:flower_app/app/feature/track_order_stepper/presentation/view_model/track_order_stepper_events.dart';
@@ -94,7 +93,7 @@ class _TrackOrderStepperScreenState extends State<TrackOrderStepperScreen> {
                           Expanded(
                             flex: 1,
                             child: EasyStepper(
-                              activeStep: trackOrderStepperViewmodel.activeStep!,
+                              activeStep: trackOrderStepperViewmodel.activeStep,
                               direction: Axis.vertical,
                               lineStyle: LineStyle(
                                 lineLength: 70,
@@ -132,7 +131,7 @@ class _TrackOrderStepperScreenState extends State<TrackOrderStepperScreen> {
                                       foregroundColor: Colors.black,
                                       radius: 6,
                                       backgroundColor:
-                                          trackOrderStepperViewmodel.activeStep! >= 0 ? AppColors.primaryColor : Colors.grey,
+                                          trackOrderStepperViewmodel.activeStep >= 0 ? AppColors.primaryColor : Colors.grey,
                                     ),
                                   ),
                                  
@@ -153,7 +152,7 @@ class _TrackOrderStepperScreenState extends State<TrackOrderStepperScreen> {
                                       foregroundColor: Colors.black,
                                       radius: 6,
                                       backgroundColor:
-                                          trackOrderStepperViewmodel.activeStep! >= 1 ? AppColors.primaryColor : Colors.grey,
+                                          trackOrderStepperViewmodel.activeStep >= 1 ? AppColors.primaryColor : Colors.grey,
                                     ),
                                   ),
                                       
@@ -174,7 +173,7 @@ class _TrackOrderStepperScreenState extends State<TrackOrderStepperScreen> {
                                       foregroundColor: Colors.black,
                                       radius: 6,
                                       backgroundColor:
-                                          trackOrderStepperViewmodel.activeStep! >= 2 ? AppColors.primaryColor : Colors.grey,
+                                          trackOrderStepperViewmodel.activeStep >= 2 ? AppColors.primaryColor : Colors.grey,
                                     ),
                                   ),
                                     
@@ -195,7 +194,7 @@ class _TrackOrderStepperScreenState extends State<TrackOrderStepperScreen> {
                                       foregroundColor: Colors.black,
                                       radius: 6,
                                       backgroundColor:
-                                          trackOrderStepperViewmodel.activeStep! >= 3 ? AppColors.primaryColor : Colors.grey,
+                                          trackOrderStepperViewmodel.activeStep >= 3 ? AppColors.primaryColor : Colors.grey,
                                     ),
                                   ),
                                    

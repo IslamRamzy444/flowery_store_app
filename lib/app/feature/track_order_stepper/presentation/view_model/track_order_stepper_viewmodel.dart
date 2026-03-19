@@ -94,7 +94,7 @@ class TrackOrderStepperViewmodel extends Cubit<TrackOrderStepperStates>{
       return 1;
     }else if(state=="Picked"){
       return 1;
-    }else if(state=="Out For Delivery"){
+    }else if(state=="Out for delivery"){
       return 2;
     }else if(state=="Arrived"){
       return 2;

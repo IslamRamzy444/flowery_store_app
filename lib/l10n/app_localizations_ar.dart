@@ -302,7 +302,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get uploading_photo_error => 'خطأ في تحميل الصورة';
 
   @override
-  String get logOutAction => 'هل تريد تسجيل الخروج؟';
+  String get logOutAction => 'تسجيل الخروج';
 
   @override
   String get no => 'لا';
@@ -474,6 +474,37 @@ class AppLocalizationsAr extends AppLocalizations {
   String get refresh => 'تحديث';
 
   @override
+  String get no_driver_has_accepted_you_order_yet =>
+      'لا يوجد سائق قد قبل طلبك بعد';
+
+  @override
+  String get is_your_delivery_hero_for_today => 'هو بطل التوصيل الخاص بك لليوم';
+
+  @override
+  String get received_your_order => 'تم استلام طلبك';
+
+  @override
+  String get preparing_your_order => 'يتم تجهيز طلبك';
+
+  @override
+  String get out_for_delivery => 'في الطريق للتوصيل';
+
+  @override
+  String get delivered => 'تم التوصيل';
+
+  @override
+  String get no_internet_connection => 'لا يوجد اتصال بالإنترنت';
+
+  @override
+  String get estimated_arrival => 'الوصول المتوقع';
+
+  @override
+  String get show_map => 'اظهار الخريطه';
+
+  @override
+  String get trackOrder => 'تتبع الطلب';
+
+  @override
   String get payment_method => 'طريقة الدفع';
 
   @override
@@ -596,4 +627,31 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get continue_payment => 'مواصلة الدفع';
+
+  @override
+  String get your_driver_hero => 'هو بطل التوصيل الخاص بك اليوم';
+
+  @override
+  String get order_details => 'تفاصيل الطلب';
+
+  @override
+  String get apartment => 'شقة';
+
+  @override
+  String get no_order_id_provided => 'لم يتم توفير رقم الطلب';
+
+  @override
+  String get no_tracking_data => 'لا توجد بيانات تتبع متوفرة';
+
+  @override
+  String get reorder => 'إعاده طلب';
+
+  @override
+  String get unknown_product => 'منتج غير معروف';
+
+  @override
+  String get delivered_on => 'تم التوصيل في';
+
+  @override
+  String get order_number => 'رقم الطلب #';
 }

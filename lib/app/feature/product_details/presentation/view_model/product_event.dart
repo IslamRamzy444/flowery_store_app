@@ -9,3 +9,4 @@ class NavigateToProductDetailsEvent extends ProductEvent {
 class BackNavigationFromProductEvent extends ProductEvent {}
 
 
+

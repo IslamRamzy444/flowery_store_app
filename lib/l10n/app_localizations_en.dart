@@ -302,7 +302,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get uploading_photo_error => 'Error in uploading photo';
 
   @override
-  String get logOutAction => 'Do you want to log out?';
+  String get logOutAction => 'Logout';
 
   @override
   String get no => 'No';
@@ -474,6 +474,38 @@ class AppLocalizationsEn extends AppLocalizations {
   String get refresh => 'Refresh';
 
   @override
+  String get no_driver_has_accepted_you_order_yet =>
+      'No Driver Has Accepted Your Order Yet';
+
+  @override
+  String get is_your_delivery_hero_for_today =>
+      'Is your delivery hero for today';
+
+  @override
+  String get received_your_order => 'Received your order';
+
+  @override
+  String get preparing_your_order => 'Preparing your order';
+
+  @override
+  String get out_for_delivery => 'Out for delivery';
+
+  @override
+  String get delivered => 'Delivered';
+
+  @override
+  String get no_internet_connection => 'No internet connection';
+
+  @override
+  String get estimated_arrival => 'Estimated arrival';
+
+  @override
+  String get show_map => 'Show map';
+
+  @override
+  String get trackOrder => 'Track Order';
+
+  @override
   String get payment_method => 'Payment Method';
 
   @override
@@ -596,4 +628,31 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get continue_payment => 'Continue Payment';
+
+  @override
+  String get your_driver_hero => 'Is your delivery hero for today';
+
+  @override
+  String get order_details => 'Order details';
+
+  @override
+  String get apartment => 'Apartment';
+
+  @override
+  String get no_order_id_provided => 'No order ID provided';
+
+  @override
+  String get no_tracking_data => 'No tracking data available';
+
+  @override
+  String get reorder => 'Reorder';
+
+  @override
+  String get unknown_product => 'Unknown product';
+
+  @override
+  String get delivered_on => 'Delivered on';
+
+  @override
+  String get order_number => 'Order number#';
 }

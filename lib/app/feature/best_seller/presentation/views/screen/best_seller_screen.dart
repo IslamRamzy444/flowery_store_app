@@ -5,6 +5,7 @@ import 'package:flower_app/app/core/resources/values_manager.dart';
 import 'package:flower_app/app/core/utils/helper_function.dart';
 import 'package:flower_app/app/feature/best_seller/presentation/view_model/best_seller_events.dart';
 import 'package:flower_app/app/feature/best_seller/presentation/view_model/best_seller_states.dart';
+import 'package:flower_app/app/feature/best_seller/presentation/view_model/best_seller_temp_events.dart';
 import 'package:flower_app/app/feature/best_seller/presentation/view_model/best_seller_view_model.dart';
 import 'package:flower_app/app/feature/best_seller/presentation/views/widget/best_seller_card.dart';
 import 'package:flower_app/l10n/app_localizations.dart';
@@ -22,6 +23,48 @@ class BestSellerScreen extends StatefulWidget {
 
 class _BestSellerScreenState extends State<BestSellerScreen> {
   final BestSellerViewModel viewModel=getIt<BestSellerViewModel>();
+
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    viewModel.cubitStream.listen((event) {
+      switch (event) {
+        case ShowDialogTempEvent():
+          if (mounted) {
+            showModalBottomSheet(
+              backgroundColor: AppColors.primaryColor,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)
+              ),
+              showDragHandle: true,
+              enableDrag: true,
+              
+              context: context,
+              builder: (context) =>
+                  Container(
+                    width: double.infinity,
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(20,0,20,20),
+                      child: Text(event.message??"",style: Theme.of(context).textTheme.headlineLarge?.copyWith(color: AppColors.whiteColor),textAlign: TextAlign.center,),
+                    ),
+                  )
+                  
+            ,);
+          }
+          break;
+      }
+    },);
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    viewModel.close();
+  }
   @override
   Widget build(BuildContext context) {
     var width=MediaQuery.sizeOf(context).width;
@@ -68,7 +111,7 @@ class _BestSellerScreenState extends State<BestSellerScreen> {
                         Navigator.push(context, MaterialPageRoute(builder: (context) => ProductDetailsScreen(productId: bestSellerState.success![index].id,),));
                       },
                       onPressed: () {
-                        
+                        viewModel.doIntent(AddProductToCartEvent(productId: bestSellerState.success![index].id, quantity: 1));
                       },
                     );
                   },

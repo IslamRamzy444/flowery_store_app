@@ -42,12 +42,15 @@ class _AddressDetailsScreenState extends State<AddressDetailsScreen> {
 
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
-    if (widget.userAddressEntity != null && widget.userAddressEntity?.lat != null && widget.userAddressEntity?.long != null) {
-      viewmodel.doIntent(GetAddressFromCoordinatesEvent(
-        latitude: double.tryParse(widget.userAddressEntity?.lat??"0.0")??0.0,
-        longitude: double.tryParse(widget.userAddressEntity?.long??"0.0")??0.0
-      ));
-      viewmodel.area=widget.userAddressEntity?.city;
+    if (widget.userAddressEntity != null) {
+      if(widget.userAddressEntity?.lat != null && widget.userAddressEntity?.long != null){
+        viewmodel.doIntent(GetAddressFromCoordinatesEvent(latitude: double.parse(widget.userAddressEntity!.lat!) , longitude: double.parse(widget.userAddressEntity!.long!)));
+      }
+      viewmodel.phoneController.text=widget.userAddressEntity?.phone??"";
+      viewmodel.recipientNameController.text=widget.userAddressEntity?.userName??"";
+      viewmodel.city=widget.userAddressEntity?.city??"";
+      viewmodel.latitude=widget.userAddressEntity?.lat??"";
+      viewmodel.longitude=widget.userAddressEntity?.long??"";
     }
     
     return Scaffold(
@@ -109,7 +112,7 @@ class _AddressDetailsScreenState extends State<AddressDetailsScreen> {
                         decoration: InputDecoration(
                           labelText: AppLocale(context).address,
                         ),
-                        initialValue: widget.userAddressEntity==null?viewmodel.address: null,
+                        
                         controller: viewmodel.addressController,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -118,7 +121,7 @@ class _AddressDetailsScreenState extends State<AddressDetailsScreen> {
                           return null;
                         },
                         onChanged: (value) {
-                          viewmodel.address = value;
+                          viewmodel.addressController.text=value;
                           formKey.currentState?.validate();
                         },
                         
@@ -130,10 +133,10 @@ class _AddressDetailsScreenState extends State<AddressDetailsScreen> {
                         decoration: InputDecoration(
                           labelText: AppLocale(context).phoneNumber,
                         ),
-                        initialValue: widget.userAddressEntity?.phone,
+                        controller: viewmodel.phoneController,
                         validator: widget.userAddressEntity ==null? (value) =>  AppValidators.validateNumberPhone(value,context):null,
                         onChanged: (value) {
-                          viewmodel.phone = value;
+                          viewmodel.phoneController.text=value;
                           formKey.currentState?.validate();
                         },
                       ),
@@ -144,7 +147,7 @@ class _AddressDetailsScreenState extends State<AddressDetailsScreen> {
                         decoration: InputDecoration(
                           labelText: AppLocale(context).recipientName,
                         ),
-                        initialValue: widget.userAddressEntity?.userName,
+                        controller: viewmodel.recipientNameController,
                         validator: widget.userAddressEntity ==null? (value) {
                           if (value == null || value.isEmpty) {
                             return AppLocale(context).pleaseEnterTheRecipientname;
@@ -152,7 +155,7 @@ class _AddressDetailsScreenState extends State<AddressDetailsScreen> {
                           return null;
                         }:null,
                         onChanged: (value) {
-                          viewmodel.recipientName = value;
+                          viewmodel.recipientNameController.text=value;
                           formKey.currentState?.validate();
                         },
                       ),
@@ -161,6 +164,7 @@ class _AddressDetailsScreenState extends State<AddressDetailsScreen> {
                       Row(children: [
                         Expanded(
                           child: DropdownMenu(
+                           
                            dropdownMenuEntries: viewmodel.citiesList!.map((city) => DropdownMenuEntry(value: city, label: city.governorateNameEn!)).toList() ,
                            label: Text(AppLocale(context).city),
                            onSelected: (value) {
@@ -196,23 +200,23 @@ class _AddressDetailsScreenState extends State<AddressDetailsScreen> {
                             if (formKey.currentState!.validate()) {
                               if(widget.userAddressEntity == null){
                                 viewmodel.doIntent(AddAddressEvent(
-                                  street: viewmodel.address!,
-                                  phone: viewmodel.phone!,
+                                  street: viewmodel.addressController.text,
+                                  phone: viewmodel.phoneController.text,
                                   city: viewmodel.area!,
                                   lat: viewmodel.latitude!.toString(),
                                   long: viewmodel.longitude!.toString(),
-                                  username: viewmodel.recipientName!
+                                  username: viewmodel.recipientNameController.text
                                 ));
                                
                               }else{
                                 viewmodel.doIntent(UpdateAddressEvent(
                                   addressId:  widget.userAddressEntity!.addressId!,
-                                  street: viewmodel.address!,
-                                  phone: widget.userAddressEntity!.phone ?? viewmodel.phone!,
-                                  city: widget.userAddressEntity!.city ?? viewmodel.area!,
-                                  lat: widget.userAddressEntity!.lat ?? viewmodel.latitude!.toString(),
-                                  long: widget.userAddressEntity!.long ?? viewmodel.longitude!.toString(),
-                                  username: widget.userAddressEntity!.userName ?? viewmodel.recipientName!
+                                  street: viewmodel.addressController.text,
+                                  phone: widget.userAddressEntity!.phone ?? viewmodel.phoneController.text,
+                                  city: viewmodel.city?? widget.userAddressEntity!.city ?? "",
+                                  lat: viewmodel.latitude?.toString()?? widget.userAddressEntity!.lat??"",
+                                  long: viewmodel.longitude?.toString()?? widget.userAddressEntity!.long??"",
+                                  username: widget.userAddressEntity!.userName ?? viewmodel.recipientNameController.text
                                 ));
                               }
                             }

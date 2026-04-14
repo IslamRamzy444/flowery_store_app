@@ -1,5 +1,6 @@
 import 'package:flower_app/app/core/routes/app_route.dart';
 import 'package:flower_app/app/feature/about_app/presentation/views/screen/about_app_screen.dart';
+import 'package:flower_app/app/feature/auth/presentation/views/screen/login/login_Screen.dart';
 import 'package:flower_app/app/feature/address/domain/model/user_address_entity.dart';
 import 'package:flower_app/app/feature/address/presentation/view/address_screen.dart';
 import 'package:flower_app/app/feature/address_details/presentation/views/screens/address_details_screen.dart';
@@ -10,7 +11,10 @@ import 'package:flower_app/app/feature/forget_password/presentation/forget_passw
 import 'package:flower_app/app/feature/forget_password/presentation/reset_password/view/reset_password_screen.dart';
 import 'package:flower_app/app/feature/forget_password/presentation/verify_otp/view/verify_otp_screen.dart';
 import 'package:flower_app/app/feature/home/presentation/views/screen/home_screen.dart';
+import 'package:flower_app/app/feature/notifications/presentation/views/screen/notifications_screen.dart';
+import 'package:flower_app/app/feature/map_flowery_app/presentation/views/screens/map_flowery_app_screen.dart';
 import 'package:flower_app/app/feature/occasion/presentation/views/screen/occasion_screen.dart';
+import 'package:flower_app/app/feature/orders/presentation/views/screen/orders_screen.dart';
 import 'package:flower_app/app/feature/product_details/presentation/views/screens/product_details_screen.dart';
 import 'package:flower_app/app/feature/profile/domain/model/user_entity.dart';
 import 'package:flower_app/app/feature/profile/presentation/reset_password/view/change_password_screen.dart';
@@ -18,10 +22,14 @@ import 'package:flower_app/app/feature/profile/presentation/update_profile/view/
 import 'package:flower_app/app/feature/search/presentation/views/screen/search_screen.dart';
 import 'package:flower_app/app/feature/signup/presentation/views/signup_screen.dart';
 import 'package:flower_app/app/feature/splash/presentation/views/splash_screen.dart';
+import 'package:flower_app/app/feature/success_page_flowery_app/presentation/view/screen/success_page_flowery_app_screen.dart';
 import 'package:flower_app/app/feature/terms_and_conditions/presentation/views/screen/terms_and_conditions_screen.dart';
+import 'package:flower_app/app/feature/track_order_stepper/presentation/views/screens/track_order_stepper_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../../feature/auth/presentation/views/screen/login/login_screen.dart';
+
+// ignore: unused_import
+import '../../feature/auth/presentation/views/screen/login/login_screen.dart' hide LoginScreen;
 
 class RouteGenerator {
   static Route<dynamic> getRoutes(RouteSettings settings) {
@@ -62,7 +70,7 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const HomeScreen());
 
       case Routes.occasion:
-        return MaterialPageRoute(builder: (_) => const OccasionScreen());
+        return MaterialPageRoute(builder: (_) => OccasionScreen());
 
       case Routes.bestSeller:
         return MaterialPageRoute(builder: (_) => const BestSellerScreen());
@@ -76,6 +84,7 @@ class RouteGenerator {
 
       case Routes.addressDetails:
         final args = settings.arguments;
+        // ignore: unnecessary_null_comparison
         if (args is UserAddressEntity? || args == null) {
           return MaterialPageRoute(
             builder: (_) => AddressDetailsScreen(userAddressEntity: args),
@@ -100,13 +109,19 @@ class RouteGenerator {
       case Routes.changePassword:
         return MaterialPageRoute(builder: (_) => const ChangePasswordScreen());
 
+      case Routes.orders:
+        return MaterialPageRoute(builder: (_) => const OrdersScreen());
+
       case Routes.aboutApp:
         return MaterialPageRoute(builder: (_) => const AboutAppScreen());
 
       case Routes.terms:
-        return MaterialPageRoute(
-          builder: (_) => const TermsAndConditionsScreen(),
-        );
+        return MaterialPageRoute(builder: (_) => const TermsAndConditionsScreen());
+
+      case Routes.trackOrderStepper:
+        String orderId = settings.arguments as String;
+        //String orderId="696abaf4e364ef6140470e8dM";
+        return MaterialPageRoute(builder: (_) =>  TrackOrderStepperScreen(orderId: orderId,));
 
       case Routes.checkOut:
         return MaterialPageRoute(
@@ -122,7 +137,20 @@ class RouteGenerator {
           builder: (_) => const OnlinePaymentWebViewScreen(),
           settings: settings,
         );
+      case Routes.successPage:
+        return MaterialPageRoute(
+          builder: (_) => const SuccessPageFloweryAppScreen(),
+          settings: settings,
+        );
 
+      case Routes.notifications:
+        return MaterialPageRoute(builder: (_) => const NotificationsScreen());
+      
+      case Routes.mapFlowery:
+        return MaterialPageRoute(
+          builder: (_) => const MapFloweryAppScreen(),
+          settings: settings,
+        );
       default:
         return unDefinedRoute();
     }

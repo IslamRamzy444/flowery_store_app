@@ -3,19 +3,19 @@ sealed class CartScreenEvents {}
 class GetLoggedUserCartEvent extends CartScreenEvents{}
 
 class IncreaseItemQuantityEvent extends CartScreenEvents{
-  String? productId;
+  String productId;
   int quantity;
-  IncreaseItemQuantityEvent({this.productId,required this.quantity});
+  IncreaseItemQuantityEvent({required this.productId,required this.quantity});
 }
 class DecreaseItemQuantityEvent extends CartScreenEvents{
-  String? productId;
+  String productId;
   int quantity;
-  DecreaseItemQuantityEvent({this.productId,required this.quantity});
+  DecreaseItemQuantityEvent({required this.productId,required this.quantity});
 }
 
 class RemoveItemFromCartEvent extends CartScreenEvents{
-  String? productId;
-  RemoveItemFromCartEvent({this.productId});
+  String productId;
+  RemoveItemFromCartEvent({required this.productId});
 }
 
 class ClearCartEvent extends CartScreenEvents{}

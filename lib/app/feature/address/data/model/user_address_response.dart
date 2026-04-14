@@ -22,6 +22,7 @@ class UserAddressResponse {
 
   UserAddressEntity toUserAddressEntity(AddressesDto address) {
     return UserAddressEntity(
+      street: address.street,
       city: address.city,
       lat: address.lat,
       long: address.long,

@@ -1,10 +1,12 @@
- import 'package:firebase_core/firebase_core.dart';
+ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flower_app/app/config/di/di.dart';
+ import 'package:firebase_core/firebase_core.dart';
 import 'package:flower_app/app/core/routes/app_page.dart';
 import 'package:flower_app/app/core/routes/app_route.dart';
 import 'package:flower_app/app/core/theme/app_theme.dart';
 import 'package:flower_app/app/feature/start/presentation/view/start_screen.dart';
 import 'package:flower_app/l10n/app_localizations.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,12 +15,21 @@ import 'package:provider/provider.dart';
 import 'app/feature/start/presentation/view_model/start_view_model.dart';
 import 'firebase_options.dart';
 
-void main()async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  configureDependencies();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  FlutterError.onError = (errorDetails) {
+      FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
+  };
+  PlatformDispatcher.instance.onError = (error, stack) {
+      FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+      return true;
+  };
+
+  configureDependencies();
+  
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
@@ -26,7 +37,7 @@ void main()async {
   runApp(const StartScreen());
 }
 
- class MyApp extends StatefulWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override

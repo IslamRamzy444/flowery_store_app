@@ -42,7 +42,6 @@ class _ProductCartItemState extends State<ProductCartItem> {
             Navigator.pop(context);
           }
           break;
-
       }
     },);
   }

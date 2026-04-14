@@ -5,14 +5,17 @@ import 'package:flower_app/app/core/resources/values_manager.dart';
 import 'package:flower_app/app/core/utils/app_locale.dart';
 import 'package:flower_app/app/feature/occasion/presentation/view_model/occasion_events.dart';
 import 'package:flower_app/app/feature/occasion/presentation/view_model/occasion_states.dart';
+import 'package:flower_app/app/feature/occasion/presentation/view_model/occasion_temp_events.dart';
 import 'package:flower_app/app/feature/occasion/presentation/view_model/occasion_view_model.dart';
 import 'package:flower_app/app/feature/occasion/presentation/views/widgets/occasion_tab_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+// ignore: must_be_immutable
 class OccasionScreen extends StatefulWidget {
-  const OccasionScreen({super.key});
+   int? occasionTab;
+   OccasionScreen({super.key,this.occasionTab});
 
   @override
   State<OccasionScreen> createState() => _OccasionScreenState();
@@ -25,6 +28,33 @@ class _OccasionScreenState extends State<OccasionScreen> {
   void initState() {
     super.initState();
     viewModel.doIntent(GetAllOccasionsEvent());
+    viewModel.doIntent(SelectTabEvent(widget.occasionTab??0));
+    viewModel.cubitStream.listen((event) {
+      switch (event) {
+        case ShowDialogTempEvent():
+          if (mounted) {
+            showModalBottomSheet(
+              backgroundColor: AppColors.primaryColor,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)
+              ),
+              showDragHandle: true,
+              enableDrag: true,
+              
+              context: context,
+              builder: (context) =>
+                  Container(
+                    width: double.infinity,
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(20,0,20,20),
+                      child: Text(event.message??"",style: Theme.of(context).textTheme.headlineLarge?.copyWith(color: AppColors.whiteColor),textAlign: TextAlign.center,),
+                    ),
+                  )
+            ,);
+          }
+          break;
+      }
+    },);
   }
 
   @override

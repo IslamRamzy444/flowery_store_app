@@ -8,7 +8,7 @@ class UpdateCartProductQuantityUseCase {
   CartRepoContract cartRepoContract;
   UpdateCartProductQuantityUseCase(this.cartRepoContract);
 
-  Future<BaseResponse<UpdateCartModel>> call({String? productId,int? quantity})async{
+  Future<BaseResponse<UpdateCartModel>> call({required String productId,int? quantity})async{
     return await cartRepoContract.updatedCartProductQuantity(productId: productId,quantity: quantity);
   }
 }

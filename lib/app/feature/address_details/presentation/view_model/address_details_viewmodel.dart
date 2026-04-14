@@ -22,16 +22,16 @@ class AddressDetailsViewmodel extends Cubit<AddressDetailsStates>{
   final UpdateAddressUsecase _updateAddressUsecase;
   final GetCitiesUsecase _getCitiesUsecase;
   final GetStatesUsecase _getStatesUsecase;
-  String? address;
+  
   String? latitude;
   String? longitude;
-  String? phone;
   String? city;
   String? area;
   String? selectedCityId;
   String? selectedAreaId;
-  String? recipientName;
   TextEditingController addressController = TextEditingController() ;
+  TextEditingController phoneController = TextEditingController() ;
+  TextEditingController recipientNameController = TextEditingController() ;
   List<StatesModel>? areasList ;
   List<CitiesModel>? citiesList ;
   List<StatesModel>? filteredAreasList ;
@@ -41,7 +41,7 @@ class AddressDetailsViewmodel extends Cubit<AddressDetailsStates>{
     switch (event) {
       case AddAddressEvent():
         _addAddress(
-          street: event.street,
+
           phone: event.phone,
           city: event.city,
           lat: event.lat,
@@ -51,7 +51,7 @@ class AddressDetailsViewmodel extends Cubit<AddressDetailsStates>{
       case UpdateAddressEvent():
         _updateAddress(
           addressId: event.addressId,
-          street: event.street,
+          
           phone: event.phone,
           city: event.city,
           lat: event.lat,
@@ -77,10 +77,11 @@ class AddressDetailsViewmodel extends Cubit<AddressDetailsStates>{
   }
 
 
-  void _addAddress({String? street,String? phone,String? city,String? lat,String? long,String? username}) async {
+  void _addAddress({String? phone,String? city,String? lat,String? long,String? username}) async {
     emit(state.copyWith(addressDetailsStateNew: BaseState(isLoading: true)));
-    var response = await _addAddressUsecase.call(
-      street: street,
+    if(city !=null){
+      var response = await _addAddressUsecase.call(
+      street: addressController.text,
       phone: phone,
       city: city,
       lat: lat,
@@ -93,14 +94,18 @@ class AddressDetailsViewmodel extends Cubit<AddressDetailsStates>{
       case ErrorResponse<String>():
         emit(state.copyWith(addressDetailsStateNew: BaseState(isLoading: false,error: response.error)));
     }
+  }else{
+    emit(state.copyWith(addressDetailsStateNew: BaseState(isLoading: false,error: Exception('Please fill all fields'))));
+  }
+    
     
   }
 
-  void _updateAddress({String? addressId, String? street, String? phone, String? city, String? lat, String? long, String? username}) async {
+  void _updateAddress({String? addressId,String? phone, String? city, String? lat, String? long, String? username}) async {
     emit(state.copyWith(addressDetailsStateNew: BaseState(isLoading: true)));
     var response = await _updateAddressUsecase.call(
       addressId: addressId,
-      street: street,
+      street: addressController.text,
       phone: phone,
       city: city,
       lat: lat,
@@ -120,8 +125,8 @@ class AddressDetailsViewmodel extends Cubit<AddressDetailsStates>{
     emit(state.copyWith(addressDetailsStateNew: BaseState(isLoading: true)));
     try{
     List<Placemark> placemarks = await placemarkFromCoordinates(lat, lng);
-    address = '${placemarks[0].street}';
-    addressController.text=address??"";
+    String? address= '${placemarks[0].street}';
+    addressController.text=address;
     latitude = lat.toString();
     longitude = lng.toString();
     emit(state.copyWith(addressDetailsStateNew: BaseState(isLoading: false,)));

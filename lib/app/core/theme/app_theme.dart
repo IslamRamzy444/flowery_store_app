@@ -42,6 +42,11 @@ class AppTheme {
 
     // textStyle
     textTheme: TextTheme(
+      labelSmall: GoogleFonts.imFellEnglish(
+        color: AppColors.whiteColor,
+        fontSize: AppSize.s8,
+        fontWeight: FontWeights.regular
+      ),
       labelMedium: TextStyle(
         fontFamily: FontsFamily.inter,
         fontSize: FontSize.s13,

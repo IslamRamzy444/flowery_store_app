@@ -68,6 +68,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get dontHaveAnAccount => 'ليس لديك حساب؟';
 
   @override
+  String get alreadyHaveAnAccount => 'لديك حساب بالفعل؟';
+
+  @override
   String get register => 'تسجيل دخول';
 
   @override
@@ -90,9 +93,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get enterLastName => 'أدخل اسمك الأخير';
-
-  @override
-  String get alreadyHaveAnAccount => 'لديك حساب بالفعل؟';
 
   @override
   String get passwordConfirmation => 'تأكيد كلمة المرور';
@@ -196,7 +196,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get male => 'ذكر';
 
   @override
-  String get female => 'انثى';
+  String get female => 'أنثى';
 
   @override
   String get cancel => 'إلغاء';
@@ -234,9 +234,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get description => 'الوصف';
-
-  @override
-  String get add_to_cart => 'أضف إلى السلة';
 
   @override
   String get out_of_stock => 'إنتهى من المخزن';
@@ -305,7 +302,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get uploading_photo_error => 'خطأ في تحميل الصورة';
 
   @override
-  String get logOutAction => 'هل تريد تسجيل الخروج؟';
+  String get logOutAction => 'تسجيل الخروج';
 
   @override
   String get no => 'لا';
@@ -342,13 +339,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get addToCart => 'أضف إلى عربة التسوق';
 
   @override
-  String get addtocart => 'أضف إلى السلة';
-
-  @override
   String get viewAll => 'عرض الكل';
-
-  @override
-  String get view_all => 'عرض الكل';
 
   @override
   String get networkError => 'لا يوجد اتصال بالإنترنت';
@@ -420,16 +411,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get updateAddress => 'تحديث العنوان';
 
   @override
-  String get accountcreatedsuccessfully => 'تم إنشاء الحساب بنجاح';
-
-  @override
-  String get creatinganaccountyouagreetoour =>
-      'بإنشاء حساب، فإنك توافق على شروطنا';
-
-  @override
-  String get termsandconditions => 'الشروط والأحكام';
-
-  @override
   String get connectionFailed => 'لا يوجد اتصال بالإنترنت';
 
   @override
@@ -449,18 +430,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get bestSeller => 'الأكثر مبيعاً';
-
-  @override
-  String get outofstock => 'إنتهى من المخزن';
-
-  @override
-  String get instock => 'في المخزن';
-
-  @override
-  String get bouquetinclude => 'الباقة تحتوي على';
-
-  @override
-  String get changeLanguage => 'تغيير اللغة';
 
   @override
   String get items => 'أغراض';
@@ -505,6 +474,37 @@ class AppLocalizationsAr extends AppLocalizations {
   String get refresh => 'تحديث';
 
   @override
+  String get no_driver_has_accepted_you_order_yet =>
+      'لا يوجد سائق قد قبل طلبك بعد';
+
+  @override
+  String get is_your_delivery_hero_for_today => 'هو بطل التوصيل الخاص بك لليوم';
+
+  @override
+  String get received_your_order => 'تم استلام طلبك';
+
+  @override
+  String get preparing_your_order => 'يتم تجهيز طلبك';
+
+  @override
+  String get out_for_delivery => 'في الطريق للتوصيل';
+
+  @override
+  String get delivered => 'تم التوصيل';
+
+  @override
+  String get no_internet_connection => 'لا يوجد اتصال بالإنترنت';
+
+  @override
+  String get estimated_arrival => 'الوصول المتوقع';
+
+  @override
+  String get show_map => 'اظهار الخريطه';
+
+  @override
+  String get trackOrder => 'تتبع الطلب';
+
+  @override
   String get payment_method => 'طريقة الدفع';
 
   @override
@@ -542,6 +542,45 @@ class AppLocalizationsAr extends AppLocalizations {
   String get online_payment_window => 'شاشة الدفع الإلكتروني';
 
   @override
+  String get occasions => 'مناسبات';
+
+  @override
+  String get occasions_title => 'تزهر معنا مع أفضل منتجاتنا المميزة';
+
+  @override
+  String get categoriesTitle => 'الفئات';
+
+  @override
+  String get changeLanguage => 'تغيير اللغة';
+
+  @override
+  String get addedToCart => 'تم اضافة المنتج الى السلة';
+
+  @override
+  String get sortBy => 'رتب بواسطة';
+
+  @override
+  String get lowestPrice => 'الاقل سعرا';
+
+  @override
+  String get highestPrice => 'الاعلى سعرا';
+
+  @override
+  String get newArrival => 'جديد';
+
+  @override
+  String get old => 'قديم';
+
+  @override
+  String get discount => 'خصم';
+
+  @override
+  String get filter => 'فلتر';
+
+  @override
+  String get noCategoriesAvailable => 'لا توجد فئات متاحة';
+
+  @override
   String get enableNotification => 'تفعيل الاشعارات';
 
   @override
@@ -565,4 +604,54 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get products_found => 'منتج';
+
+  @override
+  String get track_order => 'تتبع الطلب';
+
+  @override
+  String get success_placing_order => 'تم تقديم طلبك بنجاح!';
+
+  @override
+  String get payment_confirmation => 'Payment Confirmation';
+
+  @override
+  String get was_payment_successful =>
+      'Was the payment completed successfully?';
+
+  @override
+  String get payment_failed_title => 'فشل الدفع';
+
+  @override
+  String get payment_failed_message =>
+      'لم يتم اكتشاف عملية دفع ناجحة. يرجى إكمال عملية الدفع.';
+
+  @override
+  String get continue_payment => 'مواصلة الدفع';
+
+  @override
+  String get your_driver_hero => 'هو بطل التوصيل الخاص بك اليوم';
+
+  @override
+  String get order_details => 'تفاصيل الطلب';
+
+  @override
+  String get apartment => 'شقة';
+
+  @override
+  String get no_order_id_provided => 'لم يتم توفير رقم الطلب';
+
+  @override
+  String get no_tracking_data => 'لا توجد بيانات تتبع متوفرة';
+
+  @override
+  String get reorder => 'إعاده طلب';
+
+  @override
+  String get unknown_product => 'منتج غير معروف';
+
+  @override
+  String get delivered_on => 'تم التوصيل في';
+
+  @override
+  String get order_number => 'رقم الطلب #';
 }

@@ -11,15 +11,19 @@ abstract class Routes {
   static const String bestSeller = _Paths.bestSellerScreen;
   static const String productDetails = _Paths.productDetails;
   static const String updateProfile = 'update_profile';
+  static const String terms = _Paths.termsAndConditions;
   static const String userAddress = 'user_address';
   static const String addressDetails = _Paths.addressDetails;
   static const String updateAddress = 'update_address';
+  static const String aboutApp=_Paths.aboutApp;
+  static const String trackOrderStepper="track_order_stepper";
   static const String orders = _Paths.ordersScreen;
-  static const String aboutApp = _Paths.aboutApp;
-  static const String terms = _Paths.termsAndConditions;
   static const String checkOut = _Paths.checkOut;
   static const String search = _Paths.searchScreen;
   static const String onlinePayment = _Paths.onlinePayment;
+  static const String successPage=_Paths.successPage;
+  static const String notifications = _Paths.notificationsScreen;
+  static const String mapFlowery=_Paths.mapFlowery;
 }
 
 abstract class _Paths {
@@ -40,4 +44,7 @@ abstract class _Paths {
   static const String checkOut = 'check_out';
   static const String searchScreen = 'Search';
   static const String onlinePayment = 'online_payment';
+  static const String successPage='success_page';
+  static const String notificationsScreen = 'Notifications';
+  static const String mapFlowery="map_flowery";
 }

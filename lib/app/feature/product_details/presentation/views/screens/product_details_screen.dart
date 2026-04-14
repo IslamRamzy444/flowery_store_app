@@ -11,17 +11,23 @@ import '../../view_model/product_view_model.dart';
 
 
 // ignore: must_be_immutable
-class ProductDetailsScreen extends StatelessWidget{
+class ProductDetailsScreen extends StatefulWidget{
   String? productId;
 
   ProductDetailsScreen({super.key, required this.productId});
 
+  @override
+  State<ProductDetailsScreen> createState() => _ProductDetailsScreenState();
+}
+
+class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   final ProductDetailsViewModel viewModel = getIt<ProductDetailsViewModel>();
+
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
-    viewModel.doIntent(GetProductDetailsAction(productId ?? ""));
+    viewModel.doIntent(GetProductDetailsAction(widget.productId ?? ""));
     return BlocProvider<ProductDetailsViewModel>(
       create: (context) => viewModel,
       
@@ -132,7 +138,7 @@ class ProductDetailsScreen extends StatelessWidget{
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: ElevatedButton(onPressed: () {
-                    viewModel.doIntent(AddProductToCartEvent(productId??"", 1));
+                    viewModel.doIntent(AddProductToCartEvent(widget.productId??"", 1));
                   }, child: Text(AppLocale(
                       context).addToCart, style: TextStyle(fontSize: 20),)),
                 ),
@@ -173,5 +179,4 @@ class ProductDetailsScreen extends StatelessWidget{
   );
       
   }
-
 }

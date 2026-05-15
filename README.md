@@ -13,19 +13,6 @@ A beautiful and modern Flutter e-commerce application for a flower store, built 
 - 🔐 **Secure API Communication** - Retrofit with interceptors
 - 📊 **State Management** - BLoC pattern for predictable state updates
 - 🚀 **Performance Optimized** - Lazy loading and efficient caching
-
-## 📸 Screenshots
-![screenshot5](https://github.com/user-attachments/assets/0ff97541-c96d-48c5-974c-a7e19209c9f0)
-<img width="1440" height="3040" alt="screenshot-2026-02-04_01 00 53 154" src="https://github.com/user-attachments/assets/d38059ac-07bd-45eb-8499-d432db3e389c" />
-<img width="1280" height="2856" alt="Screenshot_1769868928" src="https://github.com/user-attachments/assets/e4715958-bd90-4019-8aa4-6b9b1fc1814a" />
-![screenshot1](https://github.com/user-attachments/assets/64753283-67fa-4a35-ab9b-4d7337cb6bb9)
-<img width="720" height="1600" alt="screenshot1" src="https://github.com/user-attachments/assets/f5e61526-3316-41d1-81b9-ef5246687d59" />
-<img width="1080" height="2400" alt="Screenshot_1770674390" src="https://github.com/user-attachments/assets/d9f61d4f-5d73-4470-b0be-523899dc8512" />
-<img width="720" height="1600" alt="screenshot3" src="https://github.com/user-attachments/assets/94be441f-2403-4021-ae0d-657cfd2e020a" />
-<img width="1280" height="2856" alt="Screenshot_1773364918" src="https://github.com/user-attachments/assets/ae38ca45-56b1-4a8c-bad2-a20093618569" />
-<img width="1440" height="3040" alt="screenshot-2026-01-28_00 37 35 577" src="https://github.com/user-attachments/assets/48cb6450-b501-49ce-9c67-4c4593bacdd7" />
-
-
 ```markdown
 | Home Screen | Product Details | Cart |
 |:-:|:-:|:-:|
@@ -254,6 +241,12 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 - **Islam Ramzy** - [GitHub Profile](https://github.com/IslamRamzy444)
 
+## 👨‍💻 contributors
+- **Sayed Elfeki** - [GitHub Profile](https://github.com/sayedalfeki)
+- **Momen Haitham** - [GitHub Profile](https://github.com/momenhaitham)
+- **Ahmed Yousef** - [GitHub Profile](https://github.com/AhmedYousef72)
+- **Islam Ramzy** - [GitHub Profile](https://github.com/IslamRamzy444)
+
 ## 📞 Support
 
 For support, email support@flowerystore.app or open an [Issue](https://github.com/IslamRamzy444/flowery_store_app/issues)
@@ -266,5 +259,15 @@ For support, email support@flowerystore.app or open an [Issue](https://github.co
 - [Clean Architecture in Flutter](https://resocoder.com/flutter-clean-architecture)
 
 ---
+## 📸 Screenshots
+![screenshot5](https://github.com/user-attachments/assets/0ff97541-c96d-48c5-974c-a7e19209c9f0)
+<img width="1440" height="3040" alt="screenshot-2026-02-04_01 00 53 154" src="https://github.com/user-attachments/assets/d38059ac-07bd-45eb-8499-d432db3e389c" />
+<img width="1280" height="2856" alt="Screenshot_1769868928" src="https://github.com/user-attachments/assets/e4715958-bd90-4019-8aa4-6b9b1fc1814a" />
+![screenshot1](https://github.com/user-attachments/assets/64753283-67fa-4a35-ab9b-4d7337cb6bb9)
+<img width="720" height="1600" alt="screenshot1" src="https://github.com/user-attachments/assets/f5e61526-3316-41d1-81b9-ef5246687d59" />
+<img width="1080" height="2400" alt="Screenshot_1770674390" src="https://github.com/user-attachments/assets/d9f61d4f-5d73-4470-b0be-523899dc8512" />
+<img width="720" height="1600" alt="screenshot3" src="https://github.com/user-attachments/assets/94be441f-2403-4021-ae0d-657cfd2e020a" />
+<img width="1280" height="2856" alt="Screenshot_1773364918" src="https://github.com/user-attachments/assets/ae38ca45-56b1-4a8c-bad2-a20093618569" />
+<img width="1440" height="3040" alt="screenshot-2026-01-28_00 37 35 577" src="https://github.com/user-attachments/assets/48cb6450-b501-49ce-9c67-4c4593bacdd7" />
 
 **⭐ If you find this project helpful, please consider giving it a star!**
